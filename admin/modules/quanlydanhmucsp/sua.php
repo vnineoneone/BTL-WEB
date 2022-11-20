@@ -1,3 +1,5 @@
+<h3 class="mt-4">Sửa danh mục sản phẩm</h3>
+
 <?php
 $sql_sua_danhmucsp = "SELECT * FROM category WHERE id = '$_GET[id]' LIMIT 1";
 $query_sua_danhmucsp = mysqli_query($mysqli, $sql_sua_danhmucsp);

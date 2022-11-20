@@ -6,17 +6,20 @@ $price = $_POST['price'];
 $number = $_POST['number'];
 $image = $_FILES['image']['name'];
 $image_tmp = $_FILES['image']['tmp_name'];
-$image = time() . '_' . $image;
+if ($image != '') {
+    $image = time() . '_' . $image;
+}
 $detail = $_POST['detail'];
 $description = $_POST['description'];
 $status = $_POST['status'];
 
 if (isset($_POST['themsanpham'])) {
+
     $sql_them = "INSERT INTO product(name, code, price, number, image, detail, description, status) 
     VALUE('" . $name . "','" . $code . "','" . $price . "','" . $number . "','" . $image . "','" . $detail . "','" . $description . "','" . $status . "')";
     mysqli_query($mysqli, $sql_them);
     move_uploaded_file($image_tmp, 'uploads/' . $image);
-    header("Location: ../../index.php?action=quanlysp&query=them");
+    header("Location: ../../index.php?action=quanlysp&query=bangdulieu");
 } else if (isset($_POST['suasanpham'])) {
     if ($image != '') {
         move_uploaded_file($image_tmp, 'uploads/' . $image);
@@ -34,7 +37,7 @@ if (isset($_POST['themsanpham'])) {
         description='" . $description . "', status='" . $status . "' WHERE id = '$_GET[id]' ";
     }
     mysqli_query($mysqli, $sql_sua);
-    header("Location: ../../index.php?action=quanlysp&query=them");
+    header("Location: ../../index.php?action=quanlysp&query=bangdulieu");
 } else {
     $id = $_GET['id'];
     $sql = "SELECT * FROM product WHERE id = '" . $id . "'";
@@ -44,5 +47,5 @@ if (isset($_POST['themsanpham'])) {
     }
     $sql_xoa = "DELETE FROM product WHERE id = '" . $id . "'";
     mysqli_query($mysqli, $sql_xoa);
-    header("Location: ../../index.php?action=quanlysp&query=them");
+    header("Location: ../../index.php?action=quanlysp&query=bangdulieu");
 }

@@ -19,15 +19,18 @@ function countDown() {
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     // Output the result in an element with id="demo"
-    document.getElementById(
-      "time"
-    ).innerHTML = `<span>${days}<p>Ngày</p></span><span>${hours}<p> Giờ</p>
-  </span><span>${minutes}<p>Phút</p></span><span>${seconds}<p>Giây</p></span>`;
+    var time = document.getElementById("time");
+    if (time) {
+      document.getElementById(
+        "time"
+      ).innerHTML = `<span>${days}<p>Ngày</p></span><span>${hours}<p> Giờ</p>
+    </span><span>${minutes}<p>Phút</p></span><span>${seconds}<p>Giây</p></span>`;
 
-    // If the count down is over, write some text
-    if (distance < 0) {
-      clearInterval(x);
-      document.getElementById("demo").innerHTML = "EXPIRED";
+      // If the count down is over, write some text
+      if (distance < 0) {
+        clearInterval(x);
+        time.innerHTML = "EXPIRED";
+      }
     }
   }, 1000);
 }
@@ -39,27 +42,72 @@ function showBtn() {
 }
 
 function slideShowFeaturedProduct() {
-  var owl = $("#featured-product-carousel");
+  var owl = $(".featured-product-carousel");
   owl.owlCarousel({
     items: 4,
     loop: true,
     margin: 10,
+    nav: true,
     autoplay: true,
     autoplayTimeout: 3000,
     autoplayHoverPause: true,
   });
 }
+
 function slideShowPost() {
   var owl = $("#post-carousel");
   owl.owlCarousel({
     items: 3,
     loop: true,
     margin: 20,
+    nav: true,
   });
 }
+function slideShowNewProduct() {
+  var owl = $("#new-product-carousel");
+  owl.owlCarousel({
+    items: 5,
+    loop: true,
+    margin: 10,
+    nav: true,
+  });
+}
+
+function formValidation() {
+  // Select the form elements that
+  // need validation and
+  // initialize the validator
+  let validator = $("form.needs-validation").jbvalidator({
+    // Show error message
+    errorMessage: true,
+
+    // Change the appearance of the form
+    // when correct information is entered
+    successClass: true,
+
+    // Specify the language file for
+    // the error and help text
+    language: "https://emretulek.github.io/jbvalidator/dist/lang/en.json",
+  });
+
+  validator.validator.password = function (el, event) {
+    if ($(el).is("[name=password]") && $(el).val().length < 5) {
+      return "Your password is too weak.";
+    }
+  };
+
+  validator.validator.name = function (el, event) {
+    if ($(el).is("[name=name]") && $(el).val().length < 3) {
+      return "Your username is too short.";
+    }
+  };
+}
+
 $(document).ready(function () {
   slideShowFeaturedProduct();
   countDown();
   showBtn();
   slideShowPost();
+  slideShowNewProduct();
+  formValidation();
 });

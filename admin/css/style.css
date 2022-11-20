@@ -1,0 +1,22 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.form-container form {
+    width: 100%;
+    padding: 40px;
+
+
+}
+
+.form-container form table th,
+td {
+    text-align: center;
+}
+
+.table-data {
+    margin-top: 50px;
+}

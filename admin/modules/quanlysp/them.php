@@ -1,6 +1,72 @@
-<p>Thêm sản phẩm</p>
+<h3 class="mt-4">Thêm sản phẩm</h3>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Dashboard</li>
+</ol>
 
-<form method="POST" action="modules/quanlysp/xuly.php" enctype="multipart/form-data">
+<div class="form-container">
+    <form method="POST" action="modules/quanlysp/xuly.php">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Kiểu dữ liệu</th>
+                    <th scope="col">Nhập dữ liệu</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Tên sản phẩm</th>
+                    <td><input type="text" class="form-control" id="exampleInputEmail1" name="name" aria-describedby="emailHelp"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Mã sản phẩm</th>
+                    <td>
+                        <input type="text" class="form-control" name="code">
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Gía sản phẩm</th>
+                    <td>
+                        <input type="text" class="form-control" name="price">
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Số lượng</th>
+                    <td>
+                        <input type="number" class="form-control" name="number">
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Hình ảnh</th>
+                    <td>
+                        <input type="file" class="form-control" name="image">
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Chi tiết</th>
+                    <td>
+                        <textarea row="5" class="form-control" name="detail"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Trạng thái</th>
+                    <td colspan="2">
+                        <select class="form-select" name="status">
+                            <option value=" 1">Hiện</option>
+                            <option value="0">Ẩn</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="submit" class="btn btn-primary" name="themsanpham">Thêm</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+<!-- <form method="POST" action="modules/quanlysp/xuly.php" enctype="multipart/form-data">
     <div class="mb-3">
         <label class="form-label">Tên sản phẩm</label>
         <input type="text" class="form-control" name="name">
@@ -37,4 +103,4 @@
         </select>
     </div>
     <button type="submit" class="btn btn-primary" name="themsanpham">Thêm</button>
-</form>
+</form> -->

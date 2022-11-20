@@ -1,4 +1,4 @@
-<p>Sửa sản phẩm</p>
+<h3 class="mt-4">Thêm sản phẩm</h3>
 <?php
 $sql_sua_sp = "SELECT * FROM product WHERE id = '$_GET[id]' LIMIT 1";
 $query_sua_sp = mysqli_query($mysqli, $sql_sua_sp);
