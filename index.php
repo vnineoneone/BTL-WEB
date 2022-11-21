@@ -26,10 +26,10 @@
 <body>
     <?php
     session_start();
-    include "admin/config/config.php";
-    include_once "controller.php";
+    //include "admin/config/config.php";
+    //include_once "controller.php";
     ?>
-    <div class="background" style="background-image: url(assets/images/background.jpg);"></div>
+    <!-- <div class="background" style="background-image: url(assets/images/background.jpg);"></div> -->
     <div class="container">
         <div class="main">
             <?php include("pages/header.php") ?>
