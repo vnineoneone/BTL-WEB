@@ -26,8 +26,8 @@
 <body>
     <?php
     session_start();
-    include "admin/config/config.php";
-    include_once "controller.php";
+    // include "admin/config/config.php";
+    // include_once "controller.php";
     ?>
 
 
