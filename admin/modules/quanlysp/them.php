@@ -4,7 +4,7 @@
 </ol>
 
 <div class="form-container">
-    <form method="POST" action="modules/quanlysp/xuly.php">
+    <form method="POST" action="modules/quanlysp/xuly.php" enctype="multipart/form-data">
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -21,6 +21,23 @@
                     <th scope="row">Mã sản phẩm</th>
                     <td>
                         <input type="text" class="form-control" name="code">
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Danh mục</th>
+                    <td>
+
+                        <select class="form-select" name="category">
+                            <?php
+                            $sql_danhmuc = "SELECT * FROM category ORDER BY id_category DESC";
+                            $query_danhmuc = mysqli_query($mysqli, $sql_danhmuc);
+                            while ($row_danhmuc = mysqli_fetch_array($query_danhmuc)) {
+                            ?>
+                                <option value="<?php echo $row_danhmuc['id_category'] ?>"><?php echo $row_danhmuc['name_category'] ?></option>
+                            <?php
+                            }
+                            ?>
+                        </select>
                     </td>
                 </tr>
                 <tr>
@@ -49,10 +66,10 @@
                 </tr>
                 <tr>
                     <th scope="row">Trạng thái</th>
-                    <td colspan="2">
+                    <td>
                         <select class="form-select" name="status">
-                            <option value=" 1">Hiện</option>
-                            <option value="0">Ẩn</option>
+                            <option value=" 1">Kích hoạt</option>
+                            <option value="0">Vô hiệu hóa</option>
                         </select>
                     </td>
                 </tr>

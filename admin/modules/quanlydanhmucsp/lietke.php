@@ -27,9 +27,9 @@ $query_lietke_danhmucsp = mysqli_query($mysqli, $sql_lietke_danhmucsp);
 
                     <tr>
                         <th scope="row"><?php echo $i ?></th>
-                        <td><?php echo $row['name'] ?></td>
-                        <td><a href="modules/quanlydanhmucsp/xuly.php?id=<?php echo $row['id'] ?>">Xóa</a>|
-                            <a href="?action=quanlydanhmucsanpham&query=sua&id=<?php echo $row['id'] ?>">Sửa</a>
+                        <td><?php echo $row['name_category'] ?></td>
+                        <td><a href="modules/quanlydanhmucsp/xuly.php?id=<?php echo $row['id_category'] ?>">Xóa</a>|
+                            <a href="?action=quanlydanhmucsanpham&query=sua&id=<?php echo $row['id_category'] ?>">Sửa</a>
                         </td>
                     </tr>
 
