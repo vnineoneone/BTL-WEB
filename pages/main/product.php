@@ -50,7 +50,7 @@
                                     <div class="product">
                                         <div class="product_image">
                                             <a href="#" title="Ghế Luxury">
-                                                <img src="Ghe_luxury.webp" alt="Ghế Luxury">
+                                                <img src="item.png" alt="Ghế Luxury">
                                             </a>
                                         </div>
                                         <div class="image_text">
@@ -67,7 +67,7 @@
                                     <div class="product">
                                         <div class="product_image">
                                             <a href="#" title="Ghế Luxury" class=" link_image">
-                                                <img src="Ghe_woody.webp" alt="Ghế Luxury">
+                                                <img src="item.png" alt="Ghế Luxury">
                                             </a>
                                         </div>
                                         <div class="image_text">
@@ -84,7 +84,7 @@
                                     <div class="product">
                                         <div class="product_image">
                                             <a href="#" title="Ghế Luxury" class=" link_image">
-                                                <img src="Ghe_euro.webp" alt="Ghế Luxury">
+                                                <img src="item.png" alt="Ghế Luxury">
                                             </a>
                                         </div>
                                         <div class="image_text">
@@ -101,7 +101,7 @@
                                     <div class="product">
                                         <div class="product_image">
                                             <a href="#" title="Ghế Luxury" class=" link_image">
-                                                <img src="Ghe_gaming.jpg" alt="Ghế Luxury">
+                                                <img src="item.png" alt="Ghế Luxury">
                                             </a>
                                         </div>
                                         <div class="image_text">
