@@ -1,4 +1,27 @@
 <div class="container-login">
+<div class="banner1">
+        <div class="title-full">
+            <div class="title-text">
+                <p class="title-page">Đăng nhập tài khoản</p>
+            </div>
+        </div>
+        <div class="subtitle">
+            <ul>
+                <li class="home">
+                    <a href="#">
+                        <span>Trang chủ</span>
+                    </a>
+                    <span class="icon">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </span>
+                </li>
+                <li>
+                    <strong><span>Đăng nhập tài khoản</span></strong>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <div class="login" >
         <h1 class="text-center">ĐĂNG NHẬP</h1>
         <form action="" method="POST">
