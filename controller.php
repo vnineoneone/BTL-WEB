@@ -38,3 +38,8 @@ if (isset($_POST['login'])) {
         echo "<script>notifier.alert('Thông tin đăng nhập bị sai, vui lòng nhập lại', options)</script>";
     }
 }
+
+if (isset($_GET['logout']) == 1) {
+    unset($_SESSION['login']);
+    header('Location: index.php?quanly=dangnhap');
+}

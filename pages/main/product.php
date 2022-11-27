@@ -7,7 +7,7 @@
                         <aside class="side_box">
                             <div>
                                 <h2 class="side_title">
-                                   Danh mục
+                                    Danh mục
                                 </h2>
                             </div>
                             <div class="side_text_box">
@@ -35,12 +35,12 @@
                                 <div class="dropdown inline Macdinh">
                                     <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Mặc định
-                                      </button>
-                                      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
                                         <li><button class="dropdown-item" type="button">Mặc định</button></li>
                                         <li><button class="dropdown-item" type="button">Giá tăng dần</button></li>
                                         <li><button class="dropdown-item" type="button">Giá giảm dần</button></li>
-                                      </ul> 
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -50,7 +50,7 @@
                                     <div class="product">
                                         <div class="product_image">
                                             <a href="#" title="Ghế Luxury">
-                                                <img src="item.png" alt="Ghế Luxury">
+                                                <img src="assets/images/item.png" alt="Ghế Luxury">
                                             </a>
                                         </div>
                                         <div class="image_text">

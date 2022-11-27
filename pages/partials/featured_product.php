@@ -69,9 +69,11 @@ $query_lietke_sp = mysqli_query($mysqli, $sql_lietke_sp);
                                     <div class="view-image">
                                         <img src="admin/modules/quanlysp/uploads/<?php echo $row1['image'] ?>" alt="" style="width: 100%; height:179px;">
                                         <div class="list-btn-view" style="display: none;">
-                                            <div class="btn2" id="btn-view">
-                                                <i class="fas fa-eye"></i>
-                                            </div>
+                                            <form method="POST" action="pages/main/cart.php?id=<?php echo $row1['id_product'] ?>">
+                                                <button type="submit" class="btn2" id="btn-view" name="themgiohang">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </form>
                                             <a href="#" class="btn2" id="btn-detail">
                                                 <i class="fas fa-tools"></i>
                                             </a>
@@ -92,9 +94,11 @@ $query_lietke_sp = mysqli_query($mysqli, $sql_lietke_sp);
                                     <div class="view-image">
                                         <img src="admin/modules/quanlysp/uploads/<?php echo $row2['image'] ?>" alt="" style="width: 100%; height:179px;">
                                         <div class="list-btn-view" style="display: none;">
-                                            <div class="btn2" id="btn-view">
-                                                <i class="fas fa-eye"></i>
-                                            </div>
+                                            <form method="POST" action="pages/main/cart.php?id=<?php echo $row2['id_product'] ?>">
+                                                <button type="submit" class="btn2" id="btn-view" name="themgiohang">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </form>
                                             <a href="#" class="btn2" id="btn-detail">
                                                 <i class="fas fa-tools"></i>
                                             </a>

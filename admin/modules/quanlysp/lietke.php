@@ -132,8 +132,10 @@ $query_lietke_sp = mysqli_query($mysqli, $sql_lietke_sp);
                         } ?>
                     </div>
                     <div class="product-cell category">
-                        <a href=" modules/quanlysp/xuly.php?id=<?php echo $row['id_product'] ?>">Xóa</a>|
-                        <a href="?action=quanlysp&query=sua&id=<?php echo $row['id_product'] ?>">Sửa</a>
+
+                        <a href=" modules/quanlysp/xuly.php?id=<?php echo $row['id_product'] ?>">
+                            <button type="button" class="btn btn-danger">Xóa</button></a>
+                        <a href="?action=quanlysp&query=sua&id=<?php echo $row['id_product'] ?>"> <button type="button" class="btn btn-primary">Sửa</button></a>
                     </div>
                 </div>
             <?php } ?>
