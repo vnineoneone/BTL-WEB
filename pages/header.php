@@ -51,7 +51,7 @@
                                     <a class="nav-link active" aria-current="page" href="home">Trang chủ</a>
                                 </li>
                                 <li class="nav-item nav-item1">
-                                    <a class="nav-link" href="#">Giới thiệu</a>
+                                    <a class="nav-link" href="index.php?quanly=gioithieu">Giới thiệu</a>
                                 </li>
                                 <li class="nav-item nav-item1 dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -68,10 +68,10 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item nav-item1">
-                                    <a class="nav-link" href="#">Tin tức</a>
+                                    <a class="nav-link" href="index.php?quanly=tintuc">Tin tức</a>
                                 </li>
                                 <li class="nav-item nav-item1">
-                                    <a class="nav-link" href="#">Liên hệ</a>
+                                    <a class="nav-link" href="index.php?quanly=lienhe">Liên hệ</a>
                                 </li>
                             </ul>
                         </div>
