@@ -99,6 +99,10 @@ img{
     color: #f7941d;
 }
 
+/* .sidebar
+{
+
+} */
 
 .side_box
 {
@@ -115,6 +119,8 @@ img{
     width: 140px;
     transform: skew(10deg);
     text-align: center;
+    text-transform: uppercase;
+    font-size: larger;
 }
 
 .side_text_box{
@@ -128,6 +134,12 @@ img{
     text-decoration: none;
     color: black;
     line-height: 27px;
+}
+
+.filter-product
+{
+    line-height: 27px;
+    width: 100%;
 }
 
 

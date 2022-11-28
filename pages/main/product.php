@@ -24,6 +24,62 @@
                                 </nav>
                             </div>
                         </aside>
+                        <aside class="side_box">
+                            <div>
+                                <h2 class="side_title">
+                                   Khoảng giá
+                                </h2>
+                            </div>
+                            <div class="side_text_box">
+                                <ul class="list-unstyled">
+                                    <li class="filter-product">
+                                        <span>
+                                           
+                                            <input type="checkbox" id="Duoi 100.000" value="Dưới 100.000đ">
+                                            <label for="Duoi 100.000">
+                                                Dưới 100.000đ
+                                            </label>
+                                        </span>
+                                    </li>
+                                    <li class="filter-product">
+                                        <span>
+                                           
+                                            <input type="checkbox" id="100.000đ - 200.000đ" value="100.000đ - 200.000đ">
+                                            <label for="100.000đ - 200.000đ">
+                                                100.000đ - 200.000đ
+                                            </label>
+                                        </span>
+                                    </li>
+                                    <li class="filter-product">
+                                        <span>
+                                           
+                                            <input type="checkbox" id="200.000đ - 500.000đ" value="200.000đ - 500.000đ">
+                                            <label for="200.000đ - 500.000đ">
+                                                200.000đ - 500.000đ
+                                            </label>
+                                        </span>
+                                    </li>
+                                    <li class="filter-product">
+                                        <span>
+                                           
+                                            <input type="checkbox" id="500.000đ - 1.000.000đ" value="500.000đ - 1.000.000đ">
+                                            <label for="500.000đ - 1.000.000đ">
+                                                500.000đ - 1.000.000đ
+                                            </label>
+                                        </span>
+                                    </li>
+                                    <li class="filter-product">
+                                        <span>
+                                           
+                                            <input type="checkbox" id="Tren 1.000.000" value="Trên 1.000.000đ">
+                                            <label for="Tren 1.000.000">
+                                                Trên 1.000.000đ
+                                            </label>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </aside>
                     </aside>
                     <div class="col-md-12 col-lg-9 col-md-12">
                         <div class="col-xs-12 col-sm-6 col-md-6 inline">
@@ -75,7 +131,7 @@
                                                 <a href="#" title="Ghế Woody" class="link_image">Ghế Woody</a>
                                             </h3>
                                             <div class="text-center">
-                                                <span class="product_price">300.000<sup>₫</sup></span>
+                                                <span class="product_price">90.000<sup>₫</sup></span>
                                             </div>
                                         </div>
                                     </div>
@@ -92,7 +148,7 @@
                                                 <a href="#" title="Ghế Euro" class="link_image">Ghế Euro</a>
                                             </h3>
                                             <div class="text-center">
-                                                <span class="product_price">400.000<sup>₫</sup></span>
+                                                <span class="product_price">700.000<sup>₫</sup></span>
                                             </div>
                                         </div>
                                     </div>
@@ -109,7 +165,7 @@
                                                 <a href="#" title="Ghế Euro" class="link_image">Ghế Gaming</a>
                                             </h3>
                                             <div class="text-center">
-                                                <span class="product_price">400.000<sup>₫</sup></span>
+                                                <span class="product_price">1.100.000<sup>₫</sup></span>
                                             </div>
                                         </div>
                                     </div>
