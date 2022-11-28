@@ -47,7 +47,14 @@ $query_danhmuc = mysqli_query($mysqli, $sql_danhmuc);
                         </div>
                         <a class="cart" href="index.php?quanly=giohang">
                             <i class="fas fa-cart-plus fa-2x" id="logo-cart"></i>
-                            <span id="quantity">12</span>
+                            <span id="quantity">
+                                <?php if (isset($_SESSION['cart'])) {
+                                    echo count($_SESSION['cart']);
+                                } else {
+                                    echo 0;
+                                } ?>
+                            </span>
+
                         </a>
                     <?php
                     } else {

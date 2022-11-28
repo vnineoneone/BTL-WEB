@@ -69,7 +69,7 @@ $query_lietke_sp = mysqli_query($mysqli, $sql_lietke_sp);
                                     <div class="view-image">
                                         <img src="admin/modules/quanlysp/uploads/<?php echo $row1['image'] ?>" alt="" style="width: 100%; height:179px;">
                                         <div class="list-btn-view" style="display: none;">
-                                            <form method="POST" action="pages/main/cart.php?id=<?php echo $row1['id_product'] ?>">
+                                            <form method="POST" action="pages/main/addcart.php?id=<?php echo $row1['id_product'] ?>">
                                                 <button type="submit" class="btn2" id="btn-view" name="themgiohang">
                                                     <i class="fas fa-eye"></i>
                                                 </button>
@@ -94,7 +94,7 @@ $query_lietke_sp = mysqli_query($mysqli, $sql_lietke_sp);
                                     <div class="view-image">
                                         <img src="admin/modules/quanlysp/uploads/<?php echo $row2['image'] ?>" alt="" style="width: 100%; height:179px;">
                                         <div class="list-btn-view" style="display: none;">
-                                            <form method="POST" action="pages/main/cart.php?id=<?php echo $row2['id_product'] ?>">
+                                            <form method="POST" action="pages/main/addcart.php?id=<?php echo $row2['id_product'] ?>">
                                                 <button type="submit" class="btn2" id="btn-view" name="themgiohang">
                                                     <i class="fas fa-eye"></i>
                                                 </button>

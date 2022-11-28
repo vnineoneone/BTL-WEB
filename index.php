@@ -21,6 +21,9 @@
     <script src="https://kit.fontawesome.com/8c2b9d94d1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+
 </head>
 
 <body>
@@ -37,28 +40,7 @@
         ?>
             <div class="main">
                 <?php include("pages/header.php") ?>
-                <div class="banner1">
-                    <div class="title-full">
-                        <div class="title-text">
-                            <p class="title-page">Giới thiệu</p>
-                        </div>
-                    </div>
-                    <div class="subtitle">
-                        <ul>
-                            <li class="home">
-                                <a href="#">
-                                    <span>Trang chủ</span>
-                                </a>
-                                <span class="icon">
-                                    <i class="fa-solid fa-angle-right"></i>
-                                </span>
-                            </li>
-                            <li>
-                                <strong><span>Giới thiệu</span></strong>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                <?php include "pages/banner_link.php" ?>
             </div>
         <?php
         } else {
