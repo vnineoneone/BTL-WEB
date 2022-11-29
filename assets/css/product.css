@@ -1,36 +1,5 @@
-.background_header{
-    background-image: url("background_header.webp");
-    background-size: cover;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-color: black;
-    background-position: center;
-    padding: 60px;
-    margin-bottom: 40px;
-}
-
 .inline{
     display: inline;
-}
-
-.title_header{
-    color: white;
-    font-size: 50px;
-}
-
-.header_menu{
-    color: white;
-    list-style-type: none;
-}
-
-.header_menu li{
-    font-size: 20px;
-    display: inline;
-}
-
-.link_header{
-    text-decoration: none;
-    color: white;
 }
 
 .text_container{

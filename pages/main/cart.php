@@ -1,6 +1,6 @@
-<div class="cart">
+<div class="cart_content">
     <section class="cart_contain">
-        <div class="container large_container">
+        <div class="large_container">
             <div>
                 <h1 class="cart_title">
                     <span>Giỏ hàng của bạn</span>

@@ -1,6 +1,5 @@
 <div class="product">
-    <div class="container">
-        <div class="row">
+    <div class="row">
             <div class="text_container">
                 <div class="row">
                     <aside class="sidebar col-md-12 col-lg-3 openf">
@@ -176,5 +175,4 @@
                 </div>
             </div>
         </div>
-    </div>
 </div>
