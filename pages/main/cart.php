@@ -11,9 +11,9 @@
 ?>
 
 <a href="pages/main/payment.php">payment</a>
-<div class="cart">
+<div class="cart_page">
     <section class="cart_contain">
-        <div class="container large_container">
+        <div class="large_container">
             <div>
                 <h1 class="cart_title">
                     <span>Giỏ hàng của bạn</span>
@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="cart_body second_body">
                                     <a href="#" title="item" class="product_image">
-                                        <img class="" src="item.png" alt="item" height="100%" width="100%">
+                                        <img class="" src="assets/images/item.png" alt="item" height="100%" width="100%">
                                     </a>
                                 </div>
                                 <div class="cart_body third_body">
@@ -81,7 +81,7 @@
                                 </div>
                                 <div class="cart_body second_body">
                                     <a href="#" title="item" class="product_image">
-                                        <img class="" src="item.png" alt="item" height="100%" width="100%">
+                                        <img class="" src="assets/images/item.png" alt="item" height="100%" width="100%">
                                     </a>
                                 </div>
                                 <div class="cart_body third_body">
