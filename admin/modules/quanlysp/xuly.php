@@ -2,6 +2,7 @@
 include "../../config/config.php";
 $name = $_POST['name'];
 $code = $_POST['code'];
+$id_category = $_POST['category'];
 $price = $_POST['price'];
 $number = $_POST['number'];
 $image = $_FILES['image']['name'];
@@ -14,9 +15,8 @@ $description = $_POST['description'];
 $status = $_POST['status'];
 
 if (isset($_POST['themsanpham'])) {
-
-    $sql_them = "INSERT INTO product(name, code, price, number, image, detail, description, status) 
-    VALUE('" . $name . "','" . $code . "','" . $price . "','" . $number . "','" . $image . "','" . $detail . "','" . $description . "','" . $status . "')";
+    $sql_them = "INSERT INTO product(name_product, code, id_category, price, number, image, detail, description, status) 
+    VALUE('" . $name . "','" . $code . "', '" . $id_category . "', '" . $price . "','" . $number . "','" . $image . "','" . $detail . "','" . $description . "','" . $status . "')";
     mysqli_query($mysqli, $sql_them);
     move_uploaded_file($image_tmp, 'uploads/' . $image);
     header("Location: ../../index.php?action=quanlysp&query=bangdulieu");
@@ -28,24 +28,25 @@ if (isset($_POST['themsanpham'])) {
         while ($row = mysqli_fetch_array($query)) {
             unlink('uploads/' . $row['image']);
         }
-        $sql_sua = "UPDATE product SET name='" . $name . "', code='" . $code . "', 
+        $sql_sua = "UPDATE product SET name_product='" . $name . "', code='" . $code . "', 
         price='" . $price . "', number='" . $number . "', image='" . $image . "', detail='" . $detail . "', 
-        description='" . $description . "', status='" . $status . "' WHERE id = '$_GET[id]' ";
+        description='" . $description . "', status='" . $status . "' WHERE id_product = '$_GET[id]' ";
     } else {
-        $sql_sua = "UPDATE product SET name='" . $name . "', code='" . $code . "',
+        $sql_sua = "UPDATE product SET name_product='" . $name . "', code='" . $code . "',
         price='" . $price . "', number='" . $number . "', detail='" . $detail . "', 
-        description='" . $description . "', status='" . $status . "' WHERE id = '$_GET[id]' ";
+        description='" . $description . "', status='" . $status . "' WHERE id_product = '$_GET[id]' ";
     }
     mysqli_query($mysqli, $sql_sua);
+    var_dump($_FILES);
     header("Location: ../../index.php?action=quanlysp&query=bangdulieu");
 } else {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM product WHERE id = '" . $id . "'";
+    $sql = "SELECT * FROM product WHERE id_product = '" . $id . "'";
     $query =  mysqli_query($mysqli, $sql);
     while ($row = mysqli_fetch_array($query)) {
         unlink('uploads/' . $row['image']);
     }
-    $sql_xoa = "DELETE FROM product WHERE id = '" . $id . "'";
+    $sql_xoa = "DELETE FROM product WHERE id_product = '" . $id . "'";
     mysqli_query($mysqli, $sql_xoa);
     header("Location: ../../index.php?action=quanlysp&query=bangdulieu");
 }

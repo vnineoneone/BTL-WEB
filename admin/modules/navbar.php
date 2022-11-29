@@ -1,6 +1,6 @@
 <?php
 if (isset($_GET['logout']) == 1) {
-    unset($_SESSION['login']);
+    unset($_SESSION['login_admin']);
     header('Location: login.php');
 }
 ?>
@@ -27,8 +27,8 @@ if (isset($_GET['logout']) == 1) {
                 <li>
                     <hr class="dropdown-divider" />
                 </li>
-                <li><a class="dropdown-item" href="index.php?logout=1">Logout: <?php if ($_SESSION['login']) {
-                                                                                    echo $_SESSION['login'];
+                <li><a class="dropdown-item" href="index.php?logout=1">Logout: <?php if ($_SESSION['login_admin']) {
+                                                                                    echo $_SESSION['login_admin'];
                                                                                 } ?></a></li>
             </ul>
         </li>

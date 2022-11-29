@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['login'])) {
+if (!isset($_SESSION['login_admin'])) {
     header('Location:login.php');
 }
 ?>
@@ -67,6 +67,7 @@ if (!isset($_SESSION['login'])) {
     <script src="js/scripts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="js/datatables-simple-demo.js"></script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>

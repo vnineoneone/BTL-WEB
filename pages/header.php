@@ -1,4 +1,10 @@
-<nav class="nav">
+<?php
+$sql_danhmuc = "SELECT * FROM category ORDER BY id_category DESC";
+$query_danhmuc = mysqli_query($mysqli, $sql_danhmuc);
+
+?>
+
+<nav class="container nav">
     <div class="navtop">
         <div class="row">
             <div class="col-lg-3 col-md-3">
@@ -19,17 +25,49 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-4">
-
                 <div class="list-inline">
-                    <ul class="list-account">
-                        <li><a href="index.php?quanly=dangnhap">Đăng nhập</a></li>
-                        <li><span>|</span></li>
-                        <li><a href="index.php?quanly=dangky">Đăng ký</a></li>
-                    </ul>
-                    <div class="cart">
-                        <i class="fas fa-cart-plus fa-2x" id="logo-cart"></i>
-                        <span id="quantity">12</span>
-                    </div>
+                    <?php
+                    if (isset($_SESSION['login'])) {
+                    ?>
+                        <div class="list-user">
+                            <div class="avatar1">
+                                <img class="avatar__image" src="assets/images/item.png" />
+                            </div>
+                            <div class="dropdown">
+                                <a class="user dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Viet Le
+                                </a>
+
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li><a class="dropdown-item" href="index.php?logout=1">Đăng xuất</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a class="cart" href="index.php?quanly=giohang">
+                            <i class="fas fa-cart-plus fa-2x" id="logo-cart"></i>
+                            <span id="quantity">
+                                <?php if (isset($_SESSION['cart'])) {
+                                    echo count($_SESSION['cart']);
+                                } else {
+                                    echo 0;
+                                } ?>
+                            </span>
+
+                        </a>
+                    <?php
+                    } else {
+                    ?>
+                        <ul class="list-account">
+                            <li><a href="index.php?quanly=dangnhap">Đăng nhập</a></li>
+                            <li><span>|</span></li>
+                            <li><a href="index.php?quanly=dangky">Đăng ký</a></li>
+                        </ul>
+                    <?php
+                    }
+                    ?>
+
                 </div>
             </div>
         </div>
@@ -48,30 +86,30 @@
                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul class="navbar-nav">
                                 <li class="nav-item nav-item1">
-                                    <a class="nav-link active" aria-current="page" href="home">Trang chủ</a>
+                                    <a class="nav-link active" aria-current="page" href="index.php">Trang chủ</a>
                                 </li>
                                 <li class="nav-item nav-item1">
-                                    <a class="nav-link" href="#">Giới thiệu</a>
+                                    <a class="nav-link" href="index.php?quanly=gioithieu">Giới thiệu</a>
                                 </li>
                                 <li class="nav-item nav-item1 dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Sản phẩm
                                     </a>
                                     <ul class="dropdown-menu drop-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <li><a class="dropdown-item drop-item" href="#">Sofa</a></li>
-                                        <li><a class="dropdown-item drop-item" href="#">Ghế</a></li>
-                                        <li><a class="dropdown-item drop-item" href="#">Trang trí</a></li>
-                                        <li><a class="dropdown-item drop-item" href="#">Kệ sách</a></li>
-                                        <li><a class="dropdown-item drop-item" href="#">Bàn</a></li>
-                                        <li><a class="dropdown-item drop-item" id="closet-item" href="#">Tủ
-                                                quần áo</a></li>
+                                        <?php
+                                        while ($row = mysqli_fetch_array($query_danhmuc)) {
+                                        ?>
+                                            <li><a class="dropdown-item drop-item" href="index.php?quanly=danhmucsanpham&id=<?php echo $row['id_category'] ?>"> <?php echo $row['name_category'] ?></a></li>
+                                        <?php
+                                        }
+                                        ?>
                                     </ul>
                                 </li>
                                 <li class="nav-item nav-item1">
-                                    <a class="nav-link" href="#">Tin tức</a>
+                                    <a class="nav-link" href="index.php?quanly=tintuc">Tin tức</a>
                                 </li>
                                 <li class="nav-item nav-item1">
-                                    <a class="nav-link" href="#">Liên hệ</a>
+                                    <a class="nav-link" href="index.php?quanly=lienhe">Liên hệ</a>
                                 </li>
                             </ul>
                         </div>

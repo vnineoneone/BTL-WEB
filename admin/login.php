@@ -8,7 +8,7 @@ if (isset($_POST['login'])) {
     $row = mysqli_query($mysqli, $sql);
     $count = mysqli_num_rows($row);
     if ($count > 0) {
-        $_SESSION['login'] = $email;
+        $_SESSION['login_admin'] = $email;
         header("Location:index.php");
     } else {
         echo '<script>alert("Tai khoan mat khau khong dung, vui long nhap lai")</script>';
@@ -36,7 +36,7 @@ if (isset($_POST['login'])) {
 <body>
     <div class="login">
         <h1 class="text-center">ĐĂNG NHẬP</h1>
-        <form action="" autocomplete="off" method="POST">
+        <form action="" method="POST">
             <div class="form-group">
                 <label class="form-label" for="email">Email</label>
                 <input class="form-control" type="email" id="email" placeholder="Nhập email" name="email">

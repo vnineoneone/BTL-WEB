@@ -16,12 +16,15 @@
                             <div class="view-image">
                                 <img src="./assets/images/item.png" alt="" style="width: 100%; height:179px;">
                                 <div class="list-btn-view" style="display: none;">
-                                    <div class="btn2" id="btn-view">
-                                        <i class="fas fa-eye"></i>
-                                    </div>
+                                    <form method="POST" action="cart.php?id=1">
+                                        <button type="submit" class="btn2" id="btn-view">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </form>
                                     <a href="#" class="btn2" id="btn-detail">
                                         <i class="fas fa-tools"></i>
                                     </a>
+
                                 </div>
                             </div>
                         </a>

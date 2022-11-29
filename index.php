@@ -21,21 +21,44 @@
     <script src="https://kit.fontawesome.com/8c2b9d94d1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+
 </head>
 
 <body>
     <?php
     session_start();
-    // include "admin/config/config.php";
-    // include_once "controller.php";
+    include "admin/config/config.php";
+    include_once "controller.php";
     ?>
-    <div class="background" style="background-image: url(assets/images/background.jpg);"></div>
-    <div class="container">
-        <div class="main">
-            <?php include("pages/header.php") ?>
+
+
+    <div class="">
+        <?php
+        if (count($_GET)) {
+        ?>
+            <div class="main">
+                <?php include("pages/header.php") ?>
+                <?php include "pages/banner_link.php" ?>
+            </div>
+        <?php
+        } else {
+        ?>
+            <div class="main" style="min-height: 717px;">
+                <?php include("pages/header.php") ?>
+                <div class="background" style="background-image: url(assets/images/background.jpg); "></div>
+            </div>
+        <?php
+        }
+        ?>
+        <div class="container content">
+            <?php include("pages/main.php"); ?>
         </div>
-        <?php include("pages/main.php"); ?>
+
     </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="assets/js/index.js"></script>

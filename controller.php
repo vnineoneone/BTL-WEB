@@ -21,6 +21,8 @@ if (isset($_POST['dangky'])) {
         // alert(123);
         // notifier.success('Đăng ký thành công', options);
         // </script>";
+        $_SESSION['dangky'] = $name;
+        $_SESSION['id_khachhang'] = mysqli_insert_id($mysqli);
         header("Location: index.php?quanly=dangnhap");
     }
 }
@@ -29,12 +31,19 @@ if (isset($_POST['login'])) {
     $email = $_POST['email'];
     $password =  md5($_POST['password']);
     $sql = "SELECT * FROM user WHERE email='" . $email . "' AND password='" . $password . "' LIMIT 1 ";
-    $row = mysqli_query($mysqli, $sql);
-    $count = mysqli_num_rows($row);
+    $query = mysqli_query($mysqli, $sql);
+    $count = mysqli_num_rows($query);
     if ($count > 0) {
+        $row = mysqli_fetch_array($query);
         $_SESSION['login'] = $email;
+        $_SESSION['id_khachhang'] = $row['id'];
         header("Location: index.php");
     } else {
         echo "<script>notifier.alert('Thông tin đăng nhập bị sai, vui lòng nhập lại', options)</script>";
     }
+}
+
+if (isset($_GET['logout']) == 1) {
+    unset($_SESSION['login']);
+    header('Location: index.php?quanly=dangnhap');
 }

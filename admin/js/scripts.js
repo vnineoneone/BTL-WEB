@@ -25,7 +25,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     });
   }
 
-  let globalOptions = {};
-  let currentCallOptions = {};
-  let notifier = new AWN(globalOptions);
+  // let globalOptions = {};
+  // let currentCallOptions = {};
+  // let notifier = new AWN(globalOptions);
 });

@@ -1,3 +1,8 @@
+<?php
+$sql_lietke_sp = "SELECT * FROM product,category WHERE product.id_category = category.id_category ORDER BY id_product DESC";
+$query_lietke_sp = mysqli_query($mysqli, $sql_lietke_sp);
+?>
+
 <div class="featured-product" style="margin-top: 60px;">
     <div class="row">
         <div class="col-md-4 left">
@@ -56,17 +61,19 @@
                 <div class="list-product owl-carousel owl-theme featured-product-carousel">
 
                     <?php
-                    for ($i = 1; $i <= 6; $i++) {
+                    while ($row1 = mysqli_fetch_array($query_lietke_sp)) {
                     ?>
                         <div class="item">
                             <div class="product">
                                 <a href="#">
                                     <div class="view-image">
-                                        <img src="./assets/images/item.png" alt="" style="width: 100%; height:179px;">
+                                        <img src="admin/modules/quanlysp/uploads/<?php echo $row1['image'] ?>" alt="" style="width: 100%; height:179px;">
                                         <div class="list-btn-view" style="display: none;">
-                                            <div class="btn2" id="btn-view">
-                                                <i class="fas fa-eye"></i>
-                                            </div>
+                                            <form method="POST" action="pages/main/addcart.php?id=<?php echo $row1['id_product'] ?>">
+                                                <button type="submit" class="btn2" id="btn-view" name="themgiohang">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </form>
                                             <a href="#" class="btn2" id="btn-detail">
                                                 <i class="fas fa-tools"></i>
                                             </a>
@@ -74,20 +81,24 @@
                                     </div>
                                 </a>
                                 <div class="name">
-                                    Ghế Luxury
+                                    <?php echo $row1['name_product'] ?>
                                 </div>
                                 <div class="price">
-                                    570.000 VNĐ
+                                    <?php echo $row1['price'] ?>
                                 </div>
                             </div>
+                            <?php
+                            $row2 = mysqli_fetch_array($query_lietke_sp); ?>
                             <div class="product">
                                 <a href="#">
                                     <div class="view-image">
-                                        <img src="./assets/images/item.png" alt="" style="width: 100%; height:179px;">
+                                        <img src="admin/modules/quanlysp/uploads/<?php echo $row2['image'] ?>" alt="" style="width: 100%; height:179px;">
                                         <div class="list-btn-view" style="display: none;">
-                                            <div class="btn2" id="btn-view">
-                                                <i class="fas fa-eye"></i>
-                                            </div>
+                                            <form method="POST" action="pages/main/addcart.php?id=<?php echo $row2['id_product'] ?>">
+                                                <button type="submit" class="btn2" id="btn-view" name="themgiohang">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </form>
                                             <a href="#" class="btn2" id="btn-detail">
                                                 <i class="fas fa-tools"></i>
                                             </a>
@@ -95,14 +106,17 @@
                                     </div>
                                 </a>
                                 <div class="name">
-                                    Ghế Luxury
+                                    <?php echo $row2['name_product'] ?>
                                 </div>
                                 <div class="price">
-                                    570.000 VNĐ
+                                    <?php echo $row2['price'] ?>
                                 </div>
                             </div>
                         </div>
-                    <?php } ?>
+
+                    <?php
+                        // mysqli_fetch_array($query_lietke_sp);
+                    } ?>
                 </div>
             </div>
         </div>

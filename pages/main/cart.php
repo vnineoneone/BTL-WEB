@@ -1,4 +1,17 @@
-<div class="cart_content">
+<?php
+// session_start();
+// if (isset($_SESSION['cart'])) {
+
+//     echo '<pre>';
+//     print_r($_SESSION['cart']);
+//     echo '/<pre>';
+// } else {
+//     echo "<p>Khong co don hang nao de hien thi</p>";
+// }
+?>
+
+<a href="pages/main/payment.php">payment</a>
+<div class="cart_page">
     <section class="cart_contain">
         <div class="large_container">
             <div>
@@ -31,7 +44,7 @@
                                 </div>
                                 <div class="cart_body second_body">
                                     <a href="#" title="item" class="product_image">
-                                        <img class="" src="item.png" alt="item" height="100%" width="100%">
+                                        <img class="" src="assets/images/item.png" alt="item" height="100%" width="100%">
                                     </a>
                                 </div>
                                 <div class="cart_body third_body">
@@ -68,7 +81,7 @@
                                 </div>
                                 <div class="cart_body second_body">
                                     <a href="#" title="item" class="product_image">
-                                        <img class="" src="item.png" alt="item" height="100%" width="100%">
+                                        <img class="" src="assets/images/item.png" alt="item" height="100%" width="100%">
                                     </a>
                                 </div>
                                 <div class="cart_body third_body">
@@ -94,7 +107,7 @@
                                     <span class="item_price" id="price_item2">900.000<sup>₫</sup></span>
                                 </div>
                             </div>
-                             <!--    -->
+                            <!--    -->
                         </div>
                     </div>
                 </form>
