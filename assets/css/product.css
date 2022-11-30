@@ -54,12 +54,14 @@ img{
     float: left;
     padding-top: 10px;
     width: 100%;
+    font-weight: 400;
 }
 
-.product_name{
-    text-overflow: ellipsis;
-    text-align: center;
+.product_namei{
     font-size: 15px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center !important;
 }
 
 .product_price
@@ -78,6 +80,11 @@ img{
     margin-bottom: 20px;
 }
 
+.side_container
+{
+    margin-bottom: 50px;
+}
+
 .side_title
 {
     position: relative;
@@ -90,6 +97,7 @@ img{
     text-align: center;
     text-transform: uppercase;
     font-size: larger;
+    padding: 5px 0px;
 }
 
 .side_text_box{

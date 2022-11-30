@@ -6,7 +6,7 @@
                     <aside class="side_box">
                         <div>
                             <h2 class="side_title">
-                                Danh mục
+                               <span>Danh mục</span>
                             </h2>
                         </div>
                         <div class="side_text_box">
@@ -23,62 +23,120 @@
                             </nav>
                         </div>
                     </aside>
-                    <aside class="side_box">
-                        <div>
-                            <h2 class="side_title">
-                                Khoảng giá
-                            </h2>
-                        </div>
-                        <div class="side_text_box">
-                            <ul class="list-unstyled">
-                                <li class="filter-product">
-                                    <span>
-                                        
-                                        <input type="checkbox" id="Duoi 100.000" value="Dưới 100.000đ">
-                                        <label for="Duoi 100.000">
-                                            Dưới 100.000đ
-                                        </label>
-                                    </span>
-                                </li>
-                                <li class="filter-product">
-                                    <span>
-                                        
-                                        <input type="checkbox" id="100.000đ - 200.000đ" value="100.000đ - 200.000đ">
-                                        <label for="100.000đ - 200.000đ">
-                                            100.000đ - 200.000đ
-                                        </label>
-                                    </span>
-                                </li>
-                                <li class="filter-product">
-                                    <span>
-                                        
-                                        <input type="checkbox" id="200.000đ - 500.000đ" value="200.000đ - 500.000đ">
-                                        <label for="200.000đ - 500.000đ">
-                                            200.000đ - 500.000đ
-                                        </label>
-                                    </span>
-                                </li>
-                                <li class="filter-product">
-                                    <span>
-                                        
-                                        <input type="checkbox" id="500.000đ - 1.000.000đ" value="500.000đ - 1.000.000đ">
-                                        <label for="500.000đ - 1.000.000đ">
-                                            500.000đ - 1.000.000đ
-                                        </label>
-                                    </span>
-                                </li>
-                                <li class="filter-product">
-                                    <span>
-                                        
-                                        <input type="checkbox" id="Tren 1.000.000" value="Trên 1.000.000đ">
-                                        <label for="Tren 1.000.000">
-                                            Trên 1.000.000đ
-                                        </label>
-                                    </span>
-                                </li>
-                            </ul>
-                        </div>
-                    </aside>
+                    <div class="side_container">
+                        <aside class="side_box">
+                            <div>
+                                <h2 class="side_title">
+                                    <span>Thương hiệu</span>
+                                </h2>
+                            </div>
+                            <div class="side_text_box">
+                                <ul class="list-unstyled">
+                                    <li class="filter-product">
+                                        <span>
+                                            
+                                            <input type="checkbox" id="MOHO" value="MOHO">
+                                            <label for="MOHO">
+                                                MOHO
+                                            </label>
+                                        </span>
+                                    </li>
+                                    <li class="filter-product">
+                                        <span>
+                                            
+                                            <input type="checkbox" id="KOAS" value="KOAS">
+                                            <label for="KOAS">
+                                                KOAS
+                                            </label>
+                                        </span>
+                                    </li>
+                                    <li class="filter-product">
+                                        <span>
+                                            
+                                            <input type="checkbox" id="BG" value="BG">
+                                            <label for="BG">
+                                                BG
+                                            </label>
+                                        </span>
+                                    </li>
+                                    <li class="filter-product">
+                                        <span>
+                                            
+                                            <input type="checkbox" id="GOVI" value="GOVI">
+                                            <label for="GOVI">
+                                                GOVI
+                                            </label>
+                                        </span>
+                                    </li>
+                                    <li class="filter-product">
+                                        <span>
+                                            
+                                            <input type="checkbox" id=" Piron" value=" Piron">
+                                            <label for=" Piron">
+                                                Piron
+                                            </label>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </aside>
+                        <aside class="side_box">
+                            <div>
+                                <h2 class="side_title">
+                                    <span>Khoảng giá</span>
+                                </h2>
+                            </div>
+                            <div class="side_text_box">
+                                <ul class="list-unstyled">
+                                    <li class="filter-product">
+                                        <span>
+                                            
+                                            <input type="checkbox" id="Duoi 100.000" value="Dưới 100.000đ">
+                                            <label for="Duoi 100.000">
+                                                Dưới 100.000đ
+                                            </label>
+                                        </span>
+                                    </li>
+                                    <li class="filter-product">
+                                        <span>
+                                            
+                                            <input type="checkbox" id="100.000đ - 200.000đ" value="100.000đ - 200.000đ">
+                                            <label for="100.000đ - 200.000đ">
+                                                100.000đ - 200.000đ
+                                            </label>
+                                        </span>
+                                    </li>
+                                    <li class="filter-product">
+                                        <span>
+                                            
+                                            <input type="checkbox" id="200.000đ - 500.000đ" value="200.000đ - 500.000đ">
+                                            <label for="200.000đ - 500.000đ">
+                                                200.000đ - 500.000đ
+                                            </label>
+                                        </span>
+                                    </li>
+                                    <li class="filter-product">
+                                        <span>
+                                            
+                                            <input type="checkbox" id="500.000đ - 1.000.000đ" value="500.000đ - 1.000.000đ">
+                                            <label for="500.000đ - 1.000.000đ">
+                                                500.000đ - 1.000.000đ
+                                            </label>
+                                        </span>
+                                    </li>
+                                    <li class="filter-product">
+                                        <span>
+                                            
+                                            <input type="checkbox" id="Tren 1.000.000" value="Trên 1.000.000đ">
+                                            <label for="Tren 1.000.000">
+                                                Trên 1.000.000đ
+                                            </label>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </aside>
+                    </div>
                 </aside>
                 <div class="col-md-12 col-lg-9 col-md-12">
                     <div class="col-xs-12 col-sm-6 col-md-6 inline">
@@ -109,7 +167,7 @@
                                         </a>
                                     </div>
                                     <div class="image_text">
-                                        <h3 class="product_name">
+                                        <h3 class="product_namei">
                                             <a href="#" title="Ghế Luxury" class="link_image">Ghế Luxury</a>
                                         </h3>
                                         <div class="text-center">
@@ -126,7 +184,7 @@
                                         </a>
                                     </div>
                                     <div class="image_text">
-                                        <h3 class="product_name">
+                                        <h3 class="product_namei">
                                             <a href="#" title="Ghế Woody" class="link_image">Ghế Woody</a>
                                         </h3>
                                         <div class="text-center">
@@ -143,7 +201,7 @@
                                         </a>
                                     </div>
                                     <div class="image_text">
-                                        <h3 class="product_name">
+                                        <h3 class="product_namei">
                                             <a href="#" title="Ghế Euro" class="link_image">Ghế Euro</a>
                                         </h3>
                                         <div class="text-center">
@@ -160,7 +218,7 @@
                                         </a>
                                     </div>
                                     <div class="image_text">
-                                        <h3 class="product_name">
+                                        <h3 class="product_namei">
                                             <a href="#" title="Ghế Euro" class="link_image">Ghế Gaming</a>
                                         </h3>
                                         <div class="text-center">
