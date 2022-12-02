@@ -20,7 +20,7 @@
         </ul>
     </div>
 </div>
-<div class="container">
+<div class="container-intro">
     <div class="title">
         <h1 class="title-head">
             <a href="#">Giới thiệu</a>
