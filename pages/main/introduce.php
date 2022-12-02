@@ -1,25 +1,4 @@
-<div class="banner">
-    <div class="title-full">
-        <div class="title-text">
-            <p class="title-page">Giới thiệu</p>
-        </div>
-    </div>
-    <div class="subtitle">
-        <ul>
-            <li class="home">
-                <a href="#">
-                    <span>Trang chủ</span>
-                </a>
-                <span class="icon">
-                    <i class="fa-solid fa-angle-right"></i>
-                </span>
-            </li>
-            <li>
-                <strong><span>Giới thiệu</span></strong>
-            </li>
-        </ul>
-    </div>
-</div>
+
 <div class="container-intro">
     <div class="title">
         <h1 class="title-head">

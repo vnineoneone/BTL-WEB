@@ -1,26 +1,4 @@
 <div class="container-contact">
-    <div class="banner">
-        <div class="title-full">
-            <div class="title-text">
-                <p class="title-page">Liên hệ</p>
-            </div>
-        </div>
-        <div class="subtitle">
-            <ul>
-                <li class="home">
-                    <a href="#">
-                        <span>Trang chủ</span>
-                    </a>
-                    <span class="icon">
-                        <i class="fa-solid fa-angle-right"></i>
-                    </span>
-                </li>
-                <li>
-                    <strong><span>Liên hệ</span></strong>
-                </li>
-            </ul>
-        </div>
-    </div>
     <div id="contact-details" class="section-p1">
         <div class="details">
             <h3>Trụ sở chính</h3>
