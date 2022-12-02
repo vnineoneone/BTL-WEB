@@ -1,36 +1,5 @@
-.background_header{
-    background-image: url("background_header.webp");
-    background-size: cover;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-color: black;
-    background-position: center;
-    padding: 60px;
-    margin-bottom: 40px;
-}
-
 .inline{
     display: inline;
-}
-
-.title_header{
-    color: white;
-    font-size: 50px;
-}
-
-.header_menu{
-    color: white;
-    list-style-type: none;
-}
-
-.header_menu li{
-    font-size: 20px;
-    display: inline;
-}
-
-.link_header{
-    text-decoration: none;
-    color: white;
 }
 
 .text_container{
@@ -85,12 +54,14 @@ img{
     float: left;
     padding-top: 10px;
     width: 100%;
+    font-weight: 400;
 }
 
-.product_name{
-    text-overflow: ellipsis;
-    text-align: center;
+.product_namei{
     font-size: 15px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center !important;
 }
 
 .product_price
@@ -109,6 +80,11 @@ img{
     margin-bottom: 20px;
 }
 
+.side_container
+{
+    margin-bottom: 50px;
+}
+
 .side_title
 {
     position: relative;
@@ -121,6 +97,7 @@ img{
     text-align: center;
     text-transform: uppercase;
     font-size: larger;
+    padding: 5px 0px;
 }
 
 .side_text_box{
