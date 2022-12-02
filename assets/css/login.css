@@ -162,11 +162,11 @@ p {
 }
 
 /* Introduce */
-.container {
+.container-intro {
     padding-right: 15px;
     padding-left: 15px;
     margin-right: 80px;
-    margin-left: 80px;
+    /* margin-left: 80px; */
 }
 
 .title {
@@ -180,7 +180,7 @@ p {
 
 /* Contact */
 .section-p1 {
-    padding: 40px 0;
+    padding:  0;
 }
 
 #contact-details {
@@ -207,6 +207,7 @@ p {
 #contact-details .details li i {
     font-size: 14px;
     padding-right: 10px;
+    padding-top: 4px;
 }
 
 #contact-details .details li p {

@@ -1,4 +1,4 @@
-<div class="banner">
+<!-- <div class="banner">
     <div class="title-full">
         <div class="title-text">
             <p class="title-page">Giới thiệu</p>
@@ -19,8 +19,8 @@
             </li>
         </ul>
     </div>
-</div>
-<div class="container">
+</div> -->
+<div class="container-intro">
     <div class="title">
         <h1 class="title-head">
             <a href="#">Giới thiệu</a>
