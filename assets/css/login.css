@@ -162,11 +162,10 @@ p {
 }
 
 /* Introduce */
-.container {
+.container-intro {
     padding-right: 15px;
     padding-left: 15px;
     margin-right: 80px;
-    margin-left: 80px;
 }
 
 .title {
