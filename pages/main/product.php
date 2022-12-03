@@ -163,7 +163,7 @@
                                 <div class="product">
                                     <div class="product_image">
                                         <a href="#" title="Ghế Luxury">
-                                            <img src="assets/images/item.png" alt="Ghế Luxury">
+                                            <img src="assets/images/item.png" alt="Ghế Luxury" class="img_t">
                                         </a>
                                     </div>
                                     <div class="image_text">
@@ -180,7 +180,7 @@
                                 <div class="product">
                                     <div class="product_image">
                                         <a href="#" title="Ghế Luxury" class=" link_image">
-                                            <img src="assets/images/item.png" alt="Ghế Luxury">
+                                            <img src="assets/images/item.png" alt="Ghế Luxury" class="img_t">
                                         </a>
                                     </div>
                                     <div class="image_text">
@@ -197,7 +197,7 @@
                                 <div class="product">
                                     <div class="product_image">
                                         <a href="#" title="Ghế Luxury" class=" link_image">
-                                            <img src="assets/images/item.png" alt="Ghế Luxury">
+                                            <img src="assets/images/item.png" alt="Ghế Luxury" class="img_t">
                                         </a>
                                     </div>
                                     <div class="image_text">
@@ -214,7 +214,7 @@
                                 <div class="product">
                                     <div class="product_image">
                                         <a href="#" title="Ghế Luxury" class=" link_image">
-                                            <img src="assets/images/item.png" alt="Ghế Luxury">
+                                            <img src="assets/images/item.png" alt="Ghế Luxury" class="img_t">
                                         </a>
                                     </div>
                                     <div class="image_text">
