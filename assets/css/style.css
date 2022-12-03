@@ -26,10 +26,10 @@ a {
     position: relative;
 }
 
-.main {
-    /* background-color: red; */
-    /* min-height: 717px; */
-}
+/* .main {
+     background-color: red;
+     min-height: 717px; 
+} */
 
 .background {
     position: absolute;
@@ -514,7 +514,7 @@ navbar-nav li a:hover {
     font-weight: 700;
 }
 
-.display-product {}
+/* .display-product {} */
 
 .list-product {
     /* background-color: #000084; */
@@ -534,10 +534,10 @@ navbar-nav li a:hover {
     text-decoration: none;
 }
 
-.owl-nav button.owl-prev {
+/* .owl-nav button.owl-prev {
     /* background-color: transparent !important;
-    color: #252525; */
-}
+    color: #252525; 
+} */
 
 
 .owl-nav .owl-next span {
