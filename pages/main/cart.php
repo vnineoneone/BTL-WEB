@@ -36,9 +36,9 @@
                             <?php
                             foreach ($_SESSION['cart'] as $item) {
                             ?>
-                                <div class="item_cart" onclick="check('<?php echo $item['id'] ?>')">
+                                <div class="item_cart" onclick="check('item_<?php echo $item['id'] ?>')" id="item_<?php echo $item['id'] ?>_box">
                                     <div class="cart_body first_body">
-                                        <a href="javascript:;">
+                                        <a href="javascript:;" onclick="Remove_cart('item_<?php echo $item['id'] ?>_box')">
                                             <span>
                                                 <i class="bi bi-x-lg icon link_icon"></i>
                                             </span>
@@ -59,11 +59,11 @@
                                     </div>
                                     <div class="cart_body fifth_body">
                                         <div class="number_box">
-                                            <button class="button_down" type="button" onclick="Decrease('<?php echo $item['id'] ?>', <?php echo $item['price'] ?>, 'price_<?php echo $item['id'] ?>')">
+                                            <button class="button_down" type="button" onclick="Decrease('item_<?php echo $item['id'] ?>', <?php echo $item['price'] ?>, 'price_<?php echo $item['id'] ?>')">
                                                 <i class="bi bi-caret-down-fill icon_button"></i>
                                             </button>
-                                            <input type="text" min="1" max="10" maxlength="2" value="<?php echo $item['number'] ?>" class="number_cart" id="<?php echo $item['id'] ?>">
-                                            <button class="button_up" type="button" onclick="Increase('<?php echo $item['id'] ?>', <?php echo $item['price'] ?>, 'price_<?php echo $item['id'] ?>')">
+                                            <input type="text" min="1" max="10" maxlength="2" value="<?php echo $item['number'] ?>" class="number_cart" id="item_<?php echo $item['id'] ?>">
+                                            <button class="button_up" type="button" onclick="Increase('item_<?php echo $item['id'] ?>', <?php echo $item['price'] ?>, 'price_<?php echo $item['id'] ?>')">
                                                 <i class="bi bi-caret-up-fill icon_button"></i>
                                             </button>
                                         </div>
