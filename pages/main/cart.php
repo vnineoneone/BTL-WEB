@@ -36,7 +36,7 @@
                             <?php
                             foreach ($_SESSION['cart'] as $item) {
                             ?>
-                                <div class="item_cart" onclick="check('item1')">
+                                <div class="item_cart" onclick="check('<?php echo $item['id'] ?>')">
                                     <div class="cart_body first_body">
                                         <a href="javascript:;">
                                             <span>
@@ -59,17 +59,17 @@
                                     </div>
                                     <div class="cart_body fifth_body">
                                         <div class="number_box">
-                                            <button class="button_down" type="button" onclick="Decrease('item1', <?php echo $item['price'] ?>, 'price_item1')">
+                                            <button class="button_down" type="button" onclick="Decrease('<?php echo $item['id'] ?>', <?php echo $item['price'] ?>, 'price_<?php echo $item['id'] ?>')">
                                                 <i class="bi bi-caret-down-fill icon_button"></i>
                                             </button>
-                                            <input type="text" min="1" max="10" maxlength="2" value="<?php echo $item['number'] ?>" class="number_cart" id="item1">
-                                            <button class="button_up" type="button" onclick="Increase('item1', <?php echo $item['price'] ?>, 'price_item1')">
+                                            <input type="text" min="1" max="10" maxlength="2" value="<?php echo $item['number'] ?>" class="number_cart" id="<?php echo $item['id'] ?>">
+                                            <button class="button_up" type="button" onclick="Increase('<?php echo $item['id'] ?>', <?php echo $item['price'] ?>, 'price_<?php echo $item['id'] ?>')">
                                                 <i class="bi bi-caret-up-fill icon_button"></i>
                                             </button>
                                         </div>
                                     </div>
                                     <div class="cart_body sixth_body">
-                                        <span class="item_price" id="price_item1"><?php echo $item['price'] ?><sup>₫</sup></span>
+                                        <span class="item_price" id="price_<?php echo $item['id'] ?>"><?php echo $item['price'] ?><sup>₫</sup></span>
                                     </div>
                                 </div>
                             <?php

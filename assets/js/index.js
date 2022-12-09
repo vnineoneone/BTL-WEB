@@ -216,7 +216,11 @@ for (var i = 0; i < tab_link_d.length; i++) {
       showContent_d(id);
   });
 }
-showContent_d("Mô tả");
+if(!isNaN(tab_link_d))
+{
+  showContent_d("Mô tả");
+}
+
 ////Img related
 const img_d = document.getElementsByClassName('img_box_d');
 var icon_d = document.getElementsByClassName('icon_box_d');
