@@ -1,5 +1,5 @@
 <?php
-if (isset($_GET['action']) && $_GET['query']) {
+if (isset($_GET['action']) && isset($_GET['query'])) {
     $temp = $_GET['action'];
     $query = $_GET['query'];
 } else {
@@ -18,6 +18,16 @@ if ($temp == 'quanlydanhmucsanpham' && $query == 'them') {
     include('modules/quanlysp/lietke.php');
 } else if ($temp == 'quanlysp' && $query == 'sua') {
     include('modules/quanlysp/sua.php');
+} else if ($temp == 'quanlykhachhang' && $query == 'bangdulieu') {
+    include('modules/quanlykhachhang/lietke.php');
+} else if ($temp == 'quanlykhachhang' && $query == 'them') {
+    include('modules/quanlykhachhang/them.php');
+} else if ($temp == 'quanlykhachhang' && $query == 'sua') {
+    include('modules/quanlykhachhang/sua.php');
+} else if ($temp == 'quanlydonhang' && $query == 'bangdulieu') {
+    include('modules/quanlydonhang/index.php');
+} else if ($temp == 'quanlydonhang' && $query == 'donhang') {
+    include('modules/quanlydonhang/xemdonhang.php');
 } else {
     include('modules/dashboard.php');
 }

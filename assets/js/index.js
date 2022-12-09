@@ -138,6 +138,7 @@ function Decrease(x, y, z) {
   }
   str += "<sup>₫</sup>";
   document.getElementById(z).innerHTML = str;
+
   return true;
 }
 
@@ -161,3 +162,46 @@ function Increase(x, y, z) {
   document.getElementById(z).innerHTML = str;
   return true;
 }
+
+$(".subcart").click(function (e) {
+  $.ajax({
+    url: "controllers/CartController.php",
+    type: "POST",
+    dataType: "json",
+    data: {
+      id: e.target.getAttribute("name"),
+      type: "decrease",
+    },
+  }).done(function (result) {
+    console.log(result);
+  });
+});
+
+$(".addcart").click(function (e) {
+  $.ajax({
+    url: "controllers/CartController.php",
+    type: "POST",
+    dataType: "json",
+    data: {
+      id: e.target.getAttribute("name"),
+      type: "increase",
+    },
+  }).done(function (result) {
+    console.log(result);
+  });
+});
+
+$(".deletecart").click(function (e) {
+  $.ajax({
+    url: "controllers/CartController.php",
+    type: "POST",
+    dataType: "json",
+    data: {
+      id: e.target.getAttribute("name"),
+      type: "delete",
+    },
+  }).done(function (result) {
+    console.log(result);
+  });
+  console.log(e.target.getAttribute("name"));
+});
