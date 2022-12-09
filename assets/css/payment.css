@@ -71,3 +71,7 @@ a {
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
 }
+
+.product-img {
+    border-radius: 8px;
+}

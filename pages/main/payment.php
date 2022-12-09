@@ -17,7 +17,7 @@ session_start();
 </head>
 
 <body class="bg-light">
-  <!-- <div class="container">
+  <div class="container">
     <div class="py-5 text-center">
       <h2><a href="#">Sea Furniture</a></h2>
     </div>
@@ -215,11 +215,11 @@ session_start();
         </div>
       </div>
     </form>
-  </div> -->
+  </div>
   <form class="" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="../../controllers/PaymentController.php">
     <button type="submit" name="momo" class="btn btn-primary">Primary</button>
   </form>
-  <form class="" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="../../controllers/MomoAtmController.php">
+  <form class="" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="../../controllers/MoMoAtmController.php">
     <button type="submit" name="momo" class="btn btn-primary">Primary</button>
   </form>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
