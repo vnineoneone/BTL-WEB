@@ -225,8 +225,10 @@ for (var card = 0; card < item_price_c.length; card++) {
     total_price_c += Number(dolar_card);
   }
 }
-document.getElementsByClassName("total_price")[0].innerHTML = Price_change(String(total_price_c));
-
+if(item_price_c.length != 0)
+{
+  document.getElementsByClassName("total_price")[0].innerHTML = Price_change(String(total_price_c));
+}
 /// Product js///
 function check_number_p(e)
 {
