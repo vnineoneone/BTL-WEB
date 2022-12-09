@@ -42,10 +42,11 @@ session_start();
           ?>
 
             <li class="list-group-item d-flex justify-content-between lh-sm">
-              <div class="flex-shrink-0">
+              <div class="flex-shrink-0 mt-1">
                 <img src="https://bizweb.dktcdn.net/thumb/thumb/100/364/402/products/2-acaf4822a6e84c0bad48378c37346e92-master.jpg?v=1566961267300" alt="" class="product-img">
+                <span class="position-absolute top-40 start-15 translate-middle badge rounded-pill bg-primary">1</span>
               </div>
-              <span class="product-thumbnail__quantity">1</span>
+              
               <div class="flex-grow-1 ms-3">
                 <h6 class="my-0"> <?php
                                   echo $item['name'];
@@ -108,8 +109,6 @@ session_start();
       <div class="col-md-7 col-lg-8">
         <h4 class="mb-3 title-1-1">THÔNG TIN GIAO HÀNG</h4>
         <form class="needs-validation" novalidate="" action="control_payment.php">
-          <!-- <button class="w-50 btn btn-primary btn-md" type="submit">ĐẶT HÀNG</button> -->
-
           <div class="row g-3">
             <div class="col-sm-6">
               <label for="firstName" class="form-label">Họ và tên</label>
