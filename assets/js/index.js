@@ -112,15 +112,6 @@ $(document).ready(function () {
   formValidation();
 });
 
-function check(x) {
-  var result = document.getElementById(x);
-  if (result.value == "") {
-    alert("ERROR");
-    result.value = 1;
-  }
-  Total_price_c();
-}
-
 function Remove_cart(x)
 {
   var str_temp = "#" + String(x);
@@ -211,6 +202,14 @@ function Check_Total_price()
   var num_pro_c = document.getElementsByClassName("number_cart");
   var item_price_c = document.getElementsByClassName("item_price");
   var total_price_c = 0;
+  for (var card = 0; card < num_pro_c.length; card++) {
+    if(num_pro_c[card].value == "")
+    {
+      alert("ERROR");
+      num_pro_c[card].value = 1;
+      return false;
+    }
+  }
   for (var card = 0; card < item_price_c.length; card++) {
     if(card%2 == 0)
     {

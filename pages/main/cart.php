@@ -36,7 +36,7 @@
                             <?php
                             foreach ($_SESSION['cart'] as $item) {
                             ?>
-                                <div class="item_cart" onclick="check('item_<?php echo $item['id'] ?>')" id="item_<?php echo $item['id'] ?>_box">
+                                <div class="item_cart" id="item_<?php echo $item['id'] ?>_box">
                                     <div class="cart_body first_body">
                                         <a href="javascript:;" onclick="Remove_cart('item_<?php echo $item['id'] ?>_box')">
                                             <span>
