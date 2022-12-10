@@ -10,7 +10,7 @@
 // }
 ?>
 
-<div class="cart_page">
+<div class="cart_page" onclick="Check_Total_price()">
     <section class="cart_contain">
         <div class="large_container">
             <div>

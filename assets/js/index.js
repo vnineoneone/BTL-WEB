@@ -118,6 +118,7 @@ function check(x) {
     alert("ERROR");
     result.value = 1;
   }
+  Total_price_c();
 }
 
 function Remove_cart(x)
@@ -125,17 +126,7 @@ function Remove_cart(x)
   var str_temp = "#" + String(x);
   $(str_temp).remove();
   //Total price
-  var item_price_c = document.getElementsByClassName("item_price");
-  var total_price_c = 0;
-  for (var card = 0; card < item_price_c.length; card++) {
-    if(card%2!=0)
-    {
-      var dot_card = item_price_c[card].textContent.replace(".","");
-      var dolar_card = dot_card.replace("₫","");
-      total_price_c += Number(dolar_card);
-    }
-  }
-  document.getElementsByClassName("total_price")[0].innerHTML = Price_change(String(total_price_c));
+  Total_price_c();
   return true;
 }
 
@@ -168,17 +159,7 @@ function Decrease(x, y, z) {
   str = Price_change(str);
   document.getElementById(z).innerHTML = str;
   //Total price
-  var item_price_c = document.getElementsByClassName("item_price");
-  var total_price_c = 0;
-  for (var card = 0; card < item_price_c.length; card++) {
-    if(card%2!=0)
-    {
-      var dot_card = item_price_c[card].textContent.replace(".","");
-      var dolar_card = dot_card.replace("₫","");
-      total_price_c += Number(dolar_card);
-    }
-  }
-  document.getElementsByClassName("total_price")[0].innerHTML = Price_change(String(total_price_c));
+  Total_price_c();
   return true;
 }
 
@@ -192,17 +173,7 @@ function Increase(x, y, z) {
   str = Price_change(str);
   document.getElementById(z).innerHTML = str;
   //Total price
-  var item_price_c = document.getElementsByClassName("item_price");
-  var total_price_c = 0;
-  for (var card = 0; card < item_price_c.length; card++) {
-    if(card%2!=0)
-    {
-      var dot_card = item_price_c[card].textContent.replace(".","");
-      var dolar_card = dot_card.replace("₫","");
-      total_price_c += Number(dolar_card);
-    }
-  }
-  document.getElementsByClassName("total_price")[0].innerHTML = Price_change(String(total_price_c));
+  Total_price_c();
   return true;
 }
 
@@ -215,20 +186,47 @@ function check_p()
     }
 }
 ///Total price
-var item_price_c = document.getElementsByClassName("item_price");
-var total_price_c = 0;
-for (var card = 0; card < item_price_c.length; card++) {
-  if(card%2!=0)
+function Total_price_c()
+{
+  var item_price_c = document.getElementsByClassName("item_price");
+  var total_price_c = 0;
+  for (var card = 0; card < item_price_c.length; card++) {
+    if(card%2!=0)
+    {
+      var dot_card = item_price_c[card].textContent.replace(".","");
+      var dolar_card = dot_card.replace("₫","");
+      total_price_c += Number(dolar_card);
+    }
+  }
+  if(item_price_c.length != 0)
   {
-    var dot_card = item_price_c[card].textContent.replace(".","");
-    var dolar_card = dot_card.replace("₫","");
-    total_price_c += Number(dolar_card);
+    document.getElementsByClassName("total_price")[0].innerHTML = Price_change(String(total_price_c));
   }
 }
-if(item_price_c.length != 0)
+
+Total_price_c();
+
+function Check_Total_price()
 {
-  document.getElementsByClassName("total_price")[0].innerHTML = Price_change(String(total_price_c));
+  var num_pro_c = document.getElementsByClassName("number_cart");
+  var item_price_c = document.getElementsByClassName("item_price");
+  var total_price_c = 0;
+  for (var card = 0; card < item_price_c.length; card++) {
+    if(card%2 == 0)
+    {
+      var dot_card = item_price_c[card].textContent.replace(".","");
+      var dolar_card = dot_card.replace("₫","");
+      item_price_c[card+1].innerHTML = Number(dolar_card) * Number(num_pro_c[card/2].value);
+      item_price_c[card+1].innerHTML = Price_change(String(item_price_c[card+1].innerHTML));
+      total_price_c = total_price_c + Number(dolar_card) * Number(num_pro_c[card/2].value);
+    }
+  }
+  if(item_price_c.length != 0)
+  {
+    document.getElementsByClassName("total_price")[0].innerHTML = Price_change(String(total_price_c));
+  }
 }
+
 /// Product js///
 function check_number_p(e)
 {
