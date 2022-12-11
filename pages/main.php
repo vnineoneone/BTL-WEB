@@ -14,6 +14,8 @@ if ($tmp == "dangky") {
     include "main/category.php";
 } else if ($tmp == "gioithieu") {
     include "main/introduce.php";
+} else if ($tmp == "tintuc" && isset($_GET['id'])) {
+    include "main/news_detail.php";
 } else if ($tmp == "tintuc") {
     include "main/news.php";
 } else if ($tmp == "lienhe") {

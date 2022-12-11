@@ -216,9 +216,6 @@ session_start();
       </div>
     </form>
   </div>
-  <form class="" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="../../controllers/PaymentController.php">
-    <button type="submit" name="momo" class="btn btn-primary">Primary</button>
-  </form>
   <form class="" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="../../controllers/MoMoAtmController.php">
     <button type="submit" name="momo" class="btn btn-primary">Primary</button>
   </form>

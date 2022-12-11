@@ -11,12 +11,11 @@ if ($image != '') {
     $image = time() . '_' . $image;
 }
 $detail = $_POST['detail'];
-// $description = $_POST['description'];
 $status = $_POST['status'];
 
 if (isset($_POST['themsanpham'])) {
-    $sql_them = "INSERT INTO product(name_product, code, id_category, price, number, image, detail, description, status) 
-    VALUE('" . $name . "','" . $code . "', '" . $id_category . "', '" . $price . "','" . $number . "','" . $image . "','" . $detail . "','" . $description . "','" . $status . "')";
+    $sql_them = "INSERT INTO product(name_product, code, id_category, price, number, image, detail, status) 
+    VALUE('" . $name . "','" . $code . "', '" . $id_category . "', '" . $price . "','" . $number . "','" . $image . "','" . $detail . "', '" . $status . "')";
     mysqli_query($mysqli, $sql_them);
     move_uploaded_file($image_tmp, 'uploads/' . $image);
     header("Location: ../../index.php?action=quanlysp&query=bangdulieu");
@@ -30,13 +29,14 @@ if (isset($_POST['themsanpham'])) {
         }
         $sql_sua = "UPDATE product SET name_product='" . $name . "', id_category='" . $id_category . "', code='" . $code . "', 
         price='" . $price . "', number='" . $number . "', image='" . $image . "', detail='" . $detail . "', 
-        description='" . $description . "', status='" . $status . "' WHERE id_product = '$_GET[id]' ";
+        status='" . $status . "' WHERE id_product = '$_GET[id]' ";
     } else {
         $sql_sua = "UPDATE product SET name_product='" . $name . "', id_category='" . $id_category . "', code='" . $code . "',
         price='" . $price . "', number='" . $number . "', detail='" . $detail . "', 
-        description='" . $description . "', status='" . $status . "' WHERE id_product = '$_GET[id]' ";
+        status='" . $status . "' WHERE id_product = '$_GET[id]' ";
     }
     mysqli_query($mysqli, $sql_sua);
+
     header("Location: ../../index.php?action=quanlysp&query=bangdulieu");
 } else {
     $id = $_GET['id'];

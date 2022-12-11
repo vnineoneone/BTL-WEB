@@ -103,6 +103,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="index.php?action=quanlythuonghieu&query=bangdulieu" class="nav-link">
+                        <i class="nav-icon fas fa-layer-group"></i>
+                        <p>
+                            Quản lý thương hiệu
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="index.php?action=quanlysp&query=bangdulieu" class="nav-link">
                         <i class="nav-icon fas fa-box"></i>
                         <p>
@@ -127,7 +135,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="index.php?action=quanlykhachhang&query=bangdulieu" class="nav-link">
+                    <a href="index.php?action=quanlybaiviet&query=bangdulieu" class="nav-link">
+                        <i class="nav-icon fas fa-info-circle"></i>
+                        <p>
+                            Quản lý bài viết
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.php?action=quanlythongtin&query=bangdulieu" class="nav-link">
                         <i class="nav-icon fas fa-info-circle"></i>
                         <p>
                             Quản lý thông tin website

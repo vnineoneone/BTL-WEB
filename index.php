@@ -1,3 +1,11 @@
+<?php
+session_start();
+include_once "admin/config/config.php";
+include_once "controllers/UserController.php";
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,13 +35,6 @@
 </head>
 
 <body>
-    <?php
-    session_start();
-    include_once "admin/config/config.php";
-    include_once "controllers/UserController.php";
-    ?>
-
-
     <div class="">
         <?php
         if (count($_GET)) {
@@ -54,6 +55,9 @@
         ?>
         <div class="container content">
             <?php include("pages/main.php"); ?>
+        </div>
+        <div class="footer">
+            <?php include("pages/footer.php") ?>
         </div>
 
     </div>

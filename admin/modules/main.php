@@ -28,6 +28,22 @@ if ($temp == 'quanlydanhmucsanpham' && $query == 'them') {
     include('modules/quanlydonhang/index.php');
 } else if ($temp == 'quanlydonhang' && $query == 'donhang') {
     include('modules/quanlydonhang/xemdonhang.php');
+} else if ($temp == 'quanlythongtin' && $query == 'bangdulieu') {
+    include('modules/quanlythongtin/index.php');
+} else if ($temp == 'quanlythongtin' && $query == 'sua') {
+    include('modules/quanlythongtin/sua.php');
+} else if ($temp == 'quanlybaiviet' && $query == 'them') {
+    include('modules/quanlybaiviet/them.php');
+} else if ($temp == 'quanlybaiviet' && $query == 'sua') {
+    include('modules/quanlybaiviet/sua.php');
+} else if ($temp == 'quanlybaiviet' && $query == 'bangdulieu') {
+    include('modules/quanlybaiviet/lietke.php');
+} else if ($temp == 'quanlythuonghieu' && $query == 'them') {
+    include('modules/quanlythuonghieu/them.php');
+} else if ($temp == 'quanlythuonghieu' && $query == 'sua') {
+    include('modules/quanlythuonghieu/sua.php');
+} else if ($temp == 'quanlythuonghieu' && $query == 'bangdulieu') {
+    include('modules/quanlythuonghieu/lietke.php');
 } else {
     include('modules/dashboard.php');
 }

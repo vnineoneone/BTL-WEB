@@ -7,7 +7,7 @@ $query_lietke_khachhang = mysqli_query($mysqli, $sql_lietke_khachhang);
 <div class="card mb-4 table-data" style="width: 100%;">
     <div class="card-header">
         <i class="fas fa-table me-1"></i>
-        Bảng dữ liệu sản phẩm
+        Bảng dữ liệu khách hàng
         <div style="display: flex; justify-content: flex-end; flex: 1; ">
             <a href="?action=quanlykhachhang&query=them">
                 <button type="button" class="btn btn-success">Thêm khách hàng</button>

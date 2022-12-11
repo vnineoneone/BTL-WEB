@@ -12,7 +12,8 @@
 
 }
 
-.table-data .table td {
+.table th,
+td {
     text-align: center;
 }
 

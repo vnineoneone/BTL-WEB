@@ -28,6 +28,23 @@
                     </td>
                 </tr>
                 <tr>
+                    <th scope="row">Thương hiệu</th>
+                    <td>
+
+                        <select class="form-select" name="brand">
+                            <?php
+                            $sql_thuonghieu = "SELECT * FROM brand ORDER BY id_brand DESC";
+                            $query_thuonghieu = mysqli_query($mysqli, $sql_thuonghieu);
+                            while ($row_thuonghieu = mysqli_fetch_array($query_thuonghieu)) {
+                            ?>
+                                <option value="<?php echo $row_thuonghieu['id_brand'] ?>"><?php echo $row_thuonghieu['name_brand'] ?></option>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
                     <th scope="row">Danh mục</th>
                     <td>
 
@@ -45,7 +62,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row">Gía sản phẩm</th>
+                    <th scope="row">Giá sản phẩm</th>
                     <td>
                         <div class="input-group mb-2 mr-sm-2">
 
@@ -54,7 +71,7 @@
                                 Không được để trống giá sản phẩm
                             </div>
                             <div class="input-group-prepend">
-                                <div class="input-group-text">,000 VNĐ</div>
+                                <div class="input-group-text">.000 VNĐ</div>
                             </div>
                             <div>
                     </td>

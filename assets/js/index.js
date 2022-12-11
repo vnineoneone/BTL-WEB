@@ -205,3 +205,68 @@ $(".deletecart").click(function (e) {
   });
   console.log(e.target.getAttribute("name"));
 });
+function check_p() {
+  var result = document.getElementById("item_c1");
+  if (isNaN(result.value) || result.value < 1) {
+    result.value = 1;
+  }
+}
+
+function check_number_p(e) {
+  var num_p = e.which ? e.which : e.keycode;
+  if (num_p > 31 && (num_p < 48 || num_p > 57)) return false;
+  return true;
+}
+
+function Decrease_c() {
+  var result_p = document.getElementById("item_c1");
+  if (!isNaN(result_p.value) && result_p.value > 1) result_p.value--;
+  return true;
+}
+
+function Increase_c() {
+  var result_p = document.getElementById("item_c1");
+  if (!isNaN(result_p.value)) result_p.value++;
+  return true;
+}
+
+/// Product js///
+////Tab
+var tab_link_d = document.getElementsByClassName("tab_header_text");
+var tab_content_d = document.getElementsByClassName("tab_content_d");
+function showContent_d(id) {
+  for (var i = 0; i < tab_content_d.length; i++) {
+    tab_content_d[i].style.display = "none";
+  }
+  var content_d = document.getElementById(id);
+  content_d.style.display = "block";
+}
+for (var i = 0; i < tab_link_d.length; i++) {
+  tab_link_d[i].addEventListener("click", function () {
+    var id = this.textContent;
+    for (var i = 0; i < tab_link_d.length; i++) {
+      tab_link_d[i].classList.remove("tab_current");
+    }
+    this.className += " tab_current";
+    showContent_d(id);
+  });
+}
+if (!isNaN(tab_link_d)) {
+  showContent_d("Mô tả");
+}
+
+////Img related
+const img_d = document.getElementsByClassName("img_box_d");
+var icon_d = document.getElementsByClassName("icon_box_d");
+var op_img = document.getElementsByClassName("detail_link");
+for (let i = 0; i < img_d.length; i++) {
+  img_d[i].addEventListener("mouseover", function () {
+    icon_d[i].style.display = "block";
+    op_img[i].style.opacity = "0.5";
+  });
+  img_d[i].addEventListener("mouseout", function () {
+    icon_d[i].style.display = "none";
+    op_img[i].style.opacity = "1";
+  });
+}
+///////////

@@ -2,9 +2,6 @@
 $sql_lietke_sp = "SELECT * FROM product";
 $query_lietke_sp = mysqli_query($mysqli, $sql_lietke_sp);
 
-
-// var_dump($query_lietke_sp);
-
 ?>
 
 
@@ -93,30 +90,35 @@ $query_lietke_sp = mysqli_query($mysqli, $sql_lietke_sp);
                                 </div>
                             </div>
                             <?php
-                            $row2 = mysqli_fetch_array($query_lietke_sp); ?>
-                            <div class="product">
-                                <a href="#">
-                                    <div class="view-image">
-                                        <img src="admin/modules/quanlysp/uploads/<?php echo $row2['image'] ?>" alt="" style="width: 100%; height:179px;">
-                                        <div class="list-btn-view" style="display: none;">
-                                            <form method="POST" action="controllers/CartController.php?id=<?php echo $row2['id_product'] ?>">
-                                                <button type="submit" class="btn2" id="btn-view" name="themgiohang">
-                                                    <i class="fas fa-eye"></i>
-                                                </button>
-                                            </form>
-                                            <a href="#" class="btn2" id="btn-detail">
-                                                <i class="fas fa-tools"></i>
-                                            </a>
+                            $row2 = mysqli_fetch_array($query_lietke_sp);
+                            if ($row2) {
+                            ?>
+                                <div class="product">
+                                    <a href="#">
+                                        <div class="view-image">
+                                            <img src="admin/modules/quanlysp/uploads/<?php echo $row2['image'] ?>" alt="" style="width: 100%; height:179px;">
+                                            <div class="list-btn-view" style="display: none;">
+                                                <form method="POST" action="controllers/CartController.php?id=<?php echo $row2['id_product'] ?>">
+                                                    <button type="submit" class="btn2" id="btn-view" name="themgiohang">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </form>
+                                                <a href="#" class="btn2" id="btn-detail">
+                                                    <i class="fas fa-tools"></i>
+                                                </a>
+                                            </div>
                                         </div>
+                                    </a>
+                                    <div class="name">
+                                        <?php echo $row2['name_product'] ?>
                                     </div>
-                                </a>
-                                <div class="name">
-                                    <?php echo $row2['name_product'] ?>
+                                    <div class="price">
+                                        <?php echo $row2['price'] ?>
+                                    </div>
                                 </div>
-                                <div class="price">
-                                    <?php echo $row2['price'] ?>
-                                </div>
-                            </div>
+                            <?php
+                            }
+                            ?>
                         </div>
 
                     <?php
