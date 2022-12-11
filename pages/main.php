@@ -22,8 +22,14 @@ if ($tmp == "dangky") {
     include "main/contact.php";
 } else if ($tmp == "sanpham") {
     include "main/product.php";
+} else if ($tmp == "taikhoan/donhang") {
+    include "main/account_myorder.php";
 } else if ($tmp == "taikhoan") {
     include "main/account_info.php";
+} else if ($tmp == "taikhoan/doimatkhau") {
+    include "main/account_changepass.php";
+} else if ($tmp == "taikhoan/diachi") {
+    include "main/account_address.php";
 } else {
     include "main/index.php";
 }

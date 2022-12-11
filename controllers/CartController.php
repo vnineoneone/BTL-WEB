@@ -11,6 +11,7 @@ if (isset($_POST['type'])) {
                 $_SESSION['cart'][$i]['number'] += 1;
             }
         }
+        die(json_encode($id));
     }
     if ($_POST['type'] == 'decrease') {
 

@@ -54,16 +54,16 @@
                                     <div class="cart_body fifth_body">
                                         <div class="number_box">
                                             <button class="button_down" type="button" onclick="Decrease('item_<?php echo $item['id'] ?>', <?php echo $item['price'] ?>, 'price_<?php echo $item['id'] ?>')">
-                                                <i class="bi bi-caret-down-fill icon_button"></i>
+                                                <i class="bi bi-caret-down-fill icon_button subcart" name="<?php echo $item['id'] ?>"></i>
                                             </button>
                                             <input type="text" min="1" max="10" maxlength="2" value="<?php echo $item['number'] ?>" class="number_cart" id="item_<?php echo $item['id'] ?>">
                                             <button class="button_up" type="button" onclick="Increase('item_<?php echo $item['id'] ?>', <?php echo $item['price'] ?>, 'price_<?php echo $item['id'] ?>')">
-                                                <i class="bi bi-caret-up-fill icon_button"></i>
+                                                <i class="bi bi-caret-up-fill icon_button addcart" name="<?php echo $item['id'] ?>"></i>
                                             </button>
                                         </div>
                                     </div>
                                     <div class="cart_body sixth_body">
-                                        <span class="item_price" id="price_<?php echo $item['id'] ?>"><?php echo $item['price'] ?><sup>₫</sup></span>
+                                        <span class="item_price" id="price_<?php echo $item['id'] ?>"> <?php echo $item['price'] ?> <sup>₫</sup></span>
                                     </div>
                                 <?php
                             }
