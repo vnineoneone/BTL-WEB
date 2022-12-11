@@ -42,8 +42,7 @@ $row_info = mysqli_fetch_array($query);
 
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <li><a class="dropdown-item" href="index.php?logout=1">Đăng xuất</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    <li><a class="dropdown-item" href="index.php?quanly=taikhoan">Thông tin tài khoản</a></li>
                                 </ul>
                             </div>
                         </div>

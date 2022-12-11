@@ -112,12 +112,30 @@ $(document).ready(function () {
   formValidation();
 });
 
-function check(x) {
-  var result = document.getElementById(x);
-  if (result.value == "") {
-    alert("ERROR");
-    result.value = 1;
+function Remove_cart(x) {
+  var str_temp = "#" + String(x);
+  $(str_temp).remove();
+  //Total price
+  Total_price_c();
+  return true;
+}
+
+function Price_change(x) {
+  if (x.length == 4) {
+    x = x.slice(0, 1) + "." + x.slice(1);
+  } else if (x.length == 5) {
+    x = x.slice(0, 2) + "." + x.slice(2);
+  } else if (x.length == 6) {
+    x = x.slice(0, 3) + "." + x.slice(3);
+  } else if ((x.length >= 7) & (x.length < 8)) {
+    x = x.slice(0, 1) + "." + x.slice(1);
+    x = x.slice(0, 5) + "." + x.slice(5);
+  } else if ((x.length >= 8) & (x.length < 9)) {
+    x = x.slice(0, 2) + "." + x.slice(2);
+    x = x.slice(0, 6) + "." + x.slice(6);
   }
+  x += "<sup>₫</sup>";
+  return x;
 }
 
 function Decrease(x, y, z) {
@@ -127,18 +145,10 @@ function Decrease(x, y, z) {
     result.value--;
   }
   var str = String(Number(result.value) * y);
-  if (str.length < 7) {
-    str = str.slice(0, 3) + "." + str.slice(3);
-  } else if ((str.length >= 7) & (str.length < 8)) {
-    str = str.slice(0, 1) + "." + str.slice(1);
-    str = str.slice(0, 5) + "." + str.slice(5);
-  } else if ((str.length >= 8) & (str.length < 9)) {
-    str = str.slice(0, 2) + "." + str.slice(2);
-    str = str.slice(0, 6) + "." + str.slice(6);
-  }
-  str += "<sup>₫</sup>";
+  str = Price_change(str);
   document.getElementById(z).innerHTML = str;
-
+  //Total price
+  Total_price_c();
   return true;
 }
 
@@ -149,17 +159,10 @@ function Increase(x, y, z) {
     result.value++;
   }
   var str = String(Number(result.value) * y);
-  if (str.length < 7) {
-    str = str.slice(0, 3) + "." + str.slice(3);
-  } else if ((str.length >= 7) & (str.length < 8)) {
-    str = str.slice(0, 1) + "." + str.slice(1);
-    str = str.slice(0, 5) + "." + str.slice(5);
-  } else if ((str.length >= 8) & (str.length < 9)) {
-    str = str.slice(0, 2) + "." + str.slice(2);
-    str = str.slice(0, 6) + "." + str.slice(6);
-  }
-  str += "<sup>₫</sup>";
+  str = Price_change(str);
   document.getElementById(z).innerHTML = str;
+  //Total price
+  Total_price_c();
   return true;
 }
 
@@ -203,15 +206,66 @@ $(".deletecart").click(function (e) {
   }).done(function (result) {
     console.log(result);
   });
-  console.log(e.target.getAttribute("name"));
 });
+
 function check_p() {
   var result = document.getElementById("item_c1");
   if (isNaN(result.value) || result.value < 1) {
     result.value = 1;
   }
 }
+///Total price
+function Total_price_c() {
+  var item_price_c = document.getElementsByClassName("item_price");
+  var total_price_c = 0;
+  for (var card = 0; card < item_price_c.length; card++) {
+    if (card % 2 != 0) {
+      var dot_card = item_price_c[card].textContent.replace(".", "");
+      var dolar_card = dot_card.replace("₫", "");
+      total_price_c += Number(dolar_card);
+    }
+  }
+  if (item_price_c.length != 0) {
+    document.getElementsByClassName("total_price")[0].innerHTML = Price_change(
+      String(total_price_c)
+    );
+  }
+}
 
+Total_price_c();
+
+function Check_Total_price() {
+  var num_pro_c = document.getElementsByClassName("number_cart");
+  var item_price_c = document.getElementsByClassName("item_price");
+  var total_price_c = 0;
+  for (var card = 0; card < num_pro_c.length; card++) {
+    if (num_pro_c[card].value == "") {
+      alert("ERROR");
+      num_pro_c[card].value = 1;
+      return false;
+    }
+  }
+  for (var card = 0; card < item_price_c.length; card++) {
+    if (card % 2 == 0) {
+      var dot_card = item_price_c[card].textContent.replace(".", "");
+      var dolar_card = dot_card.replace("₫", "");
+      item_price_c[card + 1].innerHTML =
+        Number(dolar_card) * Number(num_pro_c[card / 2].value);
+      item_price_c[card + 1].innerHTML = Price_change(
+        String(item_price_c[card + 1].innerHTML)
+      );
+      total_price_c =
+        total_price_c + Number(dolar_card) * Number(num_pro_c[card / 2].value);
+    }
+  }
+  if (item_price_c.length != 0) {
+    document.getElementsByClassName("total_price")[0].innerHTML = Price_change(
+      String(total_price_c)
+    );
+  }
+}
+
+/// Product js///
 function check_number_p(e) {
   var num_p = e.which ? e.which : e.keycode;
   if (num_p > 31 && (num_p < 48 || num_p > 57)) return false;
@@ -230,7 +284,6 @@ function Increase_c() {
   return true;
 }
 
-/// Product js///
 ////Tab
 var tab_link_d = document.getElementsByClassName("tab_header_text");
 var tab_content_d = document.getElementsByClassName("tab_content_d");

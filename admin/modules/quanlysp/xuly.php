@@ -36,7 +36,10 @@ if (isset($_POST['themsanpham'])) {
         status='" . $status . "' WHERE id_product = '$_GET[id]' ";
     }
     mysqli_query($mysqli, $sql_sua);
+<<<<<<< HEAD
 
+=======
+>>>>>>> da36cbacd3dd76467d252bbf75b6514ce384ede7
     header("Location: ../../index.php?action=quanlysp&query=bangdulieu");
 } else {
     $id = $_GET['id'];

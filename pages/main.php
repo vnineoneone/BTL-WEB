@@ -22,6 +22,8 @@ if ($tmp == "dangky") {
     include "main/contact.php";
 } else if ($tmp == "sanpham") {
     include "main/product.php";
+} else if ($tmp == "taikhoan") {
+    include "main/account_info.php";
 } else {
     include "main/index.php";
 }

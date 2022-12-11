@@ -1,7 +1,6 @@
 <?php
 $sql_lietke_sp = "SELECT * FROM product";
 $query_lietke_sp = mysqli_query($mysqli, $sql_lietke_sp);
-
 ?>
 
 

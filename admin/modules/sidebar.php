@@ -135,20 +135,23 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="index.php?action=quanlybaiviet&query=bangdulieu" class="nav-link">
+                    <<<<<<< HEAD <a href="index.php?action=quanlybaiviet&query=bangdulieu" class="nav-link">
                         <i class="nav-icon fas fa-info-circle"></i>
                         <p>
                             Quản lý bài viết
                         </p>
-                    </a>
+                        </a>
                 </li>
                 <li class="nav-item">
                     <a href="index.php?action=quanlythongtin&query=bangdulieu" class="nav-link">
-                        <i class="nav-icon fas fa-info-circle"></i>
-                        <p>
-                            Quản lý thông tin website
-                        </p>
-                    </a>
+                        =======
+                        <a href="index.php?action=quanlykhachhang&query=bangdulieu" class="nav-link">
+                            >>>>>>> da36cbacd3dd76467d252bbf75b6514ce384ede7
+                            <i class="nav-icon fas fa-info-circle"></i>
+                            <p>
+                                Quản lý thông tin website
+                            </p>
+                        </a>
                 </li>
 
                 <li class="nav-item">

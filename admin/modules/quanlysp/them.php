@@ -71,9 +71,13 @@
                                 Không được để trống giá sản phẩm
                             </div>
                             <div class="input-group-prepend">
-                                <div class="input-group-text">.000 VNĐ</div>
+                                <<<<<<< HEAD <div class="input-group-text">.000 VNĐ
                             </div>
-                            <div>
+                            =======
+                            <div class="input-group-text">,000 VNĐ</div>
+                            >>>>>>> da36cbacd3dd76467d252bbf75b6514ce384ede7
+                        </div>
+                        <div>
                     </td>
                 </tr>
                 <tr>
