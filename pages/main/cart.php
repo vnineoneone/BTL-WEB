@@ -37,7 +37,7 @@ print_r($_SESSION['cart']);
                                     <div class="cart_body first_body">
                                         <a href="javascript:;" onclick="Remove_cart('item_<?php echo $item['id'] ?>_box')">
                                             <span>
-                                                <i class="bi bi-x-lg icon link_icon"></i>
+                                                <i class="bi bi-x-lg icon link_icon deletecart" name="<?php echo $item['id'] ?>"></i>
                                             </span>
                                         </a>
                                     </div>
