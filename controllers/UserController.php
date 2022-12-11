@@ -17,10 +17,6 @@ if (isset($_POST['dangky'])) {
     $sql_dangky = mysqli_query($mysqli, "INSERT INTO user(email, password, name, phone, status) 
     VALUE('" . $email . "', '" . $password . "', '" . $name . "', '" . $phone . "', 1)");
     if ($sql_dangky) {
-        // $_SESSION['dangky'] = "<script>
-        // alert(123);
-        // notifier.success('Đăng ký thành công', options);
-        // </script>";
         $_SESSION['dangky'] = $name;
         $_SESSION['id_khachhang'] = mysqli_insert_id($mysqli);
         header("Location: index.php?quanly=dangnhap");

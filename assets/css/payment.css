@@ -9,6 +9,11 @@ a {
     font-weight: inherit;
 }
 
+.product-img {
+    width: 50px;
+    height: 50px;
+}
+
 .title-1-1 {
     color: #000;
     background-color: #e7e4e4;
@@ -65,4 +70,8 @@ a {
     bottom: -8px;
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
+}
+
+.product-img {
+    border-radius: 8px;
 }

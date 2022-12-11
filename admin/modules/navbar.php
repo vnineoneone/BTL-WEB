@@ -5,31 +5,53 @@ if (isset($_GET['logout']) == 1) {
 }
 ?>
 
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="index.html">Admin Manage</a>
-    <!-- Sidebar Toggle-->
-    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-    <!-- Navbar Search-->
-    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-        <div class="input-group">
-            <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-            <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="index.php?action=dashboard" class="nav-link">Trang chủ</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link">Liên hệ</a>
+        </li>
+    </ul>
+
+    <!-- SEARCH FORM -->
+    <form class="form-inline ml-3">
+        <div class="input-group input-group-sm">
+            <input class="form-control form-control-navbar" type="search" placeholder="Tìm kiếm" aria-label="Search">
+            <div class="input-group-append">
+                <button class="btn btn-navbar" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
         </div>
     </form>
-    <!-- Navbar-->
-    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#!">Settings</a></li>
-                <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                <li>
-                    <hr class="dropdown-divider" />
+
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown user-menu" style="margin-right: 10px;">
+            <a href="#" class="nav-link dropdown-toggle " data-bs-toggle="dropdown">
+                <img src="images/admin.jpg" class="user-image img-circle elevation-2" alt="User Image">
+                <span class="d-none d-md-inline">Việt Lê</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="right: 0; left: auto;">
+                <!-- User image -->
+                <li class="user-header bg-primary">
+                    <img src="images/admin.jpg" class="img-circle elevation-2" alt="User Image">
+
+                    <p>
+                        Việt Lê
+                        <small>Quản trị viên</small>
+                    </p>
                 </li>
-                <li><a class="dropdown-item" href="index.php?logout=1">Logout: <?php if ($_SESSION['login_admin']) {
-                                                                                    echo $_SESSION['login_admin'];
-                                                                                } ?></a></li>
+                <!-- Menu Body -->
+                <li class="user-body">
+                    <a href="#" class="btn btn-default btn-flat">Thông tin</a>
+                    <a href="#" class="btn btn-default btn-flat float-right">Đăng xuất</a>
+                </li>
             </ul>
         </li>
     </ul>

@@ -2,11 +2,19 @@
 $sql_lietke_danhmucsp = "SELECT * FROM category ORDER BY order_category DESC";
 $query_lietke_danhmucsp = mysqli_query($mysqli, $sql_lietke_danhmucsp);
 ?>
-<h3 class="mt-4">Bảng dữ liệu danh mục sản phẩm</h3>
-<div class="card mb-4 table-data">
+
+
+<div class="card mb-4 table-data" style="width: 100%">
     <div class="card-header">
-        <i class="fas fa-table me-1"></i>
-        Bảng dữ liệu danh mục sản phẩm
+        <div>
+            <i class="fas fa-table me-1"></i>
+            Bảng dữ liệu danh mục sản phẩm
+        </div>
+        <div style="display: flex; justify-content: flex-end; flex: 1; ">
+            <a href="?action=quanlydanhmucsanpham&query=them">
+                <button type="button" class="btn btn-success">Thêm danh mục sản phẩm</button>
+            </a>
+        </div>
     </div>
 
     <div class="card-body">
@@ -26,18 +34,37 @@ $query_lietke_danhmucsp = mysqli_query($mysqli, $sql_lietke_danhmucsp);
                 ?>
 
                     <tr>
-                        <th scope="row"><?php echo $i ?></th>
+                        <th scope="row"><?php echo $row['id_category'] ?></th>
                         <td><?php echo $row['name_category'] ?></td>
                         <td>
-                            <a href="?action=quanlydanhmucsanpham&query=sua&id=<?php echo $row['id_category'] ?>">
-                                <button type="button" class="btn btn-primary">Sửa</button>
-                            </a>
-                            <a href="modules/quanlydanhmucsp/xuly.php?id=<?php echo $row['id_category'] ?>">
-                                <button type="button" class="btn btn-danger">Xóa</button>
-                            </a>
+                            <div class="list-button">
+                                <a href="?action=quanlydanhmucsanpham&query=sua&id=<?php echo $row['id_category'] ?>">
+                                    <button type="button" class="btn btn-primary">Sửa</button>
+                                </a>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#item<?php echo $row['id_category'] ?>">Xóa</button>
+                            </div>
                         </td>
                     </tr>
-
+                    <!-- Modal -->
+                    <div class="modal fade" id="item<?php echo $row['id_category'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Cảnh báo xác nhận</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Bạn có chắc muốn xóa danh mục sản phẩm này?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                    <a href="modules/quanlydanhmucsp/xuly.php?id=<?php echo $row['id_category'] ?>">
+                                        <button type="button" class="btn btn-danger">Xóa</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 <?php } ?>
             </tbody>
         </table>

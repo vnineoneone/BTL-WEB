@@ -1,25 +1,23 @@
-document.querySelector(".jsFilter").addEventListener("click", function () {
-  document.querySelector(".filter-menu").classList.toggle("active");
-});
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  "use strict";
 
-document.querySelector(".grid").addEventListener("click", function () {
-  document.querySelector(".list").classList.remove("active");
-  document.querySelector(".grid").classList.add("active");
-  document.querySelector(".products-area-wrapper").classList.add("gridView");
-  document
-    .querySelector(".products-area-wrapper")
-    .classList.remove("tableView");
-});
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll(".needs-validation");
 
-document.querySelector(".list").addEventListener("click", function () {
-  document.querySelector(".list").classList.add("active");
-  document.querySelector(".grid").classList.remove("active");
-  document.querySelector(".products-area-wrapper").classList.remove("gridView");
-  document.querySelector(".products-area-wrapper").classList.add("tableView");
-});
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms).forEach(function (form) {
+    form.addEventListener(
+      "submit",
+      function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
 
-// var modeSwitch = document.querySelector(".mode-switch");
-// modeSwitch.addEventListener("click", function () {
-//   document.documentElement.classList.toggle("light");
-//   modeSwitch.classList.toggle("active");
-// });
+        form.classList.add("was-validated");
+      },
+      false
+    );
+  });
+})();

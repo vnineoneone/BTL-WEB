@@ -1,61 +1,44 @@
 <?php
-$sql_lietke_sp = "SELECT * FROM product,category WHERE product.id_category = category.id_category ORDER BY id_product DESC";
-$query_lietke_sp = mysqli_query($mysqli, $sql_lietke_sp);
+$sql_chitiet_dh = "SELECT * FROM cart_details,product WHERE cart_details.id_product = product.id_product 
+AND cart_details.code_cart = '$_GET[code]' ORDER BY id_cart_details DESC";
+$query_chitiet_dh = mysqli_query($mysqli, $sql_chitiet_dh);
 ?>
 
 <div class="card mb-4 table-data" style="width: 100%;">
     <div class="card-header">
         <i class="fas fa-table me-1"></i>
-        Bảng dữ liệu sản phẩm
-        <div style="display: flex; justify-content: flex-end; flex: 1; ">
-            <a href="?action=quanlysp&query=them">
-                <button type="button" class="btn btn-success">Thêm sản phẩm</button>
-            </a>
-        </div>
+        Bảng dữ liệu chi tiết đơn hàng
     </div>
     <div class="card-body">
         <table class="table" id="datatablesSimple">
             <thead>
                 <tr>
-                    <!-- <th scope="col">Id</th> -->
-                    <th scope="col">Tên sản phẩm</th>
-                    <th scope="col">Tên danh mục</th>
-                    <th scope="col">Mã sản phẩm</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Mã đơn hàng</th>
                     <th scope="col">Giá</th>
                     <th scope="col">Số lượng</th>
-                    <!-- <th scope="col">Hình ảnh</th>
-                    <th scope="col">Chi tiết</th> -->
-                    <th scope="col">Trạng thái</th>
+                    <th scope="col">Thành tiền</th>
                     <th scope="col">Quản lý</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
+                $sum = 0;
                 $i = 0;
-                while ($row = mysqli_fetch_array($query_lietke_sp)) {
+                while ($row = mysqli_fetch_array($query_chitiet_dh)) {
+                    $total = $row['price'] * $row['quantity'];
+                    $sum += $total;
                     $i++;
                 ?>
 
                     <tr>
-                        <!-- <th scope="row"><?php echo $i ?></th> -->
-                        <td><?php echo $row['name_product'] ?></td>
-                        <td><?php echo $row['name_category'] ?></td>
-                        <td><?php echo $row['code'] ?></td>
+                        <th scope="row"><?php echo $row['id_cart_details'] ?></th>
+                        <td><?php echo $row['code_cart'] ?></td>
                         <td><?php echo number_format($row['price'], 0, ', ', '.') . '.000 VNĐ' ?></td>
-                        <td><?php echo $row['number'] ?></td>
-                        <!-- <td><img src="modules/quanlysp/uploads/<?php echo $row['image'] ?>" width="100px" height="100px"></td>
-                        <td><?php echo $row['detail'] ?></td> -->
-                        <td><?php
-                            if ($row['status']) {
-                                echo '<span class="badge badge-primary">Kích hoạt</span>';
-                            } else {
-                                echo '<span class="badge badge-danger">Vô hiệu hóa</span>';
-                            } ?></td>
+                        <td><?php echo $row['quantity'] ?></td>
+                        <td><?php echo number_format($total, 0, ', ', '.') . '.000 VNĐ' ?></td>
                         <td>
                             <div class="list-button">
-                                <a href="?action=quanlysp&query=sua&id=<?php echo $row['id_product'] ?>">
-                                    <button type="button" class="btn btn-info">Xem</button>
-                                </a>
                                 <a href="?action=quanlysp&query=sua&id=<?php echo $row['id_product'] ?>">
                                     <button type="button" class="btn btn-primary">Sửa</button>
                                 </a>
@@ -85,6 +68,11 @@ $query_lietke_sp = mysqli_query($mysqli, $sql_lietke_sp);
                         </div>
                     </div>
                 <?php } ?>
+                <tr>
+                    <td colspan="">
+                        Tổng tiền: <?php echo number_format($sum, 0, ', ', '.') . '.000 VNĐ' ?>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>

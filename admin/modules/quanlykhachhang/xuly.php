@@ -1,26 +1,18 @@
 <?php
 include "../../config/config.php";
 $name = $_POST['name'];
-$code = $_POST['code'];
-$id_category = $_POST['category'];
-$price = $_POST['price'];
-$number = $_POST['number'];
-$image = $_FILES['image']['name'];
-$image_tmp = $_FILES['image']['tmp_name'];
-if ($image != '') {
-    $image = time() . '_' . $image;
-}
-$detail = $_POST['detail'];
-// $description = $_POST['description'];
+$email = $_POST['email'];
+$password = md5($_POST['password']);
+$address = $_POST['address'];
+$phone = $_POST['phone'];
 $status = $_POST['status'];
 
-if (isset($_POST['themsanpham'])) {
-    $sql_them = "INSERT INTO product(name_product, code, id_category, price, number, image, detail, description, status) 
-    VALUE('" . $name . "','" . $code . "', '" . $id_category . "', '" . $price . "','" . $number . "','" . $image . "','" . $detail . "','" . $description . "','" . $status . "')";
+if (isset($_POST['themkhachhang'])) {
+    $sql_them = "INSERT INTO user(name, email, password, phone, address, status) 
+    VALUE('" . $name . "','" . $email . "', '" . $password . "', '" . $phone . "', '" . $status . "')";
     mysqli_query($mysqli, $sql_them);
-    move_uploaded_file($image_tmp, 'uploads/' . $image);
-    header("Location: ../../index.php?action=quanlysp&query=bangdulieu");
-} else if (isset($_POST['suasanpham'])) {
+    header("Location: ../../index.php?action=quanlykhachhang&query=bangdulieu");
+} else if (isset($_POST['suakhachhang'])) {
     if ($image != '') {
         move_uploaded_file($image_tmp, 'uploads/' . $image);
         $sql = "SELECT * FROM product WHERE id_product = '" . $_GET['id'] . "'";
@@ -40,12 +32,7 @@ if (isset($_POST['themsanpham'])) {
     header("Location: ../../index.php?action=quanlysp&query=bangdulieu");
 } else {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM product WHERE id_product = '" . $id . "'";
-    $query =  mysqli_query($mysqli, $sql);
-    while ($row = mysqli_fetch_array($query)) {
-        unlink('uploads/' . $row['image']);
-    }
-    $sql_xoa = "DELETE FROM product WHERE id_product = '" . $id . "'";
+    $sql_xoa = "DELETE FROM user WHERE id = '" . $id . "'";
     mysqli_query($mysqli, $sql_xoa);
-    header("Location: ../../index.php?action=quanlysp&query=bangdulieu");
+    header("Location: ../../index.php?action=quanlykhachhang&query=bangdulieu");
 }

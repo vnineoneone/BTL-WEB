@@ -13,7 +13,6 @@
     <script src="vendor/owlcarousel/owl.carousel.min.js"></script>
 
     <link rel="stylesheet" href="vendor/awesome-notifications/style.css">
-    </link>
     <script src="vendor/awesome-notifications/index.var.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@emretulek/jbvalidator"></script>
@@ -30,8 +29,8 @@
 <body>
     <?php
     session_start();
-    include "admin/config/config.php";
-    include_once "controller.php";
+    include_once "admin/config/config.php";
+    include_once "controllers/UserController.php";
     ?>
 
 
