@@ -1,4 +1,4 @@
-<section class="specific_product">
+<section class="specific_product" onclick="check_p()">
     <div class="row row_box1_p">
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <div class="image_product_t">
@@ -9,23 +9,23 @@
             <div class="small_image_box">
                 <div class="small_image_c">
                     <div class="image_item_c">
-                        <a href="" class="link_small_image">
-                            <img class="style_small_image" src="assets/images/item.png">
+                        <a href="javascript:void(0)" class="link_small_image" onclick="Set_image('img_id1')">
+                            <img class="style_small_image" src="assets/images/lamp-category.png" id="img_id1">
                         </a>
                     </div>
                     <div class="image_item_c">
-                        <a href="" class="link_small_image">
-                            <img class="style_small_image" src="assets/images/item.png">
+                        <a href="javascript:void(0)" class="link_small_image" onclick="Set_image('img_id2')">
+                            <img class="style_small_image" src="assets/images/shelf-category.png" id="img_id2">
                         </a>
                     </div>
                     <div class="image_item_c">
-                        <a href="" class="link_small_image">
-                            <img class="style_small_image" src="assets/images/item.png">
+                        <a href="javascript:void(0)" class="link_small_image" onclick="Set_image('img_id3')">
+                            <img class="style_small_image" src="assets/images/sofa-category.png" id="img_id3">
                         </a>
                     </div>
                     <div class="image_item_c">
-                        <a href="" class="link_small_image">
-                            <img class="style_small_image" src="assets/images/item.png">
+                        <a href="javascript:void(0)" class="link_small_image" onclick="Set_image('img_id4')">
+                            <img class="style_small_image" src="assets/images/table-category.png" id="img_id4">
                         </a>
                     </div>
                 </div>

@@ -220,7 +220,7 @@ function Total_price_c() {
   var total_price_c = 0;
   for (var card = 0; card < item_price_c.length; card++) {
     if (card % 2 != 0) {
-      var dot_card = item_price_c[card].textContent.replace(".", "");
+      var dot_card = item_price_c[card].textContent.split(".").join("");
       var dolar_card = dot_card.replace("₫", "");
       total_price_c += Number(dolar_card);
     }
@@ -247,7 +247,7 @@ function Check_Total_price() {
   }
   for (var card = 0; card < item_price_c.length; card++) {
     if (card % 2 == 0) {
-      var dot_card = item_price_c[card].textContent.replace(".", "");
+      var dot_card = item_price_c[card].textContent.split(".").join("");
       var dolar_card = dot_card.replace("₫", "");
       item_price_c[card + 1].innerHTML =
         Number(dolar_card) * Number(num_pro_c[card / 2].value);
@@ -309,17 +309,211 @@ if (!isNaN(tab_link_d)) {
 }
 
 ////Img related
-const img_d = document.getElementsByClassName("img_box_d");
+var img_d = document.getElementsByClassName("img_box_d");
+var count_icon = 0;
+if(img_d.length == 0)
+{
+  img_d = document.getElementsByClassName("product_image");
+}
 var icon_d = document.getElementsByClassName("icon_box_d");
 var op_img = document.getElementsByClassName("detail_link");
-for (let i = 0; i < img_d.length; i++) {
-  img_d[i].addEventListener("mouseover", function () {
-    icon_d[i].style.display = "block";
-    op_img[i].style.opacity = "0.5";
-  });
-  img_d[i].addEventListener("mouseout", function () {
-    icon_d[i].style.display = "none";
-    op_img[i].style.opacity = "1";
-  });
+function Image_icon()
+{
+  for (let i = 0; i < img_d.length; i++) {
+    img_d[i].addEventListener("mouseover", function () {
+      icon_d[i].style.display = "block";
+      op_img[i].style.opacity = "0.5";
+    });
+    img_d[i].addEventListener("mouseout", function () {
+      icon_d[i].style.display = "none";
+      op_img[i].style.opacity = "1";
+    });
+  }
+}
+Image_icon();
+///Image change
+function Set_image(x)
+{
+  var image_temp = document.getElementsByClassName("image_pt");
+  var image_id = document.getElementById(x);
+  image_temp[0].setAttribute("src",  image_id.getAttribute("src"));
+}
+///////////
+////Filter
+var filter_price =  document.getElementsByClassName("product_price");
+var array_init = new Array(filter_price.length);
+var array_price = new Array(filter_price.length);
+var flag_check = 1;
+for (var i = 0; i < filter_price.length; i++){
+  var filter_dot = filter_price[i].textContent.split(".").join("");
+  var filter_dolar = filter_dot.replace("₫", "");
+  array_price[i] = Number(filter_dolar);
+  array_init[i] = Number(filter_dolar);
+}
+var filter_div = document.getElementsByClassName("filterDiv");
+function Filter_price_check()
+{
+  for (var j = 0; j < filter_div.length; j++){
+    filter_div[j].style.display = "none";
+  }
+  var check_box = document.getElementsByName("price_filter");
+  for (var i = 0; i < check_box.length; i++){
+    if (check_box[i].checked === true){
+      Display_product(check_box[i].value);
+      flag_check = 0;
+    }
+  }
+  if(flag_check == 1)
+  {
+    for (var j = 0; j < filter_div.length; j++){
+      filter_div[j].style.display = "block";
+    }
+  }
+  flag_check = 1;
+}
+
+function Display_product(x)
+{
+  for (var i = 0; i < filter_price.length; i++){
+    var filter_dot = filter_price[i].textContent.split(".").join("");
+    var filter_dolar = filter_dot.replace("₫", "");
+    if(x[0] == "D")
+    {
+      if(Number(filter_dolar) < 100000)
+      {
+        var id_filter = filter_price[i].getAttribute("class");
+        id_filter = id_filter.substring(0,id_filter.indexOf(" "));
+        var filter_product = document.getElementsByClassName(id_filter);
+        filter_product[0].style.display = "block";
+      }
+    }
+    if(x[0] == "1")
+    {
+      if(Number(filter_dolar) >= 100000 & Number(filter_dolar) <= 200000)
+      {
+        var id_filter = filter_price[i].getAttribute("class");
+        id_filter = id_filter.substring(0,id_filter.indexOf(" "));
+        var filter_product = document.getElementsByClassName(id_filter);
+        filter_product[0].style.display = "block";
+      }
+    }
+    if(x[0] == "2")
+    {
+      if(Number(filter_dolar) >= 200000 & Number(filter_dolar) <= 500000)
+      {
+        var id_filter = filter_price[i].getAttribute("class");
+        id_filter = id_filter.substring(0,id_filter.indexOf(" "));
+        var filter_product = document.getElementsByClassName(id_filter);
+        filter_product[0].style.display = "block";
+      }
+    }
+    if(x[0] == "5")
+    {
+      if(Number(filter_dolar) >= 500000 & Number(filter_dolar) <= 1000000)
+      {
+        var id_filter = filter_price[i].getAttribute("class");
+        id_filter = id_filter.substring(0,id_filter.indexOf(" "));
+        var filter_product = document.getElementsByClassName(id_filter);
+        filter_product[0].style.display = "block";
+      }
+    }
+    if(x[0] == "T")
+    {
+      if(Number(filter_dolar) > 1000000)
+      {
+        var id_filter = filter_price[i].getAttribute("class");
+        id_filter = id_filter.substring(0,id_filter.indexOf(" "));
+        var filter_product = document.getElementsByClassName(id_filter);
+        filter_product[0].style.display = "block";
+      }
+    }
+  }
+}
+
+function Filter(x)
+{
+  var sort_text = document.getElementById("sort_text_c");
+  if(x == "all")
+  {
+    sort_text.innerHTML = "Mặc định";
+    for (var j = 0; j < filter_div.length; j++){
+      Filter_add("0");
+    }
+  }
+
+  if(x == "increase")
+  {
+    sort_text.innerHTML = "Giá tăng dần";
+    for (var i = 0; i < filter_price.length - 1; i++){
+      for (var j = i + 1; j < filter_price.length; j++){
+        if(array_price[i] > array_price[j])
+        {
+          var temp_array = array_price[i];
+          array_price[i] = array_price[j];
+          array_price[j] = temp_array;
+        }
+      }
+    }
+    Filter_add("1");
+  }
+
+  if(x == "decrease")
+  {
+    sort_text.innerHTML = "Giá giảm dần";
+    for (var i = 0; i < filter_price.length - 1; i++){
+      for (var j = i + 1; j < filter_price.length; j++){
+        if(array_price[i] < array_price[j])
+        {
+          var temp_array = array_price[i];
+          array_price[i] = array_price[j];
+          array_price[j] = temp_array;
+        }
+      }
+    }
+    Filter_add("1");
+  }
+
+//Delete addEventListener()
+  var old_element = document.getElementsByClassName("product_image");
+  for(var i = 0; i < old_element.length; i++)
+  {
+    old_element[i].replaceWith(old_element[i].cloneNode(true));
+  }
+  Image_icon();
+}
+
+function Filter_add(x)
+{
+  if(x == "1")
+  {
+    for (var i = 0; i < filter_price.length; i++){
+      for (var j = 0; j < filter_price.length; j++){
+        var filter_dot = filter_price[j].textContent.split(".").join("");
+        var filter_dolar = filter_dot.replace("₫", "");
+        if(array_price[i] == Number(filter_dolar))
+        {
+          var id_filter = filter_price[j].getAttribute("class");
+          id_filter = id_filter.substring(0,id_filter.indexOf(" "));
+          var str_temp = "#" + String(id_filter);
+          $(str_temp).appendTo("#filter_contain");
+        }
+      }
+    }
+  }else if(x == "0")
+  {
+    for (var i = 0; i < filter_price.length; i++){
+      for (var j = 0; j < filter_price.length; j++){
+        var filter_dot = filter_price[j].textContent.split(".").join("");
+        var filter_dolar = filter_dot.replace("₫", "");
+        if(array_init[i] == Number(filter_dolar))
+        {
+          var id_filter = filter_price[j].getAttribute("class");
+          id_filter = id_filter.substring(0,id_filter.indexOf(" "));
+          var str_temp = "#" + String(id_filter);
+          $(str_temp).appendTo("#filter_contain");
+        }
+      }
+    }
+  }
 }
 ///////////

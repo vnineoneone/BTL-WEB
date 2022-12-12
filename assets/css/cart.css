@@ -254,6 +254,17 @@
     padding-bottom: 8px;
 }
 
+.total table
+{
+    border: none;
+}
+
+.total table tr
+{
+    background-color: #fff;
+    border: none;
+}
+
 .total_table tr td
 {
     border: none;
