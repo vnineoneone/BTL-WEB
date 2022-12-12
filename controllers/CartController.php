@@ -11,6 +11,7 @@ if (isset($_POST['type'])) {
                 $_SESSION['cart'][$i]['number'] += 1;
             }
         }
+        die(json_encode($id));
     }
     if ($_POST['type'] == 'decrease') {
 
@@ -21,7 +22,6 @@ if (isset($_POST['type'])) {
         }
     }
     if ($_POST['type'] == 'delete') {
-
         for ($i = 0; $i < count($_SESSION['cart']); $i++) {
             if ($_SESSION['cart'][$i]['id'] == $id) {
                 unset($_SESSION['cart'][$i]);
@@ -41,7 +41,7 @@ if (isset($_POST['themgiohang'])) {
     $sql = "SELECT * FROM product WHERE id_product = '" . $id . "' LIMIT 1";
     $query = mysqli_query($mysqli, $sql);
     $row = mysqli_fetch_array($query);
-
+    $product = [];
     if ($row) {
         $new_product = array(array(
             'name' => $row['name_product'],

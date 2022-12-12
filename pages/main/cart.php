@@ -1,8 +1,3 @@
-<!-- <?php
-
-print_r($_SESSION['cart']);
-?> -->
-
 <div class="cart_page" onclick="Check_Total_price()">
     <section class="cart_contain">
         <div class="large_container">
@@ -13,7 +8,9 @@ print_r($_SESSION['cart']);
             </div>
             <div class="product_contain">
                 <?php
-                if (isset($_SESSION['cart'])) {
+                if (!isset($_SESSION['cart']) || !count($_SESSION['cart'])) {
+                    echo "<p>Không có sản phẩm nào để hiển thị</p>";
+                } else {
                 ?>
                     <form action="">
                         <div class="product_list">
@@ -57,21 +54,21 @@ print_r($_SESSION['cart']);
                                     <div class="cart_body fifth_body">
                                         <div class="number_box">
                                             <button class="button_down" type="button" onclick="Decrease('item_<?php echo $item['id'] ?>', <?php echo $item['price'] ?>, 'price_<?php echo $item['id'] ?>')">
-                                                <i class="bi bi-caret-down-fill icon_button"></i>
+                                                <i class="bi bi-caret-down-fill icon_button subcart" name="<?php echo $item['id'] ?>"></i>
                                             </button>
                                             <input type="text" min="1" max="10" maxlength="2" value="<?php echo $item['number'] ?>" class="number_cart" id="item_<?php echo $item['id'] ?>">
                                             <button class="button_up" type="button" onclick="Increase('item_<?php echo $item['id'] ?>', <?php echo $item['price'] ?>, 'price_<?php echo $item['id'] ?>')">
-                                                <i class="bi bi-caret-up-fill icon_button"></i>
+                                                <i class="bi bi-caret-up-fill icon_button addcart" name="<?php echo $item['id'] ?>"></i>
                                             </button>
                                         </div>
                                     </div>
                                     <div class="cart_body sixth_body">
-                                        <span class="item_price" id="price_<?php echo $item['id'] ?>"><?php echo $item['price'] ?><sup>₫</sup></span>
+                                        <span class="item_price" id="price_<?php echo $item['id'] ?>"> <?php echo $item['price'] ?> <sup>₫</sup></span>
                                     </div>
                                 <?php
-                                }
+                            }
                                 ?>
-                            </div>
+                                </div>
                         </div>
                     </form>
                     <div class="row">
@@ -106,11 +103,7 @@ print_r($_SESSION['cart']);
                             </div>
                         </div>
                     </div>
-                <?php
-                } else {
-                    echo "<p>Khong co don hang nao de hien thi</p>";
-                }
-                ?>
+                <?php } ?>
 
             </div>
         </div>

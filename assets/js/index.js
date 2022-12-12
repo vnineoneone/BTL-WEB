@@ -112,8 +112,7 @@ $(document).ready(function () {
   formValidation();
 });
 
-function Remove_cart(x)
-{
+function Remove_cart(x) {
   var str_temp = "#" + String(x);
   $(str_temp).remove();
   //Total price
@@ -121,13 +120,12 @@ function Remove_cart(x)
   return true;
 }
 
-function Price_change(x)
-{
+function Price_change(x) {
   if (x.length == 4) {
     x = x.slice(0, 1) + "." + x.slice(1);
-  }else if(x.length == 5) {
+  } else if (x.length == 5) {
     x = x.slice(0, 2) + "." + x.slice(2);
-  } else if(x.length == 6) {
+  } else if (x.length == 6) {
     x = x.slice(0, 3) + "." + x.slice(3);
   } else if ((x.length >= 7) & (x.length < 8)) {
     x = x.slice(0, 1) + "." + x.slice(1);
@@ -208,97 +206,88 @@ $(".deletecart").click(function (e) {
   }).done(function (result) {
     console.log(result);
   });
-  console.log(e.target.getAttribute("name"));
 });
 
-function check_p()
-{
-    var result = document.getElementById("item_c1");
-    if(isNaN(result.value) || result.value < 1)
-    {
-        result.value = 1;
-    }
+function check_p() {
+  var result = document.getElementById("item_c1");
+  if (isNaN(result.value) || result.value < 1) {
+    result.value = 1;
+  }
 }
 ///Total price
-function Total_price_c()
-{
+function Total_price_c() {
   var item_price_c = document.getElementsByClassName("item_price");
   var total_price_c = 0;
   for (var card = 0; card < item_price_c.length; card++) {
-    if(card%2!=0)
-    {
-      var dot_card = item_price_c[card].textContent.replace(".","");
-      var dolar_card = dot_card.replace("₫","");
+    if (card % 2 != 0) {
+      var dot_card = item_price_c[card].textContent.split(".").join("");
+      var dolar_card = dot_card.replace("₫", "");
       total_price_c += Number(dolar_card);
     }
   }
-  if(item_price_c.length != 0)
-  {
-    document.getElementsByClassName("total_price")[0].innerHTML = Price_change(String(total_price_c));
+  if (item_price_c.length != 0) {
+    document.getElementsByClassName("total_price")[0].innerHTML = Price_change(
+      String(total_price_c)
+    );
   }
 }
 
 Total_price_c();
 
-function Check_Total_price()
-{
+function Check_Total_price() {
   var num_pro_c = document.getElementsByClassName("number_cart");
   var item_price_c = document.getElementsByClassName("item_price");
   var total_price_c = 0;
   for (var card = 0; card < num_pro_c.length; card++) {
-    if(num_pro_c[card].value == "")
-    {
+    if (num_pro_c[card].value == "") {
       alert("ERROR");
       num_pro_c[card].value = 1;
       return false;
     }
   }
   for (var card = 0; card < item_price_c.length; card++) {
-    if(card%2 == 0)
-    {
-      var dot_card = item_price_c[card].textContent.replace(".","");
-      var dolar_card = dot_card.replace("₫","");
-      item_price_c[card+1].innerHTML = Number(dolar_card) * Number(num_pro_c[card/2].value);
-      item_price_c[card+1].innerHTML = Price_change(String(item_price_c[card+1].innerHTML));
-      total_price_c = total_price_c + Number(dolar_card) * Number(num_pro_c[card/2].value);
+    if (card % 2 == 0) {
+      var dot_card = item_price_c[card].textContent.split(".").join("");
+      var dolar_card = dot_card.replace("₫", "");
+      item_price_c[card + 1].innerHTML =
+        Number(dolar_card) * Number(num_pro_c[card / 2].value);
+      item_price_c[card + 1].innerHTML = Price_change(
+        String(item_price_c[card + 1].innerHTML)
+      );
+      total_price_c =
+        total_price_c + Number(dolar_card) * Number(num_pro_c[card / 2].value);
     }
   }
-  if(item_price_c.length != 0)
-  {
-    document.getElementsByClassName("total_price")[0].innerHTML = Price_change(String(total_price_c));
+  if (item_price_c.length != 0) {
+    document.getElementsByClassName("total_price")[0].innerHTML = Price_change(
+      String(total_price_c)
+    );
   }
 }
 
 /// Product js///
-function check_number_p(e)
-{
-    var num_p = (e.which) ? e.which : e.keycode;
-    if(num_p > 31 &&  (num_p < 48 || num_p > 57))
-        return false;
-    return true;
+function check_number_p(e) {
+  var num_p = e.which ? e.which : e.keycode;
+  if (num_p > 31 && (num_p < 48 || num_p > 57)) return false;
+  return true;
 }
 
-function Decrease_c()
-{
-    var result_p = document.getElementById("item_c1");
-    if(!isNaN(result_p.value) && result_p.value > 1)
-        result_p.value--;
-    return true;
+function Decrease_c() {
+  var result_p = document.getElementById("item_c1");
+  if (!isNaN(result_p.value) && result_p.value > 1) result_p.value--;
+  return true;
 }
 
-function Increase_c()
-{
-    var result_p = document.getElementById("item_c1");
-    if(!isNaN(result_p.value))
-        result_p.value++;
-    return true;
+function Increase_c() {
+  var result_p = document.getElementById("item_c1");
+  if (!isNaN(result_p.value)) result_p.value++;
+  return true;
 }
-
 
 ////Tab
-var tab_link_d = document.getElementsByClassName('tab_header_text');
-var tab_content_d = document.getElementsByClassName('tab_content_d');
-function showContent_d(id){
+var tab_link_d = document.getElementsByClassName("tab_header_text");
+var tab_content_d = document.getElementsByClassName("tab_content_d");
+function showContent_d(id) {
   for (var i = 0; i < tab_content_d.length; i++) {
     tab_content_d[i].style.display = "none";
   }
@@ -306,32 +295,225 @@ function showContent_d(id){
   content_d.style.display = "block";
 }
 for (var i = 0; i < tab_link_d.length; i++) {
-  tab_link_d[i].addEventListener("click", function(){
-      var id = this.textContent;
-      for (var i = 0; i < tab_link_d.length; i++) {
-        tab_link_d[i].classList.remove("tab_current");
-      }
-      this.className += " tab_current";
-      showContent_d(id);
+  tab_link_d[i].addEventListener("click", function () {
+    var id = this.textContent;
+    for (var i = 0; i < tab_link_d.length; i++) {
+      tab_link_d[i].classList.remove("tab_current");
+    }
+    this.className += " tab_current";
+    showContent_d(id);
   });
 }
-if(!isNaN(tab_link_d))
-{
+if (!isNaN(tab_link_d)) {
   showContent_d("Mô tả");
 }
 
 ////Img related
-const img_d = document.getElementsByClassName('img_box_d');
-var icon_d = document.getElementsByClassName('icon_box_d');
-var op_img = document.getElementsByClassName('detail_link');
-for(let i = 0; i < img_d.length; i++){
-  img_d[i].addEventListener('mouseover',function(){
-    icon_d[i].style.display = "block";
-    op_img[i].style.opacity = "0.5"
-  });
-  img_d[i].addEventListener('mouseout',function(){
-    icon_d[i].style.display = "none";
-    op_img[i].style.opacity = "1"
-  });
+var img_d = document.getElementsByClassName("img_box_d");
+var count_icon = 0;
+if(img_d.length == 0)
+{
+  img_d = document.getElementsByClassName("product_image");
+}
+var icon_d = document.getElementsByClassName("icon_box_d");
+var op_img = document.getElementsByClassName("detail_link");
+function Image_icon()
+{
+  for (let i = 0; i < img_d.length; i++) {
+    img_d[i].addEventListener("mouseover", function () {
+      icon_d[i].style.display = "block";
+      op_img[i].style.opacity = "0.5";
+    });
+    img_d[i].addEventListener("mouseout", function () {
+      icon_d[i].style.display = "none";
+      op_img[i].style.opacity = "1";
+    });
+  }
+}
+Image_icon();
+///Image change
+function Set_image(x)
+{
+  var image_temp = document.getElementsByClassName("image_pt");
+  var image_id = document.getElementById(x);
+  image_temp[0].setAttribute("src",  image_id.getAttribute("src"));
+}
+///////////
+////Filter
+var filter_price =  document.getElementsByClassName("product_price");
+var array_init = new Array(filter_price.length);
+var array_price = new Array(filter_price.length);
+var flag_check = 1;
+for (var i = 0; i < filter_price.length; i++){
+  var filter_dot = filter_price[i].textContent.split(".").join("");
+  var filter_dolar = filter_dot.replace("₫", "");
+  array_price[i] = Number(filter_dolar);
+  array_init[i] = Number(filter_dolar);
+}
+var filter_div = document.getElementsByClassName("filterDiv");
+function Filter_price_check()
+{
+  for (var j = 0; j < filter_div.length; j++){
+    filter_div[j].style.display = "none";
+  }
+  var check_box = document.getElementsByName("price_filter");
+  for (var i = 0; i < check_box.length; i++){
+    if (check_box[i].checked === true){
+      Display_product(check_box[i].value);
+      flag_check = 0;
+    }
+  }
+  if(flag_check == 1)
+  {
+    for (var j = 0; j < filter_div.length; j++){
+      filter_div[j].style.display = "block";
+    }
+  }
+  flag_check = 1;
+}
+
+function Display_product(x)
+{
+  for (var i = 0; i < filter_price.length; i++){
+    var filter_dot = filter_price[i].textContent.split(".").join("");
+    var filter_dolar = filter_dot.replace("₫", "");
+    if(x[0] == "D")
+    {
+      if(Number(filter_dolar) < 100000)
+      {
+        var id_filter = filter_price[i].getAttribute("class");
+        id_filter = id_filter.substring(0,id_filter.indexOf(" "));
+        var filter_product = document.getElementsByClassName(id_filter);
+        filter_product[0].style.display = "block";
+      }
+    }
+    if(x[0] == "1")
+    {
+      if(Number(filter_dolar) >= 100000 & Number(filter_dolar) <= 200000)
+      {
+        var id_filter = filter_price[i].getAttribute("class");
+        id_filter = id_filter.substring(0,id_filter.indexOf(" "));
+        var filter_product = document.getElementsByClassName(id_filter);
+        filter_product[0].style.display = "block";
+      }
+    }
+    if(x[0] == "2")
+    {
+      if(Number(filter_dolar) >= 200000 & Number(filter_dolar) <= 500000)
+      {
+        var id_filter = filter_price[i].getAttribute("class");
+        id_filter = id_filter.substring(0,id_filter.indexOf(" "));
+        var filter_product = document.getElementsByClassName(id_filter);
+        filter_product[0].style.display = "block";
+      }
+    }
+    if(x[0] == "5")
+    {
+      if(Number(filter_dolar) >= 500000 & Number(filter_dolar) <= 1000000)
+      {
+        var id_filter = filter_price[i].getAttribute("class");
+        id_filter = id_filter.substring(0,id_filter.indexOf(" "));
+        var filter_product = document.getElementsByClassName(id_filter);
+        filter_product[0].style.display = "block";
+      }
+    }
+    if(x[0] == "T")
+    {
+      if(Number(filter_dolar) > 1000000)
+      {
+        var id_filter = filter_price[i].getAttribute("class");
+        id_filter = id_filter.substring(0,id_filter.indexOf(" "));
+        var filter_product = document.getElementsByClassName(id_filter);
+        filter_product[0].style.display = "block";
+      }
+    }
+  }
+}
+
+function Filter(x)
+{
+  var sort_text = document.getElementById("sort_text_c");
+  if(x == "all")
+  {
+    sort_text.innerHTML = "Mặc định";
+    for (var j = 0; j < filter_div.length; j++){
+      Filter_add("0");
+    }
+  }
+
+  if(x == "increase")
+  {
+    sort_text.innerHTML = "Giá tăng dần";
+    for (var i = 0; i < filter_price.length - 1; i++){
+      for (var j = i + 1; j < filter_price.length; j++){
+        if(array_price[i] > array_price[j])
+        {
+          var temp_array = array_price[i];
+          array_price[i] = array_price[j];
+          array_price[j] = temp_array;
+        }
+      }
+    }
+    Filter_add("1");
+  }
+
+  if(x == "decrease")
+  {
+    sort_text.innerHTML = "Giá giảm dần";
+    for (var i = 0; i < filter_price.length - 1; i++){
+      for (var j = i + 1; j < filter_price.length; j++){
+        if(array_price[i] < array_price[j])
+        {
+          var temp_array = array_price[i];
+          array_price[i] = array_price[j];
+          array_price[j] = temp_array;
+        }
+      }
+    }
+    Filter_add("1");
+  }
+
+//Delete addEventListener()
+  var old_element = document.getElementsByClassName("product_image");
+  for(var i = 0; i < old_element.length; i++)
+  {
+    old_element[i].replaceWith(old_element[i].cloneNode(true));
+  }
+  Image_icon();
+}
+
+function Filter_add(x)
+{
+  if(x == "1")
+  {
+    for (var i = 0; i < filter_price.length; i++){
+      for (var j = 0; j < filter_price.length; j++){
+        var filter_dot = filter_price[j].textContent.split(".").join("");
+        var filter_dolar = filter_dot.replace("₫", "");
+        if(array_price[i] == Number(filter_dolar))
+        {
+          var id_filter = filter_price[j].getAttribute("class");
+          id_filter = id_filter.substring(0,id_filter.indexOf(" "));
+          var str_temp = "#" + String(id_filter);
+          $(str_temp).appendTo("#filter_contain");
+        }
+      }
+    }
+  }else if(x == "0")
+  {
+    for (var i = 0; i < filter_price.length; i++){
+      for (var j = 0; j < filter_price.length; j++){
+        var filter_dot = filter_price[j].textContent.split(".").join("");
+        var filter_dolar = filter_dot.replace("₫", "");
+        if(array_init[i] == Number(filter_dolar))
+        {
+          var id_filter = filter_price[j].getAttribute("class");
+          id_filter = id_filter.substring(0,id_filter.indexOf(" "));
+          var str_temp = "#" + String(id_filter);
+          $(str_temp).appendTo("#filter_contain");
+        }
+      }
+    }
+  }
 }
 ///////////

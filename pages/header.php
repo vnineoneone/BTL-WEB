@@ -1,7 +1,9 @@
 <?php
 $sql_danhmuc = "SELECT * FROM category ORDER BY id_category DESC";
 $query_danhmuc = mysqli_query($mysqli, $sql_danhmuc);
-
+$sql = "SELECT * FROM infomation";
+$query = mysqli_query($mysqli, $sql);
+$row_info = mysqli_fetch_array($query);
 ?>
 
 <nav class="container nav">
@@ -33,15 +35,14 @@ $query_danhmuc = mysqli_query($mysqli, $sql_danhmuc);
                             <div class="avatar1">
                                 <img class="avatar__image" src="assets/images/item.png" />
                             </div>
-                            <div class="dropdown">
+                            <div class="dropdown" style="margin-right: 10px;">
                                 <a class="user dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                     Viet Le
                                 </a>
 
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <li><a class="dropdown-item" href="index.php?logout=1">Đăng xuất</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    <li><a class="dropdown-item" href="index.php?quanly=taikhoan">Thông tin tài khoản</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -120,7 +121,7 @@ $query_danhmuc = mysqli_query($mysqli, $sql_danhmuc);
                 <div class="contact">
                     <i class="fas fa-headphones"></i>
                     <span class="hot">Hotline: </span>
-                    <span id="hotline">19001234</span>
+                    <span id="hotline"><?php echo $row_info['phone'] ?></span>
                 </div>
             </div>
         </div>

@@ -54,11 +54,13 @@ $query_sua_sp = mysqli_query($mysqli, $sql_sua_sp);
                         <th scope="row">Gía sản phẩm</th>
                         <td>
                             <div class="input-group mb-2 mr-sm-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">@</div>
+                                <input type="text" class="form-control" name="price" required value="<?php echo $row['price'] ?>">
+                                <div class="invalid-feedback">
+                                    Không được để trống giá sản phẩm
                                 </div>
-                                <input type="text" class="form-control" name="price" value="<?php echo $row['price'] ?>">
-
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">.000 VNĐ</div>
+                                </div>
                                 <div>
                         </td>
                     </tr>
@@ -79,7 +81,10 @@ $query_sua_sp = mysqli_query($mysqli, $sql_sua_sp);
                     <tr>
                         <th scope="row">Chi tiết</th>
                         <td>
-                            <textarea row="5" class="form-control" name="detail"><?php echo $row['detail'] ?></textarea>
+                            <<<<<<< HEAD <textarea row="5" id="content" class="form-control" name="detail"><?php echo $row['detail'] ?></textarea>
+                                =======
+                                <textarea row="5" class="form-control" name="detail"><?php echo $row['detail'] ?></textarea>
+                                >>>>>>> da36cbacd3dd76467d252bbf75b6514ce384ede7
 
                         </td>
                     </tr>

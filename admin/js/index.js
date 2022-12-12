@@ -1,4 +1,4 @@
-// Example starter JavaScript for disabling form submissions if there are invalid fields
+// Validate form
 (function () {
   "use strict";
 
@@ -21,3 +21,19 @@
     );
   });
 })();
+
+//Trình soạn thảo văn bản
+ClassicEditor.create(document.querySelector("#content"))
+  .then((editor) => {
+    console.log(editor);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+ClassicEditor.create(document.querySelector("#brief"))
+  .then((editor) => {
+    console.log(editor);
+  })
+  .catch((error) => {
+    console.error(error);
+  });

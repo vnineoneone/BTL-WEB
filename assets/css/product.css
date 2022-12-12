@@ -646,6 +646,11 @@
     text-decoration: none;
 }
 
+.link_icon_d i
+{
+    margin-top: 14px;
+}
+
 .link_icon_d:hover
 {
     background: #f7941d;
