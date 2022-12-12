@@ -264,7 +264,7 @@ function Check_Total_price() {
     );
   }
 }
-
+Check_Total_price();
 /// Product js///
 function check_number_p(e) {
   var num_p = e.which ? e.which : e.keycode;
