@@ -81,11 +81,7 @@ $query_sua_sp = mysqli_query($mysqli, $sql_sua_sp);
                     <tr>
                         <th scope="row">Chi tiết</th>
                         <td>
-                            <<<<<<< HEAD <textarea row="5" id="content" class="form-control" name="detail"><?php echo $row['detail'] ?></textarea>
-                                =======
-                                <textarea row="5" class="form-control" name="detail"><?php echo $row['detail'] ?></textarea>
-                                >>>>>>> da36cbacd3dd76467d252bbf75b6514ce384ede7
-
+                            <textarea row="5" id="content" class="form-control" name="detail"><?php echo $row['detail'] ?></textarea>
                         </td>
                     </tr>
                     <tr>

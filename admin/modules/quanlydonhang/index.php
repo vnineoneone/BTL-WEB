@@ -14,9 +14,8 @@ $query_lietke_dh = mysqli_query($mysqli, $sql_lietke_dh);
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Mã đơn hàng</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Điện thoại</th>
-                    <th scope="col">Địa chỉ</th>
+                    <th scope="col">Thanh toán</th>
+                    <th scope="col">Thời gian</th>
                     <th scope="col">Trạng thái</th>
                     <th scope="col">Quản lý</th>
                 </tr>
@@ -31,10 +30,9 @@ $query_lietke_dh = mysqli_query($mysqli, $sql_lietke_dh);
                     <tr>
                         <th scope="row"><?php echo $row['id_cart'] ?></th>
                         <td><?php echo $row['code_cart'] ?></td>
-
-                        <td scope="row"><?php echo $row['email'] ?></td>
-                        <td scope="row"><?php echo $row['phone'] ?></td>
-                        <td scope="row"><?php echo $row['address'] ?></td>
+                        <td scope="row"><?php echo $row['method_payment'] ?></td>
+                        <td scope="row"><?php echo $row['created_at'] ?></td>
+                        <!-- <td scope="row"><?php echo $row['address'] ?></td> -->
                         <td>
                             <?php
                             if ($row['cart_status']) {
@@ -45,6 +43,7 @@ $query_lietke_dh = mysqli_query($mysqli, $sql_lietke_dh);
                         </td>
 
                         <td>
+
                             <div class="list-button">
                                 <a href="?action=quanlydonhang&query=donhang&code=<?php echo $row['code_cart'] ?>">
                                     <button type="button" class="btn btn-info">Xem</button>

@@ -19,6 +19,11 @@
             </div>
 
             <div class="form-group">
+                <label class="form-label" for="email">Địa chỉ</label>
+                <input class="form-control" type="text" name="address" placeholder="Nhập địa chỉ" required>
+            </div>
+
+            <div class="form-group">
                 <label class="form-label" for="password">Mật khẩu</label>
                 <input class="form-control" type="password" id="password" name="password" placeholder="Nhập mật khẩu" required>
             </div>

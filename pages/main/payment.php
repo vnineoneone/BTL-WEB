@@ -1,5 +1,9 @@
 <?php
 session_start();
+include "../../admin/config/config.php";
+$sql = "SELECT * FROM user WHERE id = '" . $_SESSION['id_khachhang'] . "'";
+$query = mysqli_query($mysqli, $sql);
+$row = mysqli_fetch_array($query);
 ?>
 
 <!doctype html>
@@ -24,7 +28,7 @@ session_start();
   </div>
 
   <div class="container">
-    <form class="needs-validation" novalidate="" action="control_payment.php">
+    <form class="needs-validation" method="POST" novalidate="" action="../../controllers/PaymentController.php">
 
       <div class="row g-5">
 
@@ -41,14 +45,18 @@ session_start();
             <?php
             $sum = 0;
             foreach ($_SESSION['cart'] as $item) {
-              $sum += $item['price'] * $item['number'];
+              $total =  $item['price'] * $item['number'];
+              $sum += $total;
             ?>
 
               <li class="list-group-item d-flex justify-content-between lh-sm">
-                <div class="flex-shrink-0">
+                <div class="flex-shrink-0 mt-2">
                   <img src="../../admin/modules/quanlysp//uploads/<?php
                                                                   echo $item['image'];
                                                                   ?>" alt="" class="product-img">
+                  <span class="position-absolute top-40 start-15 translate-middle badge rounded-pill bg-primary"><?php
+                                                                                                                  echo $item['number'];
+                                                                                                                  ?></span>
                 </div>
                 <div class="flex-grow-1 ms-3">
                   <h6 class="my-0"> <?php
@@ -57,8 +65,8 @@ session_start();
                   <small class="text-muted">Đen / Nhỏ</small>
                 </div>
                 <span class="text-muted"> <?php
-                                          echo $item['price'] * $item['number'];
-                                          ?> VNĐ</span>
+                                          echo number_format($total, 0, ', ', '.') . '.000 VNĐ';
+                                          ?></span>
               </li>
             <?php } ?>
 
@@ -85,7 +93,7 @@ session_start();
             </li>
             <li class="list-group-item d-flex justify-content-between">
               <span>Tạm tính</span>
-              <strong><?php echo $sum ?> VNĐ</strong>
+              <strong><?php echo number_format($sum, 0, ', ', '.') . '.000 VNĐ'; ?></strong>
             </li>
             <li class="list-group-item d-flex justify-content-between">
               <span>Phí vận chuyển</span>
@@ -95,7 +103,7 @@ session_start();
 
             <li class="list-group-item d-flex justify-content-between">
               <span>Tổng cộng</span>
-              <strong>1.280.000 VNĐ</strong>
+              <strong><?php echo number_format($sum + 40, 0, ', ', '.') . '.000 VNĐ' ?></strong>
             </li>
           </ul>
           <div class="d-flex align-items-center justify-content-between">
@@ -104,7 +112,6 @@ session_start();
               <span class="previous-link__content">Quay về giỏ hàng</span>
             </a>
             <button class="w-50 btn btn-primary btn-md" type="submit">ĐẶT HÀNG</button>
-
           </div>
 
         </div>
@@ -114,7 +121,7 @@ session_start();
           <div class="row g-3">
             <div class="col-sm-6">
               <label for="firstName" class="form-label">Họ và tên</label>
-              <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+              <input type="text" class="form-control" name="name" value="<?php echo $row['name'] ?>" required="">
               <div class="invalid-feedback">
                 Valid first name is required.
               </div>
@@ -122,7 +129,7 @@ session_start();
 
             <div class="col-sm-6">
               <label for="lastName" class="form-label">Số điện thoại</label>
-              <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+              <input type="text" class="form-control" name="phone" value="<?php echo $row['phone'] ?>" required="">
               <div class="invalid-feedback">
                 Valid last name is required.
               </div>
@@ -130,7 +137,7 @@ session_start();
 
             <div class="col-12">
               <label for="email" class="form-label">Email <span class="text-muted">(tuỳ chọn)</span></label>
-              <input type="email" class="form-control" id="email" placeholder="">
+              <input type="email" class="form-control" id="email" name="email" value="<?php echo $row['email'] ?>">
               <div class="invalid-feedback">
                 Please enter a valid email address for shipping updates.
               </div>
@@ -138,13 +145,13 @@ session_start();
 
             <div class="col-12">
               <label for="address" class="form-label">Địa chỉ</label>
-              <input type="text" class="form-control" id="address" placeholder="" required="">
+              <input type="text" class="form-control" name="address" id="address" value="<?php echo $row['address'] ?>" required="">
               <div class="invalid-feedback">
                 Please enter your shipping address.
               </div>
             </div>
 
-            <div class="col-md-4">
+            <!-- <div class="col-md-4">
               <label for="country" class="form-label">Tỉnh/ Thành phố</label>
               <select class="form-select" id="city" required="">
                 <option value="" selected>Tỉnh/ Thành phố </option>
@@ -172,7 +179,7 @@ session_start();
               <div class="invalid-feedback">
                 Please provide a valid state.
               </div>
-            </div>
+            </div> -->
           </div>
 
           <hr class="my-4">
@@ -198,17 +205,17 @@ session_start();
 
           <h4 class="mb-3 title-1-1">PHƯƠNG THỨC THANH TOÁN</h4>
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="cb" checked>
+            <input type="radio" class="form-check-input" name="type" value="get" id="cb" checked>
             <label class="form-check-label" for="cb">Thanh toán trực tiếp khi giao hàng</label>
           </div>
 
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="cb">
+            <input type="radio" class="form-check-input" name="type" id="cb">
             <label class="form-check-label" for="cb">Thanh toán bằng thẻ quốc tế và nội địa (ATM)</label>
           </div>
 
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="cb">
+            <input type="radio" class="form-check-input" name="type" value="momo" id="cb">
             <label class="form-check-label" for="cb">Thanh toán bằng ví MoMo</label>
           </div>
 
@@ -216,9 +223,12 @@ session_start();
       </div>
     </form>
   </div>
-  <form class="" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="../../controllers/MoMoAtmController.php">
+  <!-- <form class="" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="../../controllers/MomoQRController.php">
     <button type="submit" name="momo" class="btn btn-primary">Primary</button>
   </form>
+  <form class="" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="../../controllers/MomoAtmController.php">
+    <button type="submit" name="momo" class="btn btn-primary">Primary</button>
+  </form> -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
   <script src="../../assets/js/payment.js"></script>

@@ -17,10 +17,7 @@ if ($order_query) {
     }
     $mail =  new Mailer();
     $mail->order_mail();
-    print_r($mail);
 }
 // unset($_SESSION['cart']);
 
-
-
-// header('Location: thank.php');
+header('Location: thank.php');
