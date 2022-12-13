@@ -1,3 +1,11 @@
+<?php
+session_start();
+include_once "admin/config/config.php";
+include_once "controllers/UserController.php";
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +21,6 @@
     <script src="vendor/owlcarousel/owl.carousel.min.js"></script>
 
     <link rel="stylesheet" href="vendor/awesome-notifications/style.css">
-    </link>
     <script src="vendor/awesome-notifications/index.var.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@emretulek/jbvalidator"></script>
@@ -28,13 +35,6 @@
 </head>
 
 <body>
-    <?php
-    session_start();
-    include "admin/config/config.php";
-    include_once "controller.php";
-    ?>
-
-
     <div class="">
         <?php
         if (count($_GET)) {
@@ -55,6 +55,9 @@
         ?>
         <div class="container content">
             <?php include("pages/main.php"); ?>
+        </div>
+        <div class="footer">
+            <?php include("pages/footer.php") ?>
         </div>
 
     </div>

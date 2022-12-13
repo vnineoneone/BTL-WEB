@@ -1,3 +1,10 @@
+.cart_page
+{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .cart_contain
 {
     margin-bottom: 50px;
@@ -318,30 +325,6 @@
 .second_button:hover
 {
     background-color: #c57718;
-}
-
-@media (min-width: 1200px)
-{
-    .container
-    {
-        width: 1170px;
-    }
-}
-
-@media (min-width: 992px)
-{
-    .container
-    {
-        width: 970px;
-    }
-}
-
-@media (min-width: 768px)
-{
-    .container
-    {
-        width: 750px;
-    }
 }
 
 @media (max-width: 767px)

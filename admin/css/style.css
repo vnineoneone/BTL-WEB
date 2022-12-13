@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 
 }
 
@@ -11,11 +12,24 @@
 
 }
 
-.form-container form table th,
+.table th,
 td {
     text-align: center;
 }
 
-.table-data {
-    margin-top: 50px;
+
+
+.main-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+}
+
+.list-button button {
+    margin: 2px;
 }

@@ -14,12 +14,22 @@ if ($tmp == "dangky") {
     include "main/category.php";
 } else if ($tmp == "gioithieu") {
     include "main/introduce.php";
+} else if ($tmp == "tintuc" && isset($_GET['id'])) {
+    include "main/news_detail.php";
 } else if ($tmp == "tintuc") {
     include "main/news.php";
 } else if ($tmp == "lienhe") {
     include "main/contact.php";
 } else if ($tmp == "sanpham") {
     include "main/product.php";
+} else if ($tmp == "taikhoan/donhang") {
+    include "main/account_myorder.php";
+} else if ($tmp == "taikhoan") {
+    include "main/account_info.php";
+} else if ($tmp == "taikhoan/doimatkhau") {
+    include "main/account_changepass.php";
+} else if ($tmp == "taikhoan/diachi") {
+    include "main/account_address.php";
 } else {
     include "main/index.php";
 }
