@@ -1,6 +1,6 @@
 function countDown() {
   // Set the date we're counting down to
-  var countDownDate = new Date("Jan 5, 2024 15:37:25").getTime();
+  var countDownDate = new Date("Jan 1, 2023 15:37:25").getTime();
 
   // Update the count down every 1 second
   var x = setInterval(function () {
@@ -19,11 +19,20 @@ function countDown() {
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     // Output the result in an element with id="demo"
-    var time = document.getElementById("time");
+    var time = document.getElementById("time1");
     if (time) {
-      document.getElementById(
-        "time"
-      ).innerHTML = `<span>${days}<p>Ngày</p></span><span>${hours}<p> Giờ</p>
+      time.innerHTML = `<span>${days}<p>Ngày</p></span><span>${hours}<p> Giờ</p>
+    </span><span>${minutes}<p>Phút</p></span><span>${seconds}<p>Giây</p></span>`;
+
+      // If the count down is over, write some text
+      if (distance < 0) {
+        clearInterval(x);
+        time.innerHTML = "EXPIRED";
+      }
+    }
+    var time = document.getElementById("time2");
+    if (time) {
+      time.innerHTML = `<span>${days}<p>Ngày</p></span><span>${hours}<p> Giờ</p>
     </span><span>${minutes}<p>Phút</p></span><span>${seconds}<p>Giây</p></span>`;
 
       // If the count down is over, write some text
@@ -208,6 +217,53 @@ $(".deletecart").click(function (e) {
   });
 });
 
+$("#post_comment").click(function (e) {
+  var id = $("#id_product").val();
+  var content = $("#comment_content").val();
+  var rating = $("input[name='rating']:checked").val();
+  var list_star = "";
+  $.ajax({
+    url: "controllers/CommentController.php",
+    type: "POST",
+    dataType: "json",
+    data: {
+      id: id,
+      content: content,
+      rating: rating,
+    },
+  }).done(function (result) {
+    $("#comment_content").val("");
+    for (let i = 0; i < parseInt(rating); i++) {
+      list_star += '<i class="fas fa-star" id="star"></i>';
+    }
+    $("#review-list2").prepend(`<li>
+        <div class="d-flex">
+            <div class="left">
+                <span>
+                    <img src="assets/images/avatar.png" class="profile-pict-img img-fluid" alt="" />
+                </span>
+            </div>
+            <div class="right">
+                <h4>
+                    ${result["name_user"]}
+                    <span class="gig-rating text-body-2">
+                    ${list_star}
+                    </span>
+                </h4>
+                <div class="country d-flex align-items-center">
+                    <span class="publish py-2 d-inline-block w-100"> <?php echo $row_bl['created_at'] ?></span>
+                </div>
+                <div class="review-description">
+                    <p>
+                        ${content}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </li>`);
+  });
+});
+
 function check_p() {
   var result = document.getElementById("item_c1");
   if (isNaN(result.value) || result.value < 1) {
@@ -311,14 +367,12 @@ if (!isNaN(tab_link_d)) {
 ////Img related
 var img_d = document.getElementsByClassName("img_box_d");
 var count_icon = 0;
-if(img_d.length == 0)
-{
+if (img_d.length == 0) {
   img_d = document.getElementsByClassName("product_image");
 }
 var icon_d = document.getElementsByClassName("icon_box_d");
 var op_img = document.getElementsByClassName("detail_link");
-function Image_icon()
-{
+function Image_icon() {
   for (let i = 0; i < img_d.length; i++) {
     img_d[i].addEventListener("mouseover", function () {
       icon_d[i].style.display = "block";
@@ -332,97 +386,86 @@ function Image_icon()
 }
 Image_icon();
 ///Image change
-function Set_image(x)
-{
+function Set_image(x) {
   var image_temp = document.getElementsByClassName("image_pt");
   var image_id = document.getElementById(x);
-  image_temp[0].setAttribute("src",  image_id.getAttribute("src"));
+  image_temp[0].setAttribute("src", image_id.getAttribute("src"));
 }
 ///////////
 ////Filter
-var filter_price =  document.getElementsByClassName("product_price");
+var filter_price = document.getElementsByClassName("product_price");
 var array_init = new Array(filter_price.length);
 var array_price = new Array(filter_price.length);
 var flag_check = 1;
-for (var i = 0; i < filter_price.length; i++){
+for (var i = 0; i < filter_price.length; i++) {
   var filter_dot = filter_price[i].textContent.split(".").join("");
   var filter_dolar = filter_dot.replace("₫", "");
   array_price[i] = Number(filter_dolar);
   array_init[i] = Number(filter_dolar);
 }
 var filter_div = document.getElementsByClassName("filterDiv");
-function Filter_price_check()
-{
-  for (var j = 0; j < filter_div.length; j++){
+function Filter_price_check() {
+  for (var j = 0; j < filter_div.length; j++) {
     filter_div[j].style.display = "none";
   }
   var check_box = document.getElementsByName("price_filter");
-  for (var i = 0; i < check_box.length; i++){
-    if (check_box[i].checked === true){
+  for (var i = 0; i < check_box.length; i++) {
+    if (check_box[i].checked === true) {
       Display_product(check_box[i].value);
       flag_check = 0;
     }
   }
-  if(flag_check == 1)
-  {
-    for (var j = 0; j < filter_div.length; j++){
+  if (flag_check == 1) {
+    for (var j = 0; j < filter_div.length; j++) {
       filter_div[j].style.display = "block";
     }
   }
   flag_check = 1;
 }
 
-function Display_product(x)
-{
-  for (var i = 0; i < filter_price.length; i++){
+function Display_product(x) {
+  for (var i = 0; i < filter_price.length; i++) {
     var filter_dot = filter_price[i].textContent.split(".").join("");
     var filter_dolar = filter_dot.replace("₫", "");
-    if(x[0] == "D")
-    {
-      if(Number(filter_dolar) < 100000)
-      {
+    if (x[0] == "D") {
+      if (Number(filter_dolar) < 100000) {
         var id_filter = filter_price[i].getAttribute("class");
-        id_filter = id_filter.substring(0,id_filter.indexOf(" "));
+        id_filter = id_filter.substring(0, id_filter.indexOf(" "));
         var filter_product = document.getElementsByClassName(id_filter);
         filter_product[0].style.display = "block";
       }
     }
-    if(x[0] == "1")
-    {
-      if(Number(filter_dolar) >= 100000 & Number(filter_dolar) <= 200000)
-      {
+    if (x[0] == "1") {
+      if ((Number(filter_dolar) >= 100000) & (Number(filter_dolar) <= 200000)) {
         var id_filter = filter_price[i].getAttribute("class");
-        id_filter = id_filter.substring(0,id_filter.indexOf(" "));
+        id_filter = id_filter.substring(0, id_filter.indexOf(" "));
         var filter_product = document.getElementsByClassName(id_filter);
         filter_product[0].style.display = "block";
       }
     }
-    if(x[0] == "2")
-    {
-      if(Number(filter_dolar) >= 200000 & Number(filter_dolar) <= 500000)
-      {
+    if (x[0] == "2") {
+      if ((Number(filter_dolar) >= 200000) & (Number(filter_dolar) <= 500000)) {
         var id_filter = filter_price[i].getAttribute("class");
-        id_filter = id_filter.substring(0,id_filter.indexOf(" "));
+        id_filter = id_filter.substring(0, id_filter.indexOf(" "));
         var filter_product = document.getElementsByClassName(id_filter);
         filter_product[0].style.display = "block";
       }
     }
-    if(x[0] == "5")
-    {
-      if(Number(filter_dolar) >= 500000 & Number(filter_dolar) <= 1000000)
-      {
+    if (x[0] == "5") {
+      if (
+        (Number(filter_dolar) >= 500000) &
+        (Number(filter_dolar) <= 1000000)
+      ) {
         var id_filter = filter_price[i].getAttribute("class");
-        id_filter = id_filter.substring(0,id_filter.indexOf(" "));
+        id_filter = id_filter.substring(0, id_filter.indexOf(" "));
         var filter_product = document.getElementsByClassName(id_filter);
         filter_product[0].style.display = "block";
       }
     }
-    if(x[0] == "T")
-    {
-      if(Number(filter_dolar) > 1000000)
-      {
+    if (x[0] == "T") {
+      if (Number(filter_dolar) > 1000000) {
         var id_filter = filter_price[i].getAttribute("class");
-        id_filter = id_filter.substring(0,id_filter.indexOf(" "));
+        id_filter = id_filter.substring(0, id_filter.indexOf(" "));
         var filter_product = document.getElementsByClassName(id_filter);
         filter_product[0].style.display = "block";
       }
@@ -430,24 +473,20 @@ function Display_product(x)
   }
 }
 
-function Filter(x)
-{
+function Filter(x) {
   var sort_text = document.getElementById("sort_text_c");
-  if(x == "all")
-  {
+  if (x == "all") {
     sort_text.innerHTML = "Mặc định";
-    for (var j = 0; j < filter_div.length; j++){
+    for (var j = 0; j < filter_div.length; j++) {
       Filter_add("0");
     }
   }
 
-  if(x == "increase")
-  {
+  if (x == "increase") {
     sort_text.innerHTML = "Giá tăng dần";
-    for (var i = 0; i < filter_price.length - 1; i++){
-      for (var j = i + 1; j < filter_price.length; j++){
-        if(array_price[i] > array_price[j])
-        {
+    for (var i = 0; i < filter_price.length - 1; i++) {
+      for (var j = i + 1; j < filter_price.length; j++) {
+        if (array_price[i] > array_price[j]) {
           var temp_array = array_price[i];
           array_price[i] = array_price[j];
           array_price[j] = temp_array;
@@ -457,13 +496,11 @@ function Filter(x)
     Filter_add("1");
   }
 
-  if(x == "decrease")
-  {
+  if (x == "decrease") {
     sort_text.innerHTML = "Giá giảm dần";
-    for (var i = 0; i < filter_price.length - 1; i++){
-      for (var j = i + 1; j < filter_price.length; j++){
-        if(array_price[i] < array_price[j])
-        {
+    for (var i = 0; i < filter_price.length - 1; i++) {
+      for (var j = i + 1; j < filter_price.length; j++) {
+        if (array_price[i] < array_price[j]) {
           var temp_array = array_price[i];
           array_price[i] = array_price[j];
           array_price[j] = temp_array;
@@ -473,42 +510,36 @@ function Filter(x)
     Filter_add("1");
   }
 
-//Delete addEventListener()
+  //Delete addEventListener()
   var old_element = document.getElementsByClassName("product_image");
-  for(var i = 0; i < old_element.length; i++)
-  {
+  for (var i = 0; i < old_element.length; i++) {
     old_element[i].replaceWith(old_element[i].cloneNode(true));
   }
   Image_icon();
 }
 
-function Filter_add(x)
-{
-  if(x == "1")
-  {
-    for (var i = 0; i < filter_price.length; i++){
-      for (var j = 0; j < filter_price.length; j++){
+function Filter_add(x) {
+  if (x == "1") {
+    for (var i = 0; i < filter_price.length; i++) {
+      for (var j = 0; j < filter_price.length; j++) {
         var filter_dot = filter_price[j].textContent.split(".").join("");
         var filter_dolar = filter_dot.replace("₫", "");
-        if(array_price[i] == Number(filter_dolar))
-        {
+        if (array_price[i] == Number(filter_dolar)) {
           var id_filter = filter_price[j].getAttribute("class");
-          id_filter = id_filter.substring(0,id_filter.indexOf(" "));
+          id_filter = id_filter.substring(0, id_filter.indexOf(" "));
           var str_temp = "#" + String(id_filter);
           $(str_temp).appendTo("#filter_contain");
         }
       }
     }
-  }else if(x == "0")
-  {
-    for (var i = 0; i < filter_price.length; i++){
-      for (var j = 0; j < filter_price.length; j++){
+  } else if (x == "0") {
+    for (var i = 0; i < filter_price.length; i++) {
+      for (var j = 0; j < filter_price.length; j++) {
         var filter_dot = filter_price[j].textContent.split(".").join("");
         var filter_dolar = filter_dot.replace("₫", "");
-        if(array_init[i] == Number(filter_dolar))
-        {
+        if (array_init[i] == Number(filter_dolar)) {
           var id_filter = filter_price[j].getAttribute("class");
-          id_filter = id_filter.substring(0,id_filter.indexOf(" "));
+          id_filter = id_filter.substring(0, id_filter.indexOf(" "));
           var str_temp = "#" + String(id_filter);
           $(str_temp).appendTo("#filter_contain");
         }

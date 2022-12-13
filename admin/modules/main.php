@@ -18,6 +18,10 @@ if ($temp == 'quanlydanhmucsanpham' && $query == 'them') {
     include('modules/quanlysp/lietke.php');
 } else if ($temp == 'quanlysp' && $query == 'sua') {
     include('modules/quanlysp/sua.php');
+} else if ($temp == 'quanlysp' && $query == 'binhluan') {
+    include('modules/quanlysp/binhluan.php');
+} else if ($temp == 'quanlysp' && $query == 'thongke') {
+    include('modules/quanlysp/thongke.php');
 } else if ($temp == 'quanlykhachhang' && $query == 'bangdulieu') {
     include('modules/quanlykhachhang/lietke.php');
 } else if ($temp == 'quanlykhachhang' && $query == 'them') {

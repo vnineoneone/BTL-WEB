@@ -20,6 +20,7 @@ $query_lietke_sp = mysqli_query($mysqli, $sql_lietke_sp);
                     <!-- <th scope="col">Id</th> -->
                     <th scope="col">Tên sản phẩm</th>
                     <th scope="col">Tên danh mục</th>
+                    <th scope="col">Thương hiệu</th>
                     <th scope="col">Mã sản phẩm</th>
                     <th scope="col">Giá</th>
                     <th scope="col">Số lượng</th>
@@ -40,6 +41,7 @@ $query_lietke_sp = mysqli_query($mysqli, $sql_lietke_sp);
                         <!-- <th scope="row"><?php echo $i ?></th> -->
                         <td><?php echo $row['name_product'] ?></td>
                         <td><?php echo $row['name_category'] ?></td>
+                        <td><?php echo $row['brand'] ?></td>
                         <td><?php echo $row['code'] ?></td>
                         <td><?php echo number_format($row['price'], 0, ', ', '.') . '.000 VNĐ' ?></td>
                         <td><?php echo $row['number'] ?></td>

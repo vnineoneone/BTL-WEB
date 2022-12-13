@@ -50,6 +50,21 @@ $query_sua_sp = mysqli_query($mysqli, $sql_sua_sp);
                             </select>
                         </td>
                     </tr>
+                    <th scope="row">Thương hiệu</th>
+                    <td>
+
+                        <select class="form-select" name="brand">
+                            <?php
+                            $sql_thuonghieu = "SELECT * FROM brand ORDER BY id_brand DESC";
+                            $query_thuonghieu = mysqli_query($mysqli, $sql_thuonghieu);
+                            while ($row_thuonghieu = mysqli_fetch_array($query_thuonghieu)) {
+                            ?>
+                                <option value="<?php echo $row_thuonghieu['name_brand'] ?>"><?php echo $row_thuonghieu['name_brand'] ?></option>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                    </td>
                     <tr>
                         <th scope="row">Gía sản phẩm</th>
                         <td>

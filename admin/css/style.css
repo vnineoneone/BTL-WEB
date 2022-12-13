@@ -33,3 +33,7 @@ td {
 .list-button button {
     margin: 2px;
 }
+
+#star {
+    color: #f7941d;
+}

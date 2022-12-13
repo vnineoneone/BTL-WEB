@@ -33,7 +33,7 @@ $row_info = mysqli_fetch_array($query);
                     ?>
                         <div class="list-user">
                             <div class="avatar1">
-                                <img class="avatar__image" src="assets/images/item.png" />
+                                <img class="avatar__image" src="assets/images/avatar.png" />
                             </div>
                             <div class="dropdown" style="margin-right: 10px;">
                                 <a class="user dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">

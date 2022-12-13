@@ -1,53 +1,48 @@
 <?php
-$sql_lietke_bv = "SELECT * FROM post ORDER BY id DESC";
-$query_lietke_bv = mysqli_query($mysqli, $sql_lietke_bv);
+$sql_lietke_bl = "SELECT * FROM comment ORDER BY id_product DESC";
+$query_lietke_bl = mysqli_query($mysqli, $sql_lietke_bl);
 ?>
 
 <div class="card mb-4 table-data" style="width: 100%;">
     <div class="card-header">
         <i class="fas fa-table me-1"></i>
-        Bảng dữ liệu bài viết
-        <div style="display: flex; justify-content: flex-end; flex: 1; ">
-            <a href="?action=quanlybaiviet&query=them">
-                <button type="button" class="btn btn-success">Thêm bài viết</button>
-            </a>
-        </div>
+        Bảng dữ liệu bình luận
     </div>
     <div class="card-body">
         <table class="table" id="datatablesSimple">
             <thead>
                 <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">Tên bài viết</th>
-                    <th scope="col">Hình ảnh</th>
-                    <th scope="col">Tóm tắt</th>
-                    <th scope="col">Trạng thái</th>
+                    <th scope="col">Người dùng</th>
+                    <th scope="col">Sản phẩm</th>
+                    <th scope="col">Nội dung</th>
+                    <th scope="col">Đánh giá</th>
                     <th scope="col">Quản lý</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                 $i = 0;
-                while ($row = mysqli_fetch_array($query_lietke_bv)) {
+                while ($row = mysqli_fetch_array($query_lietke_bl)) {
                     $i++;
                 ?>
                     <tr>
                         <th scope="row"><?php echo $row['id'] ?></th>
-                        <td><?php echo $row['name'] ?></td>
-                        <td><img src="modules/quanlybaiviet/uploads/<?php echo $row['image'] ?>" width="100px" height="100px"></td>
-                        <td><?php echo $row['brief'] ?></td>
+                        <td><?php echo $row['user'] ?></td>
+                        <td><?php echo $row['product'] ?></td>
+                        <td><?php echo $row['content'] ?></td>
                         <td>
                             <?php
-                            if ($row['status']) {
-                                echo '<span class="badge badge-primary">Kích hoạt</span>';
-                            } else {
-                                echo '<span class="badge badge-danger">Vô hiệu hóa</span>';
-                            } ?></td>
+                            for ($i = 0; $i < $row['star']; $i++) {
+                            ?>
+                                <i class="fas fa-star" id="star"></i>
+                            <?php
+                            }
+                            ?>
+                        </td>
                         <td>
+
                             <div class="list-button">
-                                <a href="?action=quanlybaiviet&query=sua&id=<?php echo $row['id'] ?>">
-                                    <button type="button" class="btn btn-primary">Sửa</button>
-                                </a>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#item<?php echo $row['id'] ?>">Xóa</button>
                             </div>
                         </td>
@@ -61,11 +56,11 @@ $query_lietke_bv = mysqli_query($mysqli, $sql_lietke_bv);
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    Bạn có chắc muốn xóa sản phẩm này?
+                                    Bạn có chắc muốn xóa bình luận này?
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                                    <a href=" modules/quanlybaiviet/xuly.php?id=<?php echo $row['id'] ?>">
+                                    <a href="modules/quanlysp/xulybinhluan.php?id=<?php echo $row['id'] ?>">
                                         <button type="button" class="btn btn-danger">Xóa</button>
                                     </a>
                                 </div>

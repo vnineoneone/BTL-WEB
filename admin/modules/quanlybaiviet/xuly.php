@@ -30,7 +30,7 @@ if (isset($_POST['thembaiviet'])) {
         $sql_sua = "UPDATE post SET name ='" . $name . "', brief='" . $brief . "', content='" . $content . "', 
         status='" . $status . "' WHERE id = '" . $_GET['id'] . "'";
     }
-    header("Location: ../../index.php?action=quanlybaiviet&query=bangdulieu");
+    // header("Location: ../../index.php?action=quanlybaiviet&query=bangdulieu");
 } else {
     $id = $_GET['id'];
     $sql = "SELECT * FROM post WHERE id = '" . $id . "'";

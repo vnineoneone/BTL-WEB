@@ -435,6 +435,11 @@ navbar-nav li a:hover {
     height: 640px;
 }
 
+.btn2 {
+    border: none;
+    background-color: red;
+}
+
 .count-down {
     height: 590px;
     border: 2px solid #f7941d;
@@ -462,13 +467,13 @@ navbar-nav li a:hover {
     text-align: center;
 }
 
-.clock #time {
+.clock .time {
     display: flex;
     justify-content: center;
     margin-top: 30px;
 }
 
-.clock #time span {
+.clock .time span {
     background-color: #ffffff;
     border-radius: 50%;
     box-shadow: #c4c5d1 0px 11px 21px 0px;
@@ -482,7 +487,7 @@ navbar-nav li a:hover {
     height: 61px;
 }
 
-.clock #time span p {
+.clock .time span p {
     font-size: 14px;
     color: #3a3d5e;
 }
@@ -561,7 +566,8 @@ navbar-nav li a:hover {
 }
 
 .product .name {
-    margin-top: 18px;
+    margin-top: 10px;
+    margin-bottom: 5px;
     font-size: 14px;
     letter-spacing: 0.14px;
 }

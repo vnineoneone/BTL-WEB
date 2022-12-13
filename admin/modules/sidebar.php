@@ -104,20 +104,49 @@
                 </li>
                 <li class="nav-item">
                     <a href="index.php?action=quanlythuonghieu&query=bangdulieu" class="nav-link">
-                        <i class="nav-icon fas fa-layer-group"></i>
+                        <i class="nav-icon fas fa-copyright"></i>
                         <p>
                             Quản lý thương hiệu
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <i class="nav-icon fas fa-box"></i>
+                        <p>
+                            Quản lý sản phẩm
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="index.php?action=quanlysp&query=bangdulieu" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Quản lý chung</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.php?action=quanlysp&query=binhluan" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Quản lý bình luận</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.php?action=quanlysp&query=thongke" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thống kê</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- <li class="nav-item">
                     <a href="index.php?action=quanlysp&query=bangdulieu" class="nav-link">
                         <i class="nav-icon fas fa-box"></i>
                         <p>
                             Quản lý sản phẩm
                         </p>
                     </a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a href="index.php?action=quanlykhachhang&query=bangdulieu" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
@@ -136,7 +165,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="index.php?action=quanlybaiviet&query=bangdulieu" class="nav-link">
-                        <i class="nav-icon fas fa-info-circle"></i>
+                        <i class="nav-icon fas fa-newspaper"></i>
                         <p>
                             Quản lý bài viết
                         </p>
@@ -151,41 +180,7 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-chart-pie"></i>
-                        <p>
-                            Thống kê
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="pages/charts/chartjs.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>ChartJS</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/charts/flot.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Flot</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/charts/inline.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Inline</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/charts/uplot.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>uPlot</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+
 
             </ul>
         </nav>

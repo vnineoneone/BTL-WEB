@@ -20,6 +20,7 @@ if (isset($_POST['dangky'])) {
     if ($sql_dangky) {
         $_SESSION['dangky'] = $name;
         $_SESSION['id_khachhang'] = mysqli_insert_id($mysqli);
+        $_SESSION['tenkhachhang'] = $row['name'];
         header("Location: index.php?quanly=dangnhap");
     }
 }
@@ -34,6 +35,7 @@ if (isset($_POST['login'])) {
         $row = mysqli_fetch_array($query);
         $_SESSION['login'] = $email;
         $_SESSION['id_khachhang'] = $row['id'];
+        $_SESSION['tenkhachhang'] = $row['name'];
         header("Location: index.php");
     } else {
         echo "<script>notifier.alert('Thông tin đăng nhập bị sai, vui lòng nhập lại', options)</script>";
