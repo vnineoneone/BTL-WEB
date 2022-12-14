@@ -4,7 +4,7 @@ $query = mysqli_query($mysqli, $sql);
 $row = mysqli_fetch_array($query);
 ?>
 
-<footer class="text-start text-dark" style="background-color: #ECEFF1">
+<footer class="text-start text-dark mt-5" style="background-color: #ECEFF1">
     <!--  -->
     <section class="policy text-center pb-2 py-2">
         <div class="container py-2">
