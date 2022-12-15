@@ -52,7 +52,7 @@ if ($j != 0) {
 
 <section class="specific_product" onclick="check_p()">
     <div class="row row_box1_p">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 first_col_p">
             <div class="image_product_t">
                 <a href="" class="link_image_pt">
                     <img src="admin/modules/quanlysp/uploads/<?php echo $row['image'] ?>" class="image_pt">
@@ -83,7 +83,7 @@ if ($j != 0) {
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 detail_box_t">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 detail_box_t">
             <h1 class="detail_title"><?php echo $row['name_product'] ?></h1>
             <div>
                 <div class="name_product_box">

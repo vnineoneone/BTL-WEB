@@ -22,7 +22,7 @@
 .image_pt {
     position: static !important;
     width: 100%;
-    height: auto !important;
+    height: auto;
     display: block;
 }
 
@@ -847,4 +847,41 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media only screen and (max-width: 768px)
+{
+   .detail_submit_p
+   {
+    width: 100%;
+   }
+
+   .small_image_box
+   {
+    width: 100%;
+    margin-left: 60px;
+   }
+
+   .first_col_p
+   {
+    padding: 0;
+   }
+
+   .row_box1_p
+   {
+    width: 100%;
+   }
+
+   .row_box2_p
+   {
+    width: 100%;
+   }
+}
+
+@media only screen and (max-width: 576px)
+{
+    .small_image_box
+   {
+    display: none;
+   }
 }

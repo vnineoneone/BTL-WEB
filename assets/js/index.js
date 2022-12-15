@@ -166,10 +166,34 @@ $(document).ready(function () {
 });
 
 function Remove_cart(x) {
-  var str_temp = "#" + String(x);
-  $(str_temp).remove();
+  var str_temp = "." + String(x);
+  $("div").remove(str_temp);
   //Total price
   Total_price_c();
+  //Remove
+  var cart_product = document.getElementsByClassName("item_cart");
+  var mobile_product = document.getElementsByClassName("small_product_c");
+  if(cart_product.length == 0)
+  {
+    $(".product_contain").empty();
+    var add_p = document.createElement("p");
+    var text_p = document.createTextNode("Không có sản phẩm nào để hiển thị");
+    add_p.appendChild(text_p);
+    var text_cart = document.getElementsByClassName("product_contain");
+    text_cart[0].appendChild(add_p);
+  }
+
+  if(mobile_product.length == 0)
+  {
+    $(".small_content_c").empty();
+    var add_p = document.createElement("p");
+    var text_p = document.createTextNode("Không có sản phẩm nào để hiển thị");
+    add_p.appendChild(text_p);
+    var text_cart = document.getElementsByClassName("small_content_c");
+    text_cart[0].appendChild(add_p);
+    var text_p = text_cart[0].firstChild;
+    text_p.style.padding= "0px 15px";
+  }
   return true;
 }
 
@@ -192,10 +216,13 @@ function Price_change(x) {
 }
 
 function Decrease(x, y, z) {
-  var result = document.getElementById(x);
-  var min_number = result.min;
-  if (Number(result.value) > Number(min_number)) {
-    result.value--;
+  var result = document.getElementsByClassName(x);
+  for(var i = 0; i< result.length; i++)
+  {
+    var min_number = result[i].min;
+    if (Number(result[i].value) > Number(min_number)) {
+      result[i].value--;
+    }
   }
   var str = String(Number(result.value) * y);
   str = Price_change(str);
@@ -206,10 +233,13 @@ function Decrease(x, y, z) {
 }
 
 function Increase(x, y, z) {
-  var result = document.getElementById(x);
-  var max_number = result.max;
-  if (Number(result.value) < Number(max_number)) {
-    result.value++;
+  var result = document.getElementsByClassName(x);
+  for(var i = 0; i< result.length; i++)
+  {
+    var max_number = result[i].max;
+    if (Number(result[i].value) < Number(max_number)) {
+      result[i].value++;
+    }
   }
   var str = String(Number(result.value) * y);
   str = Price_change(str);
@@ -329,6 +359,9 @@ function Total_price_c() {
     document.getElementsByClassName("total_price")[0].innerHTML = Price_change(
       String(total_price_c)
     );
+    document.getElementsByClassName("small_price")[0].innerHTML = Price_change(
+      String(total_price_c)
+    );
   }
 }
 
@@ -360,6 +393,9 @@ function Check_Total_price() {
   }
   if (item_price_c.length != 0) {
     document.getElementsByClassName("total_price")[0].innerHTML = Price_change(
+      String(total_price_c)
+    );
+    document.getElementsByClassName("small_price")[0].innerHTML = Price_change(
       String(total_price_c)
     );
   }
@@ -589,6 +625,23 @@ function Filter_add(x) {
         }
       }
     }
+  }
+}
+///////////
+///// Category sidebar
+function Show_icon_d()
+{
+  var cate = document.getElementsByClassName("sidebar");
+  var icon_side = document.getElementsByClassName("icon_side_d");
+  if(icon_side[0].getAttribute("class") == "icon_side_d openf")
+  {
+    icon_side[0].setAttribute("class","icon_side_d");
+    cate[0].setAttribute("class","sidebar col-md-12 col-lg-3");
+  }
+  else
+  {
+    cate[0].setAttribute("class","sidebar col-md-12 col-lg-3 openf");
+    icon_side[0].setAttribute("class","icon_side_d openf");
   }
 }
 ///////////

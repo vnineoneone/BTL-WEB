@@ -30,7 +30,7 @@
                             <?php
                             foreach ($_SESSION['cart'] as $item) {
                             ?>
-                                <div class="item_cart" id="item_<?php echo $item['id'] ?>_box">
+                                <div class="item_cart item_<?php echo $item['id'] ?>_box">
                                     <div class="cart_body first_body">
                                         <a href="javascript:;" onclick="Remove_cart('item_<?php echo $item['id'] ?>_box')">
                                             <span>
@@ -39,7 +39,7 @@
                                         </a>
                                     </div>
                                     <div class="cart_body second_body">
-                                        <a href="#" title="item" class="product_image">
+                                        <a href="#" title="item" class="product_image_c">
                                             <img class="" src="admin/modules/quanlysp/uploads/<?php echo $item['image'] ?>" alt="item" height="100%" width="100%">
                                         </a>
                                     </div>
@@ -56,7 +56,7 @@
                                             <button class="button_down" type="button" onclick="Decrease('item_<?php echo $item['id'] ?>', <?php echo $item['price'] ?>, 'price_<?php echo $item['id'] ?>')">
                                                 <i class="bi bi-caret-down-fill icon_button subcart" name="<?php echo $item['id'] ?>"></i>
                                             </button>
-                                            <input type="text" min="1" max="10" maxlength="2" value="<?php echo $item['number'] ?>" class="number_cart" id="item_<?php echo $item['id'] ?>">
+                                            <input type="text" min="1" max="10" maxlength="2" value="<?php echo $item['number'] ?>" class="number_cart item_<?php echo $item['id'] ?>">
                                             <button class="button_up" type="button" onclick="Increase('item_<?php echo $item['id'] ?>', <?php echo $item['price'] ?>, 'price_<?php echo $item['id'] ?>')">
                                                 <i class="bi bi-caret-up-fill icon_button addcart" name="<?php echo $item['id'] ?>"></i>
                                             </button>
@@ -65,10 +65,10 @@
                                     <div class="cart_body sixth_body">
                                         <span class="item_price" id="price_<?php echo $item['id'] ?>"> <?php echo $item['price'] ?> <sup>₫</sup></span>
                                     </div>
+                                </div>
                                 <?php
                             }
                                 ?>
-                                </div>
                         </div>
                     </form>
                     <div class="row">
@@ -106,6 +106,72 @@
                 <?php } ?>
 
             </div>
+        </div>
+        <div class="cart_mobile">
+            <form action="">
+                <div class="cart_sm_title">
+                    <span>Giỏ hàng của bạn</span>
+                </div>
+                <div class="small_content_c">
+                    <?php
+                    if (!isset($_SESSION['cart']) || !count($_SESSION['cart'])) {
+                        echo "<p style='padding: 0px 15px;'>Không có sản phẩm nào để hiển thị</p>";
+                    } else {
+                    ?>
+                    <div class="content_product_c">
+                        <?php
+                        foreach ($_SESSION['cart'] as $item) {
+                        ?>
+                            <div class="small_product_c item_<?php echo $item['id'] ?>_box">
+                                <div class="small_pic_bc">
+                                    <a href="#" title="item" class="small_link_c">
+                                        <img src="admin/modules/quanlysp/uploads/<?php echo $item['image'] ?>" alt="item" height="150" width="80">
+                                    </a>
+                                </div>
+                                <div class="small_title_bc">
+                                    <h3>
+                                        <a href="#"><?php echo $item['name'] ?></a>
+                                    </h3>
+                                    <p>
+                                        <span class="small_price_c"><?php echo $item['price'] ?><sup>₫</sup></span>
+                                    </p>
+                                </div>
+                                <div class="number_bc">
+                                    <div class="number_p_c">
+                                        <button class="small_button_down" type="button" onclick="Decrease('item_<?php echo $item['id'] ?>', <?php echo $item['price'] ?>, 'price_<?php echo $item['id'] ?>')">
+                                            <i class="bi bi-caret-down-fill icon_button subcart" name="<?php echo $item['id'] ?>"></i>
+                                        </button>
+                                        <input  type="text" min="1" max="10" maxlength="2" value="<?php echo $item['number'] ?>" class="input_bc item_<?php echo $item['id'] ?>">
+                                        <button class="small_button_up" type="button" onclick="Increase('item_<?php echo $item['id'] ?>', <?php echo $item['price'] ?>, 'price_<?php echo $item['id'] ?>')">
+                                            <i class="bi bi-caret-up-fill icon_button addcart" name="<?php echo $item['id'] ?>"></i>
+                                        </button>
+                                        <a href="javascript:;" class="small_remove" onclick="Remove_cart('item_<?php echo $item['id'] ?>_box')" name="<?php echo $item['id'] ?>">
+                                            <span>Xóa</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                            ?>
+                    </div>
+                    <div class="small_total_bc">
+                        <div class="small_total_c">
+                            <h3>Tổng tiền</h3>
+                            <a class="small_price">2.000.000<sup>₫</sup></a>
+                        </div>
+                        <div class="small_submit">
+                            <button class="small_first_b" onclick="location.href='pages/main/payment.php'" type="button">
+                                <span>Tiến hành thanh toán</span>
+                            </button>
+                            <button class="small_second_b" onclick="location.href='index.php'" type="button">
+                                <span>Tiếp tục mua hàng</span>
+                            </button>
+                        </div>
+                    </div>
+                    <?php } ?>
+                </div>
+            </form>
         </div>
     </section>
 </div>

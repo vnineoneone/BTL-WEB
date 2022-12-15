@@ -8,7 +8,7 @@ $query_pro = mysqli_query($mysqli, $sql_pro);
     <div class="row">
         <div class="text_container">
             <div class="row">
-                <aside class="sidebar col-md-12 col-lg-3 openf">
+                <aside class="sidebar col-md-12 col-lg-3">
                     <aside class="side_box">
                         <div class="title_line_c">
                             <h2 class="side_title">
@@ -210,6 +210,9 @@ $query_pro = mysqli_query($mysqli, $sql_pro);
                             ?>
                         </div>
                     </section>
+                </div>
+                <div class="icon_side_d" onclick="Show_icon_d()">
+                    <i class="fa fa-align-right"></i>
                 </div>
             </div>
         </div>
