@@ -179,7 +179,57 @@
     text-align: right;
 }
 
-@media (max-width: 767px)
+/* Reponsive */
+
+@media only screen and (max-width: 992px)
+{
+    .sidebar
+    {
+        position: fixed;
+        width: 256px;
+        background: #fff;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        border-top: solid 1px #bbbbbb;
+        border-left: solid 1px #bbbbbb;
+        overflow: hidden;
+        overflow-y: auto;
+        z-index: 100000;
+        visibility: hidden;
+        transition: all 0.35s ease;
+        transform: translateX(100%);
+    }
+
+    .sidebar.openf
+    {
+        padding-top: 15px;
+        visibility: visible;
+        transform: translateX(0);
+    }
+
+    .icon_side_d
+    {
+        color: #fff;
+        background: #f7941d;
+        position: fixed;
+        right: 0;
+        top: 42% !important;
+        padding: 4px 10px;
+        cursor: pointer;
+        z-index: 99999;
+        font-size: 18px;
+        transition: all 0.35s ease;
+        width: auto;
+    }
+
+    .icon_side_d.openf
+    {
+        right: 256px;
+    }
+}
+
+@media only screen and (max-width: 768px)
 {
     .label_sort {
         display: none !important;
