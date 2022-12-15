@@ -1,3 +1,10 @@
+<?php
+$sql = "SELECT * FROM user WHERE id = '" . $_SESSION['id_khachhang'] . "'";
+$query = mysqli_query($mysqli, $sql);
+$row = mysqli_fetch_array($query);
+?>
+
+
 <div class="container-account">
     <div class="row">
         <?php include "pages/partials/sidebar_account.php" ?>
@@ -6,9 +13,10 @@
             <div class="row">
                 <div class="col-md-6 col-12">
                     <div class="form-signup name-account">
-                        <p><strong>Họ tên:</strong> Phục Lê</p>
-                        <p> <strong>Email:</strong> phucquangle0503@gmail.com</p>
-                        <p><strong>Địa chỉ:</strong> dfdfd, Thị xã Tân Châu, Vietnam</p>
+                        <p><strong>Họ tên:</strong> <?php echo $row['name'] ?></p>
+                        <p> <strong>Email:</strong><?php echo $row['email'] ?></p>
+                        <p> <strong>Số điện thoại: </strong> <?php echo $row['phone'] ?></p>
+                        <p><strong>Địa chỉ:</strong><?php echo $row['address'] ?></p>
                     </div>
                 </div>
             </div>

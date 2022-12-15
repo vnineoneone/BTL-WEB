@@ -88,16 +88,16 @@
                                 </table>
                                 <ul class="submit">
                                     <li>
-                                        <button class="second_button" onclick="" type="button">
-                                            <a href="pages/main/payment.php">
+                                        <a href="pages/main/payment.php">
+                                            <button class="second_button" onclick="" type="button">
                                                 <span>Tiến hành thanh toán</span>
-                                            </a>
-                                        </button>
-                                        <button class="first_button" onclick="" type="button">
-                                            <a href="index.php">
+                                            </button>
+                                        </a>
+                                        <a href="index.php">
+                                            <button class="first_button" onclick="" type="button">
                                                 <span>Tiếp tục mua sắm</span>
-                                            </a>
-                                        </button>
+                                            </button>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>

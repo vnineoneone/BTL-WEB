@@ -6,7 +6,7 @@ $query_sua_sp = mysqli_query($mysqli, $sql_sua_sp);
 <div class="form-container">
     <?php while ($row = mysqli_fetch_array($query_sua_sp)) { ?>
 
-        <form method="POST" action="modules/quanlysp/xuly.php?id=<?php echo $row['id'] ?>" class="needs-validation" enctype="multipart/form-data">
+        <form method="POST" action="modules/quanlykhachhang/xuly.php?id=<?php echo $row['id'] ?>" class="needs-validation" enctype="multipart/form-data">
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -53,7 +53,7 @@ $query_sua_sp = mysqli_query($mysqli, $sql_sua_sp);
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <button type="submit" class="btn btn-success" name="suakhachhang">Thêm</button>
+                            <button type="submit" class="btn btn-success" name="suakhachhang">Lưu</button>
                         </td>
                     </tr>
                 </tbody>

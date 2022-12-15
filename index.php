@@ -39,21 +39,21 @@ include_once "controllers/UserController.php";
         <?php
         if (count($_GET)) {
         ?>
-            <div class="main">
+            <div class="main1">
                 <?php include("pages/header.php") ?>
                 <?php include "pages/banner_link.php" ?>
             </div>
         <?php
         } else {
         ?>
-            <div class="main" style="min-height: 717px;">
-                <?php include("pages/header.php") ?>
-                <div class="background" style="background-image: url(assets/images/background.jpg); "></div>
+            <div class="main">
+                <?php include("pages/header.php"); ?>
+                <div class="background"></div>
             </div>
         <?php
         }
         ?>
-        <div class="container content">
+        <div class="container-md content">
             <?php include("pages/main.php"); ?>
         </div>
         <div class="footer">

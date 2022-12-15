@@ -1,4 +1,4 @@
-<div class="area-post" style="margin-top: 70px;">
+<div class="area-post">
     <div class="display-product">
         <div class="tab-menu">
             <h3>

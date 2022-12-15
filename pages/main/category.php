@@ -182,16 +182,17 @@ $query_pro = mysqli_query($mysqli, $sql_pro);
                                                 <img src="admin/modules/quanlysp/uploads/<?php echo $row['image'] ?>" alt="Kệ đồ" class="img_t">
                                             </a>
                                             <div class="icon_box_d" style="display: none;">
-                                                <form action="" method="">
-                                                    <div class="icon_group_d">
-                                                        <a href="a" class="link_icon_d">
-                                                            <i class="fas fa-eye"></i>
-                                                        </a>
-                                                        <button class="button_icon_d">
+                                                <div class="icon_group_d">
+                                                    <a href="index.php?quanly=sanpham&id=<?php echo $row['id_product'] ?>" class="link_icon_d">
+                                                        <i class="fas fa-eye"></i>
+                                                    </a>
+                                                    <form method="POST" action="controllers/CartController.php?id=<?php echo $row['id_product'] ?>">
+                                                        <button type="submit" class="button_icon_d" name="themgiohang">
                                                             <i class="fas fa-dolly"></i>
                                                         </button>
-                                                    </div>
-                                                </form>
+                                                    </form>
+
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="image_text">

@@ -7,12 +7,12 @@ $row = mysqli_fetch_array($query_sp1);
 
 
 <div class="featured-product" style="margin-top: 60px;">
-    <div class="row">
-        <div class="col-md-8 right">
+    <div class="row gy-5">
+        <div class="col-md-7 col-xl-8 right">
             <div class="display-product">
                 <div class="tab-menu">
                     <h3>
-                        <a href="">SẢN PHẨM NỔI BẬT</a>
+                        <a href="">SẢN PHẨM HOT</a>
                     </h3>
                     <ul class="list-menu">
                         <li>
@@ -102,7 +102,7 @@ $row = mysqli_fetch_array($query_sp1);
                 </div>
             </div>
         </div>
-        <div class="col-md-4 left">
+        <div class="col-md-5 col-xl-4 left">
             <div class="count-down">
                 <div class="image-view">
                     <a href="#">

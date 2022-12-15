@@ -3,7 +3,7 @@ $sql = "SELECT * FROM post ORDER BY id";
 $query = mysqli_query($mysqli, $sql);
 ?>
 
-<div class="area-post" style="margin-top: 30px;">
+<div class="area-post">
     <div class="display-product">
         <div class="tab-menu">
             <h3>

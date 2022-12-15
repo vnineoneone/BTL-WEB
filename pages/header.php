@@ -9,14 +9,14 @@ $row_info = mysqli_fetch_array($query);
 <nav class="container nav">
     <div class="navtop">
         <div class="row">
-            <div class="col-lg-3 col-md-3">
+            <div class="col-lg-3 col-md-4 col-6">
                 <div class="logo_centers">
                     <a href="index.php" title="Sea Furniture">
                         <img src="./assets/images/logo.png" alt="logo Sea Furniture">
                     </a>
                 </div>
             </div>
-            <div class="col-lg-5 col-md-5 area-search">
+            <div class="col-lg-5 col-md-4 area-search">
                 <div class="form-search">
                     <div class="form-outline">
                         <input type="search" id="form-search" placeholder="Nhập từ khóa tìm kiếm" />
@@ -26,7 +26,7 @@ $row_info = mysqli_fetch_array($query);
                     </button>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4">
+            <div class="col-lg-4 col-md-4 col-6">
                 <div class="list-inline">
                     <?php
                     if (isset($_SESSION['login'])) {
@@ -75,15 +75,15 @@ $row_info = mysqli_fetch_array($query);
     </div>
     <div class="navbot">
         <div class="row">
-            <div class="col-3">
+            <div class="col-lg-3 col-md-2 col-6">
                 <div class="menu-cate">
                     <i class="fas fa-bars" style="width: 16px; height: 16px;"></i>
                     <div>DANH MUC SẢN PHẨM</div>
                 </div>
             </div>
-            <div class="col-6">
-                <nav class="navbar navbar-expand-lg navbar-light nav-list">
-                    <div class="container-fluid">
+            <div class="col-lg-6 col-md-7 list-header">
+                <nav class="navbar navbar-expand-md navbar-light nav-list">
+                    <div class="container-fluid" style="height: 51px;">
                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul class="navbar-nav">
                                 <li class="nav-item nav-item1">
@@ -117,7 +117,7 @@ $row_info = mysqli_fetch_array($query);
                     </div>
                 </nav>
             </div>
-            <div class="col-3">
+            <div class="col-lg-3 col-md-3 col-6">
                 <div class="contact">
                     <i class="fas fa-headphones"></i>
                     <span class="hot">Hotline: </span>

@@ -53,13 +53,27 @@ function showBtn() {
 function slideShowFeaturedProduct() {
   var owl = $(".featured-product-carousel");
   owl.owlCarousel({
-    items: 4,
     loop: true,
     margin: 10,
     nav: true,
     autoplay: true,
     autoplayTimeout: 3000,
     autoplayHoverPause: true,
+    responsiveClass: true,
+    responsive: {
+      0: {
+        items: 2,
+        nav: true,
+      },
+      768: {
+        items: 2,
+        nav: false,
+      },
+      992: {
+        items: 4,
+        nav: true,
+      },
+    },
   });
 }
 
@@ -70,6 +84,21 @@ function slideShowPost() {
     loop: true,
     margin: 20,
     nav: true,
+    responsiveClass: true,
+    responsive: {
+      0: {
+        items: 1,
+        nav: true,
+      },
+      768: {
+        items: 2,
+        nav: false,
+      },
+      992: {
+        items: 3,
+        nav: true,
+      },
+    },
   });
 }
 function slideShowNewProduct() {
@@ -79,6 +108,21 @@ function slideShowNewProduct() {
     loop: true,
     margin: 10,
     nav: true,
+    responsiveClass: true,
+    responsive: {
+      0: {
+        items: 2,
+        nav: true,
+      },
+      768: {
+        items: 4,
+        nav: false,
+      },
+      992: {
+        items: 5,
+        nav: true,
+      },
+    },
   });
 }
 
