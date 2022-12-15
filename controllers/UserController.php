@@ -1,13 +1,5 @@
 <?php
-echo "<script>
-let options = {};
-options.position = 'bottom-right';
-options.durations = {
-    success: 1200,
-    alert: 2000,
-}
-let notifier = new AWN(options);
-</script>";
+
 
 if (isset($_POST['dangky'])) {
     $name = $_POST['name'];
@@ -45,4 +37,17 @@ if (isset($_POST['login'])) {
 if (isset($_GET['logout']) == 1) {
     unset($_SESSION['login']);
     header('Location: index.php?quanly=dangnhap');
+}
+
+if (isset($_POST['update'])) {
+    session_start();
+    include "../admin/config/config.php";
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $address = $_POST['address'];
+    $phone = $_POST['phone'];
+    $sql_sua = "UPDATE user SET name='" . $name . "', email='" . $email . "', phone='" . $phone . "', address='" . $address . "'  WHERE id = '$_SESSION[id_khachhang]' ";
+    mysqli_query($mysqli, $sql_sua);
+    $_SESSION['tenkhachhang'] = $_POST['name'];
+    header("Location: ../index.php?quanly=taikhoan/suathongtin");
 }

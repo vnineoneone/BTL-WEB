@@ -19,9 +19,10 @@ $query_lietke_khachhang = mysqli_query($mysqli, $sql_lietke_khachhang);
             <thead>
                 <tr>
                     <th scope="col">id</th>
-                    <th scope="col">Tên khách hàng</th>
+                    <th scope="col">Tên </th>
                     <th scope="col">Email</th>
                     <th scope="col">Số điện thoại</th>
+                    <th scope="col">Địa chỉ</th>
                     <th scope="col">Trạng thái</th>
                     <th scope="col">Quản lý</th>
                 </tr>
@@ -38,6 +39,7 @@ $query_lietke_khachhang = mysqli_query($mysqli, $sql_lietke_khachhang);
                         <td><?php echo $row['name'] ?></td>
                         <td><?php echo $row['email'] ?></td>
                         <td><?php echo $row['phone'] ?></td>
+                        <td><?php echo $row['address'] ?></td>
                         <td>
                             <?php
                             if ($row['status']) {
@@ -48,9 +50,6 @@ $query_lietke_khachhang = mysqli_query($mysqli, $sql_lietke_khachhang);
                         </td>
                         <td>
                             <div class="list-button">
-                                <a href="?action=quanlykhachhang&query=sua&id=<?php echo $row['id'] ?>">
-                                    <button type="button" class="btn btn-info">Xem</button>
-                                </a>
                                 <a href="?action=quanlykhachhang&query=sua&id=<?php echo $row['id'] ?>">
                                     <button type="button" class="btn btn-primary">Sửa</button>
                                 </a>

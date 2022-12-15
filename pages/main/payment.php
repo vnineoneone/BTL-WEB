@@ -209,10 +209,6 @@ $row = mysqli_fetch_array($query);
             <label class="form-check-label" for="cb">Thanh toán trực tiếp khi giao hàng</label>
           </div>
 
-          <div class="form-check">
-            <input type="radio" class="form-check-input" name="type" id="cb">
-            <label class="form-check-label" for="cb">Thanh toán bằng thẻ quốc tế và nội địa (ATM)</label>
-          </div>
 
           <div class="form-check">
             <input type="radio" class="form-check-input" name="type" value="momo" id="cb">

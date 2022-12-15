@@ -48,6 +48,7 @@ if ($temp == 'quanlydanhmucsanpham' && $query == 'them') {
     include('modules/quanlythuonghieu/sua.php');
 } else if ($temp == 'quanlythuonghieu' && $query == 'bangdulieu') {
     include('modules/quanlythuonghieu/lietke.php');
-} else {
-    include('modules/dashboard.php');
-}
+} 
+// else {
+//     include('modules/dashboard.php');
+// }

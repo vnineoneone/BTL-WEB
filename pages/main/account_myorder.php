@@ -1,3 +1,9 @@
+<?php
+$sql_lietke_dh = "SELECT * FROM cart,shipment WHERE cart.code_cart = shipment.code_cart AND id_user = '" . $_SESSION['id_khachhang'] . "' ORDER BY id_cart DESC";
+$query_lietke_dh = mysqli_query($mysqli, $sql_lietke_dh);
+?>
+
+
 <div class="container-account mb-3">
   <div class="row">
     <?php include "pages/partials/sidebar_account.php" ?>
@@ -9,28 +15,20 @@
             <th scope="col">Đơn hàng</th>
             <th scope="col">Ngày</th>
             <th scope="col">Địa chỉ</th>
-            <th scope="col">Giá trị đơn hàng</th>
             <th scope="col">TT thanh toán</th>
             <th scope="col">TT vận chuyển</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td data-label="Đơn hàng">#0000</td>
-            <td data-label="Ngày">05/12/2022</td>
-            <td data-label="Địa chỉ">268 Lý Thường Kiệt, phường 14, quận 10, TP.HCM</td>
-            <td data-label="Giá trị đơn hàng">500.000 VND</td>
-            <td data-label="TT thanh toán">Chưa thu tiền</td>
-            <td data-label="TT vận chuyển">Chưa chuyển</td>
-          </tr>
-          <tr>
-            <td scope="row" data-label="Đơn hàng">#0000</td>
-            <td data-label="Ngày">05/12/2022</td>
-            <td data-label="Địa chỉ">268 Lý Thường Kiệt, phường 14, quận 10, TP.HCM</td>
-            <td data-label="Giá trị đơn hàng">500.000 VND</td>
-            <td data-label="TT thanh toán">Chưa thu tiền</td>
-            <td data-label="TT vận chuyển">Chưa chuyển</td>
-          </tr>
+          <?php while ($row = mysqli_fetch_array($query_lietke_dh)) { ?>
+            <tr>
+              <td data-label="Đơn hàng">#<?php echo $row['code_cart'] ?></td>
+              <td data-label="Ngày"><?php echo $row['created_at'] ?></td>
+              <td data-label="Địa chỉ"><?php echo $row['address'] ?></td>
+              <td data-label="TT thanh toán"><?php echo $row['method_payment'] ?></td>
+              <td data-label="TT vận chuyển">Tiêu chuẩn</td>
+            </tr>
+          <?php } ?>
         </tbody>
       </table>
     </div>

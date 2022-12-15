@@ -58,30 +58,33 @@ if ($j != 0) {
                     <img src="admin/modules/quanlysp/uploads/<?php echo $row['image'] ?>" class="image_pt">
                 </a>
             </div>
-            <div class="small_image_box">
-                <div class="small_image_c">
-                    <div class="image_item_c">
-                        <a href="javascript:void(0)" class="link_small_image" onclick="Set_image('img_id1')">
-                            <img class="style_small_image" src="assets/images/lamp-category.png" id="img_id1">
-                        </a>
-                    </div>
-                    <div class="image_item_c">
-                        <a href="javascript:void(0)" class="link_small_image" onclick="Set_image('img_id2')">
-                            <img class="style_small_image" src="assets/images/shelf-category.png" id="img_id2">
-                        </a>
-                    </div>
-                    <div class="image_item_c">
-                        <a href="javascript:void(0)" class="link_small_image" onclick="Set_image('img_id3')">
-                            <img class="style_small_image" src="assets/images/sofa-category.png" id="img_id3">
-                        </a>
-                    </div>
-                    <div class="image_item_c">
-                        <a href="javascript:void(0)" class="link_small_image" onclick="Set_image('img_id4')">
-                            <img class="style_small_image" src="assets/images/table-category.png" id="img_id4">
-                        </a>
+            <?php if ($row['id_product'] == 52) {
+            ?>
+                <div class="small_image_box">
+                    <div class="small_image_c">
+                        <div class="image_item_c">
+                            <a href="javascript:void(0)" class="link_small_image" onclick="Set_image('img_id1')">
+                                <img class="style_small_image" src="admin/modules/quanlysp/uploads/<?php echo $row['image'] ?>" id="img_id1">
+                            </a>
+                        </div>
+                        <div class="image_item_c">
+                            <a href="javascript:void(0)" class="link_small_image" onclick="Set_image('img_id2')">
+                                <img class="style_small_image" src="admin/modules/quanlysp/uploads/<?php echo $row['image'] ?>" id="img_id2">
+                            </a>
+                        </div>
+                        <div class="image_item_c">
+                            <a href="javascript:void(0)" class="link_small_image" onclick="Set_image('img_id3')">
+                                <img class="style_small_image" src="assets/images/sofa-category.png" id="img_id3">
+                            </a>
+                        </div>
+                        <div class="image_item_c">
+                            <a href="javascript:void(0)" class="link_small_image" onclick="Set_image('img_id4')">
+                                <img class="style_small_image" src="assets/images/table-category.png" id="img_id4">
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php } ?>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 detail_box_t">
             <h1 class="detail_title"><?php echo $row['name_product'] ?></h1>

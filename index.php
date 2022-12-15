@@ -20,9 +20,6 @@ include_once "controllers/UserController.php";
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="vendor/owlcarousel/owl.carousel.min.js"></script>
 
-    <link rel="stylesheet" href="vendor/awesome-notifications/style.css">
-    <script src="vendor/awesome-notifications/index.var.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/@emretulek/jbvalidator"></script>
 
     <script src="https://kit.fontawesome.com/8c2b9d94d1.js" crossorigin="anonymous"></script>
@@ -35,6 +32,7 @@ include_once "controllers/UserController.php";
 </head>
 
 <body>
+
     <div class="">
         <?php
         if (count($_GET)) {

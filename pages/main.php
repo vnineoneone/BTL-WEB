@@ -26,10 +26,8 @@ if ($tmp == "dangky") {
     include "main/account_myorder.php";
 } else if ($tmp == "taikhoan") {
     include "main/account_info.php";
-} else if ($tmp == "taikhoan/doimatkhau") {
-    include "main/account_changepass.php";
-} else if ($tmp == "taikhoan/diachi") {
-    include "main/account_address.php";
+} else if ($tmp == "taikhoan/suathongtin") {
+    include "main/account_changeinfo.php";
 } else {
     include "main/index.php";
 }

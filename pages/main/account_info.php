@@ -12,7 +12,7 @@ $row = mysqli_fetch_array($query);
             <h1 class="title-head margin-top-0">Thông tin tài khoản</h1>
             <div class="row">
                 <div class="col-md-6 col-12">
-                    <div class="form-signup name-account">
+                    <div class="form-signup name-account" style="width: 500px">
                         <p><strong>Họ tên:</strong> <?php echo $row['name'] ?></p>
                         <p> <strong>Email:</strong><?php echo $row['email'] ?></p>
                         <p> <strong>Số điện thoại: </strong> <?php echo $row['phone'] ?></p>

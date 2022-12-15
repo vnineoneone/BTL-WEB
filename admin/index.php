@@ -12,22 +12,50 @@ if (isset($_GET['action']) && isset($_GET['query'])) {
     $query = '';
 }
 
+
 if ($temp == 'quanlydanhmucsanpham' && $query == 'them') {
     $tmp = 'Thêm danh muc sản phẩm';
+} else if ($temp == 'quanlydanhmucsanpham' && $query == 'bangdulieu') {
+    $tmp = 'Quản lý danh muc sản phẩm';
 } else if ($temp == 'quanlydanhmucsanpham' && $query == 'sua') {
     $tmp = 'Sửa danh mục sản phẩm';
-} else if ($temp == 'quanlydanhmucsanpham') {
-    $tmp = 'Quản lý danh muc sản phẩm';
 } else if ($temp == 'quanlysp' && $query == 'them') {
     $tmp = 'Thêm sản phẩm';
+} else if ($temp == 'quanlysp' && $query == 'bangdulieu') {
+    $tmp = 'Quản lý sản phẩm';
 } else if ($temp == 'quanlysp' && $query == 'sua') {
     $tmp = 'Sửa sản phẩm';
-} else if ($temp == 'quanlysp') {
-    $tmp = 'Quản lý sản phẩm';
-} else {
-    $tmp = 'Dashboard';
+} else if ($temp == 'quanlysp' && $query == 'binhluan') {
+    $tmp = 'Quản lý bình luận sản phẩm';
+} else if ($temp == 'quanlysp' && $query == 'thongke') {
+    $tmp = 'Thống kê sản phẩm';
+} else if ($temp == 'quanlykhachhang' && $query == 'bangdulieu') {
+    $tmp = 'Quản lý khách hàng';
+} else if ($temp == 'quanlykhachhang' && $query == 'them') {
+    $tmp = 'Thêm khách hàng';
+} else if ($temp == 'quanlykhachhang' && $query == 'sua') {
+    $tmp = 'Sửa thông tin khách hàng';
+} else if ($temp == 'quanlydonhang' && $query == 'bangdulieu') {
+    $tmp = 'Quản lý đơn hàng';
+} else if ($temp == 'quanlydonhang' && $query == 'donhang') {
+    $tmp = 'Chi tiết đơn hàng';
+} else if ($temp == 'quanlythongtin' && $query == 'bangdulieu') {
+    $tmp = 'Quản lý thông tin website';
+} else if ($temp == 'quanlythongtin' && $query == 'sua') {
+    $tmp = 'Sửa thông tin website';
+} else if ($temp == 'quanlybaiviet' && $query == 'them') {
+    $tmp = 'Quản lý bài viết';
+} else if ($temp == 'quanlybaiviet' && $query == 'sua') {
+    $tmp = 'Sửa bài viết';
+} else if ($temp == 'quanlybaiviet' && $query == 'bangdulieu') {
+    $tmp = 'Quản lý bài viết';
+} else if ($temp == 'quanlythuonghieu' && $query == 'them') {
+    $tmp = 'Thêm thương hiệu';
+} else if ($temp == 'quanlythuonghieu' && $query == 'sua') {
+    $tmp = 'Sửa thông tin thương hiệu';
+} else if ($temp == 'quanlythuonghieu' && $query == 'bangdulieu') {
+    $tmp = 'Quản lý thương hiệu';
 }
-
 
 
 

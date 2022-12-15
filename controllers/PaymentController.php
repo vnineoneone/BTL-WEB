@@ -29,7 +29,7 @@ if ($order_query) {
         $insert_order_detail = "INSERT INTO cart_details( code_cart, id_product, quantity) VALUE ('" . $code_order . "', '" . $id_sanpham . "', '" . $soluong . "')";
         mysqli_query($mysqli, $insert_order_detail);
     }
-    $total = $total * 1000 + 40;
+    $total = $total * 1000 + 40000;
     if ($type == 'momo') {
         include "../controllers/MomoQRController.php";
     } else if ($type = 'get') {
@@ -39,6 +39,7 @@ if ($order_query) {
     $info = $_POST;
     $info['type'] = $type_payment;
     $info['code'] = $code_order;
-    // $mail->order_mail($info);
+    $mail->order_mail($info);
+    $_SESSION['cart1'] =  $_SESSION['cart'];
+    unset($_SESSION['cart']);
 }
-// unset($_SESSION['cart']);

@@ -62,6 +62,7 @@ $query_lietke_sp = mysqli_query($mysqli, $sql_lietke_sp);
                             } else {
                                 $avg = 0;
                             }
+                            $avg = round($avg, 2);
                             echo $avg;
                             ?>
                             <i class="fas fa-star" id="star"></i>

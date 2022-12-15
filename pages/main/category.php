@@ -1,6 +1,12 @@
 <?php
-$sql_pro = "SELECT * FROM product,category WHERE product.id_category = category.id_category AND product.id_category = '$_GET[id]' ORDER BY id_product DESC";
+if (isset($_GET['id'])) {
+    $sql_pro = "SELECT * FROM product,category WHERE product.id_category = category.id_category AND product.id_category = '$_GET[id]' ORDER BY id_product DESC";
+} else {
+    $sql_pro = "SELECT * FROM product,category WHERE product.id_category = category.id_category ORDER BY id_product DESC";
+}
 $query_pro = mysqli_query($mysqli, $sql_pro);
+$sql_brand = "SELECT * FROM brand";
+$query_brand = mysqli_query($mysqli, $sql_brand);
 ?>
 
 
@@ -9,26 +15,6 @@ $query_pro = mysqli_query($mysqli, $sql_pro);
         <div class="text_container">
             <div class="row">
                 <aside class="sidebar col-md-12 col-lg-3">
-                    <aside class="side_box">
-                        <div class="title_line_c">
-                            <h2 class="side_title">
-                                <span>Danh mục</span>
-                            </h2>
-                        </div>
-                        <div class="side_text_box">
-                            <nav>
-                                <ul class="list-unstyled">
-                                    <li><a href="" class="nav_link">Trang chủ</a></li>
-                                    <li><a href="" class="nav_link">Giới thiệu</a></li>
-                                    <li>
-                                        <a href="" class="nav_link">Sản phẩm</a>
-                                    </li>
-                                    <li><a href="" class="nav_link">Tin tức</a></li>
-                                    <li><a href="" class="nav_link">Liên hệ</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </aside>
                     <div class="side_container">
                         <aside class="side_box">
                             <div class="title_line_c">
@@ -38,51 +24,16 @@ $query_pro = mysqli_query($mysqli, $sql_pro);
                             </div>
                             <div class="side_text_box">
                                 <ul class="list-unstyled">
-                                    <li class="filter-product">
-                                        <span>
-
-                                            <input type="checkbox" id="MOHO" value="MOHO">
-                                            <label for="MOHO">
-                                                MOHO
-                                            </label>
-                                        </span>
-                                    </li>
-                                    <li class="filter-product">
-                                        <span>
-
-                                            <input type="checkbox" id="KOAS" value="KOAS">
-                                            <label for="KOAS">
-                                                KOAS
-                                            </label>
-                                        </span>
-                                    </li>
-                                    <li class="filter-product">
-                                        <span>
-
-                                            <input type="checkbox" id="BG" value="BG">
-                                            <label for="BG">
-                                                BG
-                                            </label>
-                                        </span>
-                                    </li>
-                                    <li class="filter-product">
-                                        <span>
-
-                                            <input type="checkbox" id="GOVI" value="GOVI">
-                                            <label for="GOVI">
-                                                GOVI
-                                            </label>
-                                        </span>
-                                    </li>
-                                    <li class="filter-product">
-                                        <span>
-
-                                            <input type="checkbox" id=" Piron" value=" Piron">
-                                            <label for=" Piron">
-                                                Piron
-                                            </label>
-                                        </span>
-                                    </li>
+                                    <?php while ($row_brand = mysqli_fetch_array($query_brand)) { ?>
+                                        <li class="filter-product">
+                                            <span>
+                                                <input type="checkbox" id="<?php echo $row_brand['name_brand'] ?>" value="<?php echo $row_brand['name_brand'] ?>">
+                                                <label for="<?php echo $row_brand['name_brand'] ?>">
+                                                    <?php echo $row_brand['name_brand'] ?>
+                                                </label>
+                                            </span>
+                                        </li>
+                                    <?php } ?>
                                 </ul>
                             </div>
                         </aside>
@@ -141,7 +92,14 @@ $query_pro = mysqli_query($mysqli, $sql_pro);
                 </aside>
                 <div class="col-md-12 col-lg-9 col-md-12">
                     <div class="col-xs-12 col-sm-6 col-md-6 inline">
-                        <h1 class="Ghe_sort"><?php echo $row['name_category'] ?></h1>
+                        <h1 class="Ghe_sort">
+                            <?php
+                            if (isset($row['name_category'])) {
+                                echo $row['name_category'];
+                            } else {
+                                echo "Tất cả sản phẩm";
+                            }
+                            ?></h1>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6 text-xs-left text-sm-right text-end inline">
                         <div class="sort">
@@ -211,9 +169,9 @@ $query_pro = mysqli_query($mysqli, $sql_pro);
                         </div>
                     </section>
                 </div>
-                <div class="icon_side_d" onclick="Show_icon_d()">
+                <!-- <div class="icon_side_d" onclick="Show_icon_d()">
                     <i class="fa fa-align-right"></i>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

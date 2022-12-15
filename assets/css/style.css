@@ -827,7 +827,15 @@ ul li a:hover {
 
 @media only screen and (max-width: 576px) {
     .navtop {
-        height: 51px;
+        height: 80px;
+    }
+
+    .list-inline .list-user {
+        margin-right: 0;
+    }
+
+    .cart {
+        margin-right: 0;
     }
 
     .content {

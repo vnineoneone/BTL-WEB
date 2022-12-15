@@ -4,6 +4,11 @@ $query_danhmuc = mysqli_query($mysqli, $sql_danhmuc);
 $sql = "SELECT * FROM infomation";
 $query = mysqli_query($mysqli, $sql);
 $row_info = mysqli_fetch_array($query);
+if (isset($_GET['quanly'])) {
+    $tmp = $_GET['quanly'];
+} else {
+    $tmp = '';
+}
 ?>
 
 <nav class="container nav">
@@ -37,7 +42,7 @@ $row_info = mysqli_fetch_array($query);
                             </div>
                             <div class="dropdown" style="margin-right: 10px;">
                                 <a class="user dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Viet Le
+                                    <?php echo $_SESSION['tenkhachhang'] ?>
                                 </a>
 
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -87,10 +92,14 @@ $row_info = mysqli_fetch_array($query);
                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul class="navbar-nav">
                                 <li class="nav-item nav-item1">
-                                    <a class="nav-link active" aria-current="page" href="index.php">Trang chủ</a>
+                                    <a class="nav-link <?php if ($tmp == "") {
+                                                            echo "active";
+                                                        } ?>" aria-current="page" href="index.php">Trang chủ</a>
                                 </li>
                                 <li class="nav-item nav-item1">
-                                    <a class="nav-link" href="index.php?quanly=gioithieu">Giới thiệu</a>
+                                    <a class="nav-link <?php if ($tmp == "gioithieu") {
+                                                            echo "active";
+                                                        } ?>" href="index.php?quanly=gioithieu">Giới thiệu</a>
                                 </li>
                                 <li class="nav-item nav-item1 dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -104,13 +113,18 @@ $row_info = mysqli_fetch_array($query);
                                         <?php
                                         }
                                         ?>
+                                        <li><a class="dropdown-item drop-item" href="index.php?quanly=danhmucsanpham">Tất cả sản phẩm</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item nav-item1">
-                                    <a class="nav-link" href="index.php?quanly=tintuc">Tin tức</a>
+                                    <a class="nav-link <?php if ($tmp == "tintuc") {
+                                                            echo "active";
+                                                        } ?>" href="index.php?quanly=tintuc">Tin tức</a>
                                 </li>
                                 <li class="nav-item nav-item1">
-                                    <a class="nav-link" href="index.php?quanly=lienhe">Liên hệ</a>
+                                    <a class="nav-link <?php if ($tmp == "lienhe") {
+                                                            echo "active";
+                                                        } ?>" href="index.php?quanly=lienhe">Liên hệ</a>
                                 </li>
                             </ul>
                         </div>

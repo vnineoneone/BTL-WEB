@@ -43,6 +43,12 @@ $query_sua_sp = mysqli_query($mysqli, $sql_sua_sp);
                         </td>
                     </tr>
                     <tr>
+                        <th scope="row">Địa chỉ</th>
+                        <td>
+                            <input type="text" name="address" class="form-control" value="<?php echo $row['address'] ?>">
+                        </td>
+                    </tr>
+                    <tr>
                         <th scope="row">Trạng thái</th>
                         <td>
                             <select class="form-select" name="status">

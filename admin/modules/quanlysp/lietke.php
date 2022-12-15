@@ -55,9 +55,9 @@ $query_lietke_sp = mysqli_query($mysqli, $sql_lietke_sp);
                             } ?></td>
                         <td>
                             <div class="list-button">
-                                <a href="?action=quanlysp&query=sua&id=<?php echo $row['id_product'] ?>">
+                                <!-- <a href="?action=quanlysp&query=sua&id=<?php echo $row['id_product'] ?>">
                                     <button type="button" class="btn btn-info">Xem</button>
-                                </a>
+                                </a> -->
                                 <a href="?action=quanlysp&query=sua&id=<?php echo $row['id_product'] ?>">
                                     <button type="button" class="btn btn-primary">Sửa</button>
                                 </a>

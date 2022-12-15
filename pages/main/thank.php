@@ -50,14 +50,14 @@ $row = mysqli_fetch_array($query);
       </div>
       <div class="col-md-5 col-lg-4 order-md-last mt-0">
         <h4 class="d-flex justify-content-between align-items-center mb-3 title-1-1">
-          <span class="">Đơn hàng #() <?php echo count($_SESSION['cart']) ?>)</span>
+          <span class="">Đơn hàng #() <?php echo count($_SESSION['cart1']) ?>)</span>
         </h4>
 
         <ul class="list-group mb-3">
 
           <?php
           $sum = 0;
-          foreach ($_SESSION['cart'] as $item) {
+          foreach ($_SESSION['cart1'] as $item) {
             $total =  $item['price'] * $item['number'];
             $sum += $total;
           ?>
@@ -102,7 +102,7 @@ $row = mysqli_fetch_array($query);
         </ul>
         <div class="d-flex align-items-center justify-content-between">
           <a href="../../index.php" style="width: auto; height:auto">
-            <!-- <button class="w-50 btn btn-primary btn-md" type="submit">Tiếp tục mua hàng</button> -->
+            <button class="btn btn-primary btn-md" type="submit">Tiếp tục mua hàng</button>
           </a>
           <a href="#" class="previous-link">
             <i class="fa-solid fa-print"></i>
@@ -125,7 +125,7 @@ $row = mysqli_fetch_array($query);
           </div>
           <div class="col mb-2">
             <h5 class="mb-2 title-1-1">Phương thức thanh toán</h5>
-            <p">Thanh toán khi giao hàng (COD)</p>
+            <p">Thanh toán bằng momo</p>
           </div>
           <div class="col mb-2">
             <h5 class="mb-2 title-1-1">Phương thức vận chuyển</h5>

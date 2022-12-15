@@ -1,5 +1,4 @@
 <?php
-
 if (isset($_GET['quanly'])) {
     $tmp = $_GET['quanly'];
 } else {
@@ -13,16 +12,26 @@ if ($tmp == "dangky") {
 } else if ($tmp == "giohang") {
     $link = "Giỏ hàng";
 } else if ($tmp == "danhmucsanpham") {
-    $sql = "SELECT * FROM category WHERE id_category = '" . $_GET['id'] . "'";
-    $query = mysqli_query($mysqli, $sql);
-    $row = mysqli_fetch_array($query);
-    $link = $row['name_category'];
+    if (isset($_GET['id'])) {
+        $sql = "SELECT * FROM category WHERE id_category = '" . $_GET['id'] . "'";
+        $query = mysqli_query($mysqli, $sql);
+        $row = mysqli_fetch_array($query);
+        $link = $row['name_category'];
+    } else {
+        $link = "Tất cả sản phẩm";
+    }
 } else if ($tmp == "gioithieu") {
     $link = "Giới thiệu";
 } else if ($tmp == "tintuc") {
     $link = "Tin tức";
 } else if ($tmp == "lienhe") {
     $link = "Liên hệ";
+} else if ($tmp == "taikhoan") {
+    $link = "Tài khoản";
+} else if ($tmp == "taikhoan/donhang") {
+    $link = "Đơn hàng";
+} else if ($tmp == "taikhoan/suathongtin") {
+    $link = "Sửa thông tin";
 } else if ($tmp == "sanpham") {
     $sql = "SELECT * FROM product WHERE id_product = '" . $_GET['id'] . "'";
     $query = mysqli_query($mysqli, $sql);
