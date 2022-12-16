@@ -16,7 +16,7 @@ $query_brand = mysqli_query($mysqli, $sql_brand);
             <div class="row">
                 <aside class="sidebar col-md-12 col-lg-3">
                     <div class="side_container">
-                        <aside class="side_box">
+                        <aside class="side_box" onclick="Filter_brand_check()">
                             <div class="title_line_c">
                                 <h2 class="side_title">
                                     <span>Thương hiệu</span>
@@ -27,7 +27,7 @@ $query_brand = mysqli_query($mysqli, $sql_brand);
                                     <?php while ($row_brand = mysqli_fetch_array($query_brand)) { ?>
                                         <li class="filter-product">
                                             <span>
-                                                <input type="checkbox" id="<?php echo $row_brand['name_brand'] ?>" value="<?php echo $row_brand['name_brand'] ?>">
+                                                <input type="checkbox" id="<?php echo $row_brand['name_brand'] ?>" value="<?php echo $row_brand['name_brand'] ?>" name="brand_filter">
                                                 <label for="<?php echo $row_brand['name_brand'] ?>">
                                                     <?php echo $row_brand['name_brand'] ?>
                                                 </label>
@@ -133,10 +133,11 @@ $query_brand = mysqli_query($mysqli, $sql_brand);
                             <?php
                             while ($row = mysqli_fetch_array($query_pro)) {
                             ?>
-                                <div class="filterDiv filter_<?php echo $row['id_product'] ?> col-xs-6 col-sm-4 col-md-3 col-lg-3" id="filter_<?php echo $row['id_product'] ?>">
+                                <div class="filterDiv filter_<?php echo $row['id_product'] ?> col-6 col-sm-4 col-md-3 col-lg-3" id="filter_<?php echo $row['id_product'] ?>">
                                     <div class="product_c">
+                                        <div class="brand_name" id="<?php echo $row['brand'] ?>"></div>
                                         <div class="product_image" id="test">
-                                            <a href="a" class="detail_link">
+                                            <a href="index.php?quanly=sanpham&id=<?php echo $row['id_product'] ?>" class="detail_link">
                                                 <img src="admin/modules/quanlysp/uploads/<?php echo $row['image'] ?>" alt="Kệ đồ" class="img_t">
                                             </a>
                                             <div class="icon_box_d" style="display: none;">
@@ -169,9 +170,9 @@ $query_brand = mysqli_query($mysqli, $sql_brand);
                         </div>
                     </section>
                 </div>
-                <!-- <div class="icon_side_d" onclick="Show_icon_d()">
+                <div class="icon_side_d" onclick="Show_icon_d()">
                     <i class="fa fa-align-right"></i>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>

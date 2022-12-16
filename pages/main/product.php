@@ -69,17 +69,17 @@ if ($j != 0) {
                         </div>
                         <div class="image_item_c">
                             <a href="javascript:void(0)" class="link_small_image" onclick="Set_image('img_id2')">
-                                <img class="style_small_image" src="admin/modules/quanlysp/uploads/<?php echo $row['image'] ?>" id="img_id2">
+                                <img class="style_small_image" src="admin/modules/quanlysp/uploads/xám.png" id="img_id2">
                             </a>
                         </div>
                         <div class="image_item_c">
                             <a href="javascript:void(0)" class="link_small_image" onclick="Set_image('img_id3')">
-                                <img class="style_small_image" src="assets/images/sofa-category.png" id="img_id3">
+                                <img class="style_small_image" src="admin/modules/quanlysp/uploads/trắng.png" id="img_id3">
                             </a>
                         </div>
                         <div class="image_item_c">
                             <a href="javascript:void(0)" class="link_small_image" onclick="Set_image('img_id4')">
-                                <img class="style_small_image" src="assets/images/table-category.png" id="img_id4">
+                                <img class="style_small_image" src="admin/modules/quanlysp/uploads/hồng.png" id="img_id4">
                             </a>
                         </div>
                     </div>

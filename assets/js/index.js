@@ -627,6 +627,42 @@ function Filter_add(x) {
     }
   }
 }
+
+var brand_check = document.getElementsByName("brand_filter");
+function Filter_brand_check()
+{
+  for (var j = 0; j < filter_div.length; j++) {
+    filter_div[j].style.display = "none";
+  }
+
+ 
+  for (var i = 0; i < brand_check.length; i++) {
+    if (brand_check[i].checked === true) {
+      Check_brand(brand_check[i].value);
+      flag_check = 0;
+    }
+  }
+
+  if (flag_check == 1) {
+    for (var j = 0; j < filter_div.length; j++) {
+      filter_div[j].style.display = "block";
+    }
+  }
+  flag_check = 1;
+
+}
+
+function Check_brand(x)
+{
+  var brand = document.getElementsByClassName("brand_name");
+  for (var j = 0; j < brand.length; j++) {
+    var name_brand = brand[j].getAttribute("id");
+   if(name_brand == x)
+   {
+    filter_div[j].style.display = "block";
+   }
+  }
+}
 ///////////
 ///// Category sidebar
 function Show_icon_d()
