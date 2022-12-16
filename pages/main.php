@@ -6,6 +6,8 @@ if (isset($_GET['quanly'])) {
 }
 if ($tmp == "dangky") {
     include "main/signup.php";
+} else if ($tmp == "dangnhap/khoa") {
+    include "main/login_lock.php";
 } else if ($tmp == "dangnhap") {
     include "main/login.php";
 } else if ($tmp == "giohang") {

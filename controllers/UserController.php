@@ -23,14 +23,13 @@ if (isset($_POST['login'])) {
     $sql = "SELECT * FROM user WHERE email='" . $email . "' AND password='" . $password . "' LIMIT 1 ";
     $query = mysqli_query($mysqli, $sql);
     $count = mysqli_num_rows($query);
+
     if ($count > 0) {
         $row = mysqli_fetch_array($query);
         $_SESSION['login'] = $email;
         $_SESSION['id_khachhang'] = $row['id'];
         $_SESSION['tenkhachhang'] = $row['name'];
         header("Location: index.php");
-    } else {
-        echo "<script>notifier.alert('Thông tin đăng nhập bị sai, vui lòng nhập lại', options)</script>";
     }
 }
 

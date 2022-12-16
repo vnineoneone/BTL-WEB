@@ -1,5 +1,5 @@
 <?php
-$sql_lietke_sp = "SELECT * FROM product ORDER BY id_product";
+$sql_lietke_sp = "SELECT * FROM product ORDER BY id_product DESC";
 $query_lietke_sp = mysqli_query($mysqli, $sql_lietke_sp);
 $query_sp1 = mysqli_query($mysqli, $sql_lietke_sp);
 $row = mysqli_fetch_array($query_sp1);

@@ -67,11 +67,11 @@ if ($j != 0) {
                                 <img class="style_small_image" src="admin/modules/quanlysp/uploads/<?php echo $row['image'] ?>" id="img_id1">
                             </a>
                         </div>
-                        <div class="image_item_c">
+                        <!-- <div class="image_item_c">
                             <a href="javascript:void(0)" class="link_small_image" onclick="Set_image('img_id2')">
                                 <img class="style_small_image" src="admin/modules/quanlysp/uploads/xám.png" id="img_id2">
                             </a>
-                        </div>
+                        </div> -->
                         <div class="image_item_c">
                             <a href="javascript:void(0)" class="link_small_image" onclick="Set_image('img_id3')">
                                 <img class="style_small_image" src="admin/modules/quanlysp/uploads/trắng.png" id="img_id3">
