@@ -37,7 +37,7 @@
                             $query_thuonghieu = mysqli_query($mysqli, $sql_thuonghieu);
                             while ($row_thuonghieu = mysqli_fetch_array($query_thuonghieu)) {
                             ?>
-                                <option value="<?php echo $row_thuonghieu['id_brand'] ?>"><?php echo $row_thuonghieu['name_brand'] ?></option>
+                                <option value="<?php echo $row_thuonghieu['name_brand'] ?>"><?php echo $row_thuonghieu['name_brand'] ?></option>
                             <?php
                             }
                             ?>
@@ -66,7 +66,7 @@
                     <td>
                         <div class="input-group mb-2 mr-sm-2">
 
-                            <input type="text" class="form-control" name="price" required>
+                            <input type="number" class="form-control" name="price" required>
                             <div class="invalid-feedback">
                                 Không được để trống giá sản phẩm
                             </div>

@@ -13,12 +13,12 @@ if ($image != '') {
 }
 $detail = $_POST['detail'];
 $status = $_POST['status'];
-
 if (isset($_POST['themsanpham'])) {
-    $sql_them = "INSERT INTO product(name_product, code, id_category, brand, price, number, image, detail, status) 
-    VALUE('" . $name . "','" . $code . "', '" . $id_category . "', '" . $price . "','" . $number . "','" . $image . "','" . $detail . "', '" . $brand . "', '" . $status . "')";
+    $sql_them = "INSERT INTO product(name_product, code, id_category, price, number, image, detail, brand, status) 
+    VALUE('" . $name . "', '" . $code . "', '" . $id_category . "', '" . $price . "','" . $number . "','" . $image . "','" . $detail . "', '" . $brand . "', '" . $status . "')";
     mysqli_query($mysqli, $sql_them);
     move_uploaded_file($image_tmp, 'uploads/' . $image);
+
     header("Location: ../../index.php?action=quanlysp&query=bangdulieu");
 } else if (isset($_POST['suasanpham'])) {
     if ($image != '') {

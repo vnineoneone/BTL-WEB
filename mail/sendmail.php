@@ -67,7 +67,7 @@ class Mailer
 
             //Recipients
             $mail->setFrom('vietbdf000@gmail.com', 'Sea Furniture');
-            $mail->addAddress('viet.lenai123@hcmut.edu.vn', 'Viet');     //Add a recipient
+            $mail->addAddress($_SESSION['login'], $_SESSION['tenkhachhang']);     //Add a recipient
             // $mail->addAddress('thinh.chungmaou1702@hcmut.edu.vn', 'Thinh');     //Add a recipient
             // $mail->addAddress('ellen@example.com');               //Name is optional
             // $mail->addReplyTo('info@example.com', 'Information');

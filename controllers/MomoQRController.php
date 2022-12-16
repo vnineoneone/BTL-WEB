@@ -35,8 +35,8 @@ $secretKey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
 $orderInfo = "Thanh toán mã QR MoMo";
 $amount = "$total";
 $orderId = time() . "";
-$redirectUrl = "http://localhost/project/BTL-WEB/pages/main/thank.php";
-$ipnUrl = "http://localhost/project/BTL-WEB/pages/main/thank.php";
+$redirectUrl = "http://localhost/BTL-WEB/pages/main/thank.php";
+$ipnUrl = "http://localhost/BTL-WEB/pages/main/thank.php";
 $extraData = "";
 
 $requestId = time() . "";
